@@ -1,0 +1,29 @@
+{
+  "name": "react-native-spacing-system",
+  "version": "0.0.1",
+  "description": "## Getting started",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "spacing",
+    "design methodology",
+    "padding",
+    "margin"
+  ],
+  "author": "hirokazu.tei@gmail.com",
+  "license": "SEE LICENSE IN LICENSE",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hirokazutei/react-native-spacing-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hirokazutei/react-native-spacing-system/issues"
+  },
+  "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme"
+}
