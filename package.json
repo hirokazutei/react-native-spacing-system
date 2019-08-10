@@ -1,13 +1,15 @@
 {
   "name": "react-native-spacing-system",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Opinionated way to standardize how we space components in ReactNative.",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "src"
+    "src",
+    "lib"
   ],
   "keywords": [
     "react-native",
@@ -35,8 +37,6 @@
   "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme",
   "dependencies": {
     "@types/react": "^16.9.1",
-    "@types/react-native": "^0.60.3",
-    "eslint": "^6.1.0",
-    "prettier": "^1.18.2"
+    "@types/react-native": "^0.60.3"
   }
 }
