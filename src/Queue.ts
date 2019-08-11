@@ -12,7 +12,7 @@ export type QueueDebugOptions = {
 export type QueueProps = {
   size: number;
   debug?: boolean;
-  debugOptions: QueueDebugOptions;
+  debugOptions?: QueueDebugOptions;
 };
 
 export const Queue = (props: QueueProps): React.ReactElement => {
