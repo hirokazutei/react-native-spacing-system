@@ -1,30 +1,48 @@
-import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, StatusBar } from "react-native";
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  StatusBar,
+  Text
+} from "react-native";
 import { DebugContext } from "react-native-spacing-system";
-import Stack from "./Stack";
+import Inset from "./Inset";
 import Card from "./Card";
+import Stack from "./Stack";
+import Button from "./Button";
 
 const styles = StyleSheet.create({
   scrollableView: {
-    backgroundColor: "#DFDFDF"
+    backgroundColor: "#FFFFFF"
   }
 });
 
 const App = () => {
+  const [debugMode, setDebugMode] = useState(false);
+  const toggleDebugMode = () => setDebugMode(!debugMode);
   return (
-    <DebugContext.Provider value={true}>
+    <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollableView}
         >
-          <Card />
-          <Stack size="massive" />
-          <Card />
+          <Inset horizontal="macro" vertical="galactic">
+            <DebugContext.Provider value={debugMode}>
+              <Card />
+            </DebugContext.Provider>
+            <Stack size="massive" />
+            <Button
+              onPress={toggleDebugMode}
+              buttonType="major"
+              label={`Debug Mode: ${debugMode ? "ON" : "OFF"}`}
+            />
+          </Inset>
         </ScrollView>
       </SafeAreaView>
-    </DebugContext.Provider>
+    </>
   );
 };
 

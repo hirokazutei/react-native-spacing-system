@@ -5,11 +5,10 @@ import Queue from "./Queue";
 import Inset from "./Inset";
 import Button from "./Button";
 
-const dummyFunction = () => {
-  /* Dummy */
-};
-
 const styles = StyleSheet.create({
+  base: {
+    backgroundColor: "#EAEAEA"
+  },
   body: {
     color: "#828282",
     fontWeight: "500",
@@ -23,12 +22,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#828282"
+  },
+  buttonRow: {
+    flexDirection: "row"
   }
 });
 
 const Card = () => {
+  const dummyFunction = () => {
+    /* DUMMY */
+  };
   return (
-    <>
+    <View style={styles.base}>
       <Image
         source={{ uri: "https://picsum.photos/400/300" }}
         style={{ height: 240 }}
@@ -39,12 +44,12 @@ const Card = () => {
         <Text style={styles.title}>Supernova</Text>
         <Stack size="large" />
         <Text style={styles.body}>
-          {
-            "An astronomical event that occures\nduring the last stages of a massive\nstar's life."
-          }
+          {`An astronomical event that occures
+          during the last stages of a massive
+          star's life.`}
         </Text>
         <Stack size="large" />
-        <View style={{ flexDirection: "row" }}>
+        <View style={styles.buttonRow}>
           <View>
             <Button
               label="Galaxies"
@@ -64,7 +69,7 @@ const Card = () => {
           </View>
           <Queue size="small" />
         </View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={styles.buttonRow}>
           <View>
             <Button
               label="Speed of Light"
@@ -76,9 +81,9 @@ const Card = () => {
           <Queue size="small" />
         </View>
         <Stack size="large" />
-        <Button label="View" onPress={dummyFunction} buttonType="major" />
+        <Button buttonType="major" label="View" onPress={dummyFunction} />
       </Inset>
-    </>
+    </View>
   );
 };
 
