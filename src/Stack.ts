@@ -22,9 +22,10 @@ export const Stack = (props: StackProps): React.ReactElement => {
   const isDebugMode = debug || isContexDebugMode;
   const debugStyle = StyleSheet.create({
     stack: {
-      backgroundColor: debugOptions
-        ? debugOptions.color
-        : defaultDebugColor.stack,
+      backgroundColor:
+        debugOptions && debugOptions.color
+          ? debugOptions.color
+          : defaultDebugColor.stack,
       borderWidth:
         debugOptions && (debugOptions.border || debugOptions.borderColor)
           ? 1

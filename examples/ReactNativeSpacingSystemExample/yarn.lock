@@ -5312,7 +5312,7 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
 
 "react-native-spacing-system@github:hirokazutei/react-native-spacing-system":
   version "0.0.6"
-  resolved "https://codeload.github.com/hirokazutei/react-native-spacing-system/tar.gz/293e1bd4e9872b02d1fa80f4e6593f0da159ab35"
+  resolved "https://codeload.github.com/hirokazutei/react-native-spacing-system/tar.gz/37b0bc52c68b0c417edb5d977b7561907669d7ef"
   dependencies:
     "@types/react" "^16.9.1"
     "@types/react-native" "^0.60.3"

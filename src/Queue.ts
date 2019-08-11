@@ -21,9 +21,10 @@ export const Queue = (props: QueueProps): React.ReactElement => {
   const isDebugMode = debug || isContextDebugMode;
   const debugStyle = StyleSheet.create({
     queue: {
-      backgroundColor: debugOptions
-        ? debugOptions.color
-        : defaultDebugColor.queue,
+      backgroundColor:
+        debugOptions && debugOptions.color
+          ? debugOptions.color
+          : defaultDebugColor.queue,
       borderWidth:
         debugOptions && (debugOptions.border || debugOptions.borderColor)
           ? 1
