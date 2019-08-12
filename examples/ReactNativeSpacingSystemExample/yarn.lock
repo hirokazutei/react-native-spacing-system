@@ -5310,9 +5310,10 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-"react-native-spacing-system@github:hirokazutei/react-native-spacing-system":
-  version "0.0.1"
-  resolved "https://codeload.github.com/hirokazutei/react-native-spacing-system/tar.gz/2fba3d5d4724ba35576e24ecc022f941bc3a2b95"
+react-native-spacing-system@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-spacing-system/-/react-native-spacing-system-0.1.0.tgz#688c4988bf098fc3d21fb2e9bcf1514cb4e74375"
+  integrity sha512-1ELxmRD2YEMnCnzmpzXFCYOydAflhL2yKTCCfi1wdy2kuBV7TnjP7+55zDpAH9Qa9rvTh0N7gzNwT+DfUpkLZA==
   dependencies:
     "@types/react" "^16.9.1"
     "@types/react-native" "^0.60.3"

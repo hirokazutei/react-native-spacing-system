@@ -1,33 +1,44 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { colors } from "./colors";
+import { fontSize } from "./fontSize";
 import { SpacingKeys } from "./spacing";
 import Inset from "./Inset";
 
 export type Props = {
+  buttonType: "major" | "minor" | "tab";
+  color?: string;
   label: string;
   onPress: (args: any) => any;
-  buttonType: "minor" | "major";
 };
 
-type ButtonStyleKeys = "minorButton" | "majorButton";
-type TextStyleKeys = "minorText" | "majorText";
+type ButtonStyleKeys = "majorButton" | "minorButton" | "tabButton";
+type TextStyleKeys = "majorText" | "minorText" | "tabText";
 const styles = StyleSheet.create({
   minorButton: {
     borderRadius: 4,
-    backgroundColor: "#A0A0A0",
+    backgroundColor: colors.minorButton,
     alignSelf: "flex-start"
   },
   minorText: {
-    fontSize: 16
+    fontSize: fontSize.medium
   },
   majorButton: {
     borderRadius: 4,
-    backgroundColor: "#4864BB",
+    backgroundColor: colors.primary,
     alignSelf: "flex-start"
   },
   majorText: {
-    color: "#FFFFFF",
-    fontSize: 20,
+    color: colors.white,
+    fontSize: fontSize.medium,
+    fontWeight: "bold"
+  },
+  tabButton: {
+    alignSelf: "flex-start"
+  },
+  tabText: {
+    color: colors.primary,
+    fontSize: fontSize.large,
     fontWeight: "bold"
   }
 });
@@ -36,17 +47,20 @@ const styles = StyleSheet.create({
  * Button just for demonstration purposes.
  */
 const Button: React.FC<Props> = (props: Props): React.ReactElement => {
-  const { label, onPress, buttonType } = props;
+  const { color, label, onPress, buttonType } = props;
   const insetProps =
-    buttonType == "minor"
-      ? { all: "small" as SpacingKeys }
-      : {
+    buttonType !== "minor"
+      ? {
           horizontal: "massive" as SpacingKeys,
           vertical: "large" as SpacingKeys
-        };
+        }
+      : { all: "small" as SpacingKeys };
   return (
     <TouchableOpacity
-      style={styles[`${buttonType}Button` as ButtonStyleKeys]}
+      style={[
+        styles[`${buttonType}Button` as ButtonStyleKeys],
+        color ? { backgroundColor: color } : {}
+      ]}
       onPress={onPress}
     >
       <Inset {...insetProps}>
