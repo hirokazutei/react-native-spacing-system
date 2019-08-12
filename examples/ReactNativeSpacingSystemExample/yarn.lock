@@ -5311,8 +5311,8 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
 "react-native-spacing-system@github:hirokazutei/react-native-spacing-system":
-  version "0.0.6"
-  resolved "https://codeload.github.com/hirokazutei/react-native-spacing-system/tar.gz/37b0bc52c68b0c417edb5d977b7561907669d7ef"
+  version "0.0.1"
+  resolved "https://codeload.github.com/hirokazutei/react-native-spacing-system/tar.gz/2fba3d5d4724ba35576e24ecc022f941bc3a2b95"
   dependencies:
     "@types/react" "^16.9.1"
     "@types/react-native" "^0.60.3"
