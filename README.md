@@ -55,7 +55,9 @@ const SomeComponent = () => {
 
 `Stack` is a vertical spacing component, think of a pile of plates at a buffet.
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/stack-example.gif" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/stack-example.gif" width="400" />
+</p>
 
 ### Usage
 
@@ -88,7 +90,9 @@ const QueueExample = () => {
 
 `Queue` is a horizontal spacing component, think of people queueing for that new bubbletea joint.
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/queue-example.gif" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/queue-example.gif" width="400" />
+</p>
 
 ### Usage
 
@@ -123,7 +127,9 @@ const StackExample = () => {
 
 `Inset` is a boundary spacing component, think of adding frames around a picture (the child).
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/inset-example.gif" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/inset-example.gif" width="400" />
+</p>
 
 ### Usage
 
