@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { DebugContext } from "react-native-spacing-system";
+import { DebugProp as Prop } from "../../App";
 import { spacingKeysList } from "../../constants/spacing";
 import Button from "../atoms/Button";
 import Inset from "../atoms/Inset";
@@ -36,9 +38,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const StackExample: React.FunctionComponent = (): React.FunctionComponentElement<
-  void
-> => {
+const StackExample: React.FunctionComponent<Prop> = (
+  prop: Prop
+): React.FunctionComponentElement<Prop> => {
+  const { debug } = prop;
   const [size, setSize] = useState(0);
   const changeSize = () =>
     setSize(size >= spacingKeysList.length - 1 ? 0 : size + 1);
@@ -51,14 +54,16 @@ const StackExample: React.FunctionComponent = (): React.FunctionComponentElement
         <Inset vertical="huge" flex={1}>
           <ScrollView style={styles.scrollView}>
             <Inset vertical="huge">
-              {[...Array(20)].map((e, i) => {
-                return (
-                  <View key={i}>
-                    <Text style={styles.plates}>BUFFET PLATE</Text>
-                    <Stack size={spaceSize} />
-                  </View>
-                );
-              })}
+              <DebugContext.Provider value={debug}>
+                {[...Array(20)].map((e, i) => {
+                  return (
+                    <View key={i}>
+                      <Text style={styles.plates}>BUFFET PLATE</Text>
+                      <Stack size={spaceSize} />
+                    </View>
+                  );
+                })}
+              </DebugContext.Provider>
             </Inset>
           </ScrollView>
         </Inset>

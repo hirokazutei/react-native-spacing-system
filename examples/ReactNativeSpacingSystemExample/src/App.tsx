@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, StatusBar, Text, View } from "react-native";
-import { DebugContext } from "react-native-spacing-system";
 import { colors } from "./constants/colors";
 import { fontSize } from "./constants/fontSize";
 import Button from "./components/atoms/Button";
@@ -13,8 +12,10 @@ import StackExample from "./components/templates/StackExample";
 
 type ExampleKeys = "inset" | "main" | "queue" | "stack";
 
+export type DebugProp = { debug: boolean };
+
 const EXAMPLES: {
-  [keys in ExampleKeys]: React.FunctionComponent;
+  [keys in ExampleKeys]: React.FunctionComponent<DebugProp>;
 } = {
   inset: InsetExample,
   main: MainExample,
@@ -80,9 +81,7 @@ const App = () => {
             />
           </View>
           <Stack size="large" />
-          <DebugContext.Provider value={debugMode}>
-            <ShowcasingExamples />
-          </DebugContext.Provider>
+          <ShowcasingExamples debug={debugMode} />
         </Inset>
         <View style={styles.debugButtonContainer}>
           <Inset horizontal="macro">
