@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Queue as LibQueue, QueueProps } from "react-native-spacing-system";
-import { SpacingKeys, spacing } from "./spacing";
+import { SpacingKeys, spacing } from "../../constants/spacing";
 
 export type Props = Omit<QueueProps, "size"> & { size: SpacingKeys };
 

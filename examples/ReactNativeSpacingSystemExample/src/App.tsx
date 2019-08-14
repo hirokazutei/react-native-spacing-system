@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, StatusBar, Text, View } from "react-native";
 import { DebugContext } from "react-native-spacing-system";
-import { colors } from "./colors";
-import { fontSize } from "./fontSize";
-import Button from "./Button";
-import Inset from "./Inset";
-import Stack from "./Stack";
-import MainExample from "./MainExample";
-import InsetExample from "./InsetExample";
-import QueueExample from "./QueueExample";
-import StackExample from "./StackExample";
+import { colors } from "./constants/colors";
+import { fontSize } from "./constants/fontSize";
+import Button from "./components/atoms/Button";
+import Inset from "./components/atoms/Inset";
+import Stack from "./components/atoms/Stack";
+import MainExample from "./components/templates/MainExample";
+import InsetExample from "./components/templates/InsetExample";
+import QueueExample from "./components/templates/QueueExample";
+import StackExample from "./components/templates/StackExample";
 
 type ExampleKeys = "inset" | "main" | "queue" | "stack";
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Inset as LibInset, InsetProps } from "react-native-spacing-system";
-import { SpacingKeys, spacing } from "./spacing";
+import { SpacingKeys, spacing } from "../../constants/spacing";
 
 export type Props = Omit<InsetProps, "paddings"> & {
   all?: SpacingKeys;

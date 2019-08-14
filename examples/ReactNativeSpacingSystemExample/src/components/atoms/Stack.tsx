@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Stack as LibStack, StackProps } from "react-native-spacing-system";
-import { SpacingKeys, spacing } from "./spacing";
+import { SpacingKeys, spacing } from "../../constants/spacing";
 
 export type Props = Omit<StackProps, "size"> & { size: SpacingKeys };
 

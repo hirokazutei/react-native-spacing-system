@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { colors } from "./colors";
-import { fontSize } from "./fontSize";
-import { spacingKeysList } from "./spacing";
-import Button from "./Button";
-import Inset from "./Inset";
+import { colors } from "../../constants/colors";
+import { fontSize } from "../../constants/fontSize";
+import { spacingKeysList } from "../../constants/spacing";
+import Button from "../atoms/Button";
+import Inset from "../atoms/Inset";
 
 const styles = StyleSheet.create({
   background: {
