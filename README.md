@@ -2,14 +2,6 @@
 
 Using margin and padding to control spacing between components introduces too many ways to accomploish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
 
-## Sentiment & Rationalization
-
-Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder (are they the same person?), I figured I'd do something similar for React Native with slight tweaks.
-
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
-
-The full sentiment and rationalization will be posted on a blog later.
-
 ## Installation
 
 ```
@@ -21,6 +13,14 @@ or
 ```
 yarn add react-native-spacing-system
 ```
+
+## Sentiment & Rationalization
+
+Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder (are they the same person?), I figured I'd do something similar for React Native with slight tweaks.
+
+<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
+
+The full sentiment and rationalization will be posted on a blog later.
 
 ## Features
 
@@ -55,7 +55,9 @@ const SomeComponent = () => {
 
 `Stack` is a vertical spacing component, think of a pile of plates at a buffet.
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/stack-example-tiny.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/stack-example-tiny-debug.png" width="400"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/stack-example.gif" width="400" />
+</p>
 
 ### Usage
 
@@ -88,7 +90,9 @@ const QueueExample = () => {
 
 `Queue` is a horizontal spacing component, think of people queueing for that new bubbletea joint.
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/queue-example-tiny.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/queue-example-tiny-debug.png" width="400"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/queue-example.gif" width="400" />
+</p>
 
 ### Usage
 
@@ -123,7 +127,9 @@ const StackExample = () => {
 
 `Inset` is a boundary spacing component, think of adding frames around a picture (the child).
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/inset-example-massive.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/inset-example-massive-debug.png" width="400"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/develop/.github/inset-example.gif" width="400" />
+</p>
 
 ### Usage
 
