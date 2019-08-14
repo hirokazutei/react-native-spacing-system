@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, View, Text } from "react-native";
-import { colors } from "./colors";
-import { fontSize } from "./fontSize";
-import Button from "./Button";
-import Inset from "./Inset";
-import Queue from "./Queue";
-import Stack from "./Stack";
+import { colors } from "../../constants/colors";
+import { fontSize } from "../../constants/fontSize";
+import Button from "../atoms/Button";
+import Inset from "../atoms/Inset";
+import Queue from "../atoms/Queue";
+import Stack from "../atoms/Stack";
 
 const styles = StyleSheet.create({
   base: {

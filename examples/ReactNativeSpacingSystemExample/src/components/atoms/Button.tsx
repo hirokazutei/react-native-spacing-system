@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
-import { colors } from "./colors";
-import { fontSize } from "./fontSize";
-import { SpacingKeys } from "./spacing";
+import { colors } from "../../constants/colors";
+import { fontSize } from "../../constants/fontSize";
+import { SpacingKeys } from "../../constants/spacing";
 import Inset from "./Inset";
 
 export type Props = {

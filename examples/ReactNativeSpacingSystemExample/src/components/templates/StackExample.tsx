@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import { spacingKeysList } from "./spacing";
-import Button from "./Button";
-import Inset from "./Inset";
-import Stack from "./Stack";
-import { colors } from "./colors";
-import { fontSize } from "./fontSize";
+import { spacingKeysList } from "../../constants/spacing";
+import Button from "../atoms/Button";
+import Inset from "../atoms/Inset";
+import Stack from "../atoms/Stack";
+import { colors } from "../../constants/colors";
+import { fontSize } from "../../constants/fontSize";
 
 const styles = StyleSheet.create({
   base: {
