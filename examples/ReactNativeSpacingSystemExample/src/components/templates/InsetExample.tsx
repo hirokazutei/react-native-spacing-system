@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { DebugContext } from "react-native-spacing-system";
+import { DebugProp as Prop } from "../../App";
 import { colors } from "../../constants/colors";
 import { fontSize } from "../../constants/fontSize";
 import { spacingKeysList } from "../../constants/spacing";
@@ -31,9 +33,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const InsetExample: React.FunctionComponent = (): React.FunctionComponentElement<
-  void
-> => {
+const InsetExample: React.FunctionComponent<Prop> = (
+  prop: Prop
+): React.FunctionComponentElement<Prop> => {
+  const { debug } = prop;
   const [sizeIndex, setSize] = useState(0);
   const changeSize = () =>
     setSize(sizeIndex >= spacingKeysList.length - 1 ? 0 : sizeIndex + 1);
@@ -45,12 +48,14 @@ const InsetExample: React.FunctionComponent = (): React.FunctionComponentElement
         <Text style={styles.title}>PICTURE FRAME</Text>
         <Inset vertical="huge" flex={1}>
           <View style={styles.background}>
-            <Inset all={spaceSize} flex={1}>
-              <Image
-                source={{ uri: "https://picsum.photos/400/800" }}
-                style={styles.image}
-              />
-            </Inset>
+            <DebugContext.Provider value={debug}>
+              <Inset all={spaceSize} flex={1}>
+                <Image
+                  source={{ uri: "https://picsum.photos/400/800" }}
+                  style={styles.image}
+                />
+              </Inset>
+            </DebugContext.Provider>
           </View>
         </Inset>
       </View>

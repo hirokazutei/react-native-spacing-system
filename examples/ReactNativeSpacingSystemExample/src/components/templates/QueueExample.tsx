@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { DebugContext } from "react-native-spacing-system";
+import { DebugProp as Prop } from "../../App";
 import { colors } from "../../constants/colors";
 import { fontSize } from "../../constants/fontSize";
 import { spacingKeysList, spacing } from "../../constants/spacing";
@@ -45,9 +47,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const QueueExample: React.FunctionComponent = (): React.FunctionComponentElement<
-  void
-> => {
+const QueueExample: React.FunctionComponent<Prop> = (
+  prop: Prop
+): React.FunctionComponentElement<Prop> => {
+  const { debug } = prop;
   const [sizeIndex, setSize] = useState(0);
   const changeSize = () =>
     setSize(sizeIndex >= spacingKeysList.length - 1 ? 0 : sizeIndex + 1);
@@ -60,16 +63,18 @@ const QueueExample: React.FunctionComponent = (): React.FunctionComponentElement
         <Inset vertical="huge" flex={1}>
           <ScrollView horizontal={true} style={styles.scrollView}>
             <Inset vertical="huge" horizontal="large" flex={1}>
-              <View style={styles.lineForBubbletea}>
-                {[...Array(20)].map((e, i) => {
-                  return (
-                    <View key={i} style={styles.person}>
-                      <Text style={styles.people}>PERSON</Text>
-                      <Queue size={spaceSize} />
-                    </View>
-                  );
-                })}
-              </View>
+              <DebugContext.Provider value={debug}>
+                <View style={styles.lineForBubbletea}>
+                  {[...Array(20)].map((e, i) => {
+                    return (
+                      <View key={i} style={styles.person}>
+                        <Text style={styles.people}>PERSON</Text>
+                        <Queue size={spaceSize} />
+                      </View>
+                    );
+                  })}
+                </View>
+              </DebugContext.Provider>
             </Inset>
           </ScrollView>
         </Inset>
