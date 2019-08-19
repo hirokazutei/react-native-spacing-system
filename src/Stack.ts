@@ -3,25 +3,15 @@ import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import { defaultDebugColor, defaultBorderColor } from "./color";
 import { DebugContext } from "./context";
+import { StackProps, StackStyles } from "./stackTypes";
 
-export type StackDebugOptions = {
-  color?: string;
-  border?: boolean;
-  borderColor?: string;
-};
-
-export type StackProps = {
-  size: number;
-  debug?: boolean;
-  debugOptions?: StackDebugOptions;
-};
-
-export const Stack = (props: StackProps): React.ReactElement => {
+export const Stack = (props: StackProps<number>): React.ReactElement => {
   const isContexDebugMode = useContext(DebugContext);
   const { debug, debugOptions, size } = props;
   const isDebugMode = debug || isContexDebugMode;
-  const debugStyle = StyleSheet.create({
-    stack: {
+  const styles = StyleSheet.create<StackStyles>({
+    default: { height: size },
+    debug: {
       backgroundColor:
         debugOptions && debugOptions.color
           ? debugOptions.color
@@ -33,15 +23,11 @@ export const Stack = (props: StackProps): React.ReactElement => {
       borderColor:
         debugOptions && debugOptions.borderColor
           ? debugOptions.borderColor
-          : defaultBorderColor.stack
+          : defaultBorderColor.stack,
+      height: size
     }
   });
   return React.createElement(View, {
-    style: (<any>Object).assign(
-      {
-        height: size
-      },
-      isDebugMode ? debugStyle.stack : {}
-    )
+    style: isDebugMode ? styles.debug : styles.default
   });
 };
