@@ -48,7 +48,7 @@ Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://med
 
 <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
 
-The full sentiment and rationalization will be posted on a blog later.
+For the full sentiment and rationalization, please check out my [Medium blog post: Enforcing Component Spacing in React & React Native](https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea?sk=9a3c83f74fceab3a0a402343ef987e6f).
 
 ## Features
 
@@ -201,6 +201,9 @@ const InsetExample = () => {
     </a>
     <a href="https://www.instagram.com/hirokazutei/">
         <img src="https://img.shields.io/badge/-Instagram-black.svg?style=for-the-badge&logo=instagram&logoColor=white&color=E4405F">
+    </a>
+    <a href="https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea">
+        <img src="https://img.shields.io/badge/-Medium-black.svg?style=for-the-badge&logo=Medium&logoColor=white&color=12100E">
     </a>
     <a href="https://hirokazutei.me">
         <img src="https://img.shields.io/badge/-Blog-black.svg?style=for-the-badge&logo=about.me&logoColor=white&color=gray">
