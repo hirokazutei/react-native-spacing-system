@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { defaultDebugColor, defaultBorderColor } from "./color";
-import { DebugContext } from "./context";
+import { defaultDebugColor, defaultBorderColor } from "../color";
+import { DebugContext } from "../context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
 export const Queue = (props: QueueProps<number>): React.ReactElement => {
