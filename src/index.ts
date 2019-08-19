@@ -1,4 +1,6 @@
+export { DebugContext } from "./context";
 export { Inset } from "./Inset";
+export { insetFactory } from "./Inset/insetFactory";
 export {
   All,
   InsetDebugOptions,
@@ -9,12 +11,10 @@ export {
   VerHor,
   Vertical,
   InsetStyles
-} from "./insetTypes";
-export { insetFactory } from "./insetFactory";
+} from "./Inset/insetTypes";
 export { Stack } from "./Stack";
-export { stackFactory } from "./stackFactory";
-export { StackDebugOptions, StackProps, StackStyles } from "./stackTypes";
+export { stackFactory } from "./Stack/stackFactory";
+export { StackDebugOptions, StackProps, StackStyles } from "./Stack/stackTypes";
 export { Queue } from "./Queue";
-export { queueFactory } from "./queueFactory";
-export { QueueDebugOptions, QueueProps, QueueStyles } from "./queueTypes";
-export { DebugContext } from "./context";
+export { queueFactory } from "./Queue/queueFactory";
+export { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
