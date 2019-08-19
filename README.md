@@ -1,4 +1,32 @@
-# react-native-spacing-system
+<h1 align="center">
+    React Native Spacing System
+</h1>
+<p align="center">
+    <a href="https://www.gnu.org/licenses/gpl-3.0">
+        <img src="https://img.shields.io/badge/license-GPLv3-blue.svg?style=for-the-badge" />
+    </a>
+    <a href="https://www.npmjs.org/package/react-native-spacing-system">
+        <img src="https://img.shields.io/npm/v/react-native-spacing-system.svg?style=for-the-badge&color=blue" />
+    </a>
+    <a href="https://github.com/hirokazutei/react-native-spacing-system/commits/develop">
+        <img src="https://img.shields.io/github/last-commit/hirokazutei/react-native-spacing-system.svg?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/hirokazutei/react-native-spacing-system/pulls">
+        <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge" />
+    </a>
+</p>
+
+<p align="center">
+    <a href="https://facebook.github.io/react-native/">
+        <img src="https://img.shields.io/badge/-ReactNative-black.svg?style=for-the-badge&logo=react&logoColor=white&color=61DAFB">
+    </a>
+    <a href="https://www.npmjs.com/package/react-native-spacing-system">
+        <img src="https://img.shields.io/badge/-NPM-black.svg?style=for-the-badge&logo=NPM&color=CB3837">
+    </a>
+    <a href="https://www.typescriptlang.org/">
+        <img src="https://img.shields.io/badge/-Typescript-black.svg?style=for-the-badge&logo=typescript&color=007ACC">
+    </a>
+</p>
 
 Using margin and padding to control spacing between components introduces too many ways to accomploish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
 
@@ -20,7 +48,7 @@ Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://med
 
 <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
 
-The full sentiment and rationalization will be posted on a blog later.
+For the full sentiment and rationalization, please check out my [Medium blog post: Enforcing Component Spacing in React & React Native](https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea?sk=9a3c83f74fceab3a0a402343ef987e6f).
 
 ## Features
 
@@ -123,7 +151,7 @@ const StackExample = () => {
 };
 ```
 
-### Inset
+## Inset
 
 `Inset` is a boundary spacing component, think of adding frames around a picture (the child).
 
@@ -160,3 +188,24 @@ const InsetExample = () => {
   );
 };
 ```
+
+<h2 align="center">
+    Contacts & Social Media
+</h2>
+<p align="center">
+    <a href="https://twitter.com/asublimeaddict">
+        <img src="https://img.shields.io/badge/-Twitter-black.svg?style=for-the-badge&logo=twitter&logoColor=white&color=1DA1F2">
+    </a>
+    <a href="https://www.linkedin.com/in/hirokazutei/">
+        <img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&color=0077B5">
+    </a>
+    <a href="https://www.instagram.com/hirokazutei/">
+        <img src="https://img.shields.io/badge/-Instagram-black.svg?style=for-the-badge&logo=instagram&logoColor=white&color=E4405F">
+    </a>
+    <a href="https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea">
+        <img src="https://img.shields.io/badge/-Medium-black.svg?style=for-the-badge&logo=Medium&logoColor=white&color=12100E">
+    </a>
+    <a href="https://hirokazutei.me">
+        <img src="https://img.shields.io/badge/-Blog-black.svg?style=for-the-badge&logo=about.me&logoColor=white&color=gray">
+    </a>
+</p>

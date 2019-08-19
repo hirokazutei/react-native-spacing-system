@@ -1,26 +1,17 @@
 import * as React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { defaultDebugColor, defaultBorderColor } from "./color";
-import { DebugContext } from "./context";
+import { defaultDebugColor, defaultBorderColor } from "../color";
+import { DebugContext } from "../context";
+import { QueueProps, QueueStyles } from "./queueTypes";
 
-export type QueueDebugOptions = {
-  color?: string;
-  border?: boolean;
-  borderColor?: string;
-};
-export type QueueProps = {
-  size: number;
-  debug?: boolean;
-  debugOptions?: QueueDebugOptions;
-};
-
-export const Queue = (props: QueueProps): React.ReactElement => {
+export const Queue = (props: QueueProps<number>): React.ReactElement => {
   const { debug, debugOptions, size } = props;
   const isContextDebugMode = useContext(DebugContext);
   const isDebugMode = debug || isContextDebugMode;
-  const debugStyle = StyleSheet.create({
-    queue: {
+  const styles = StyleSheet.create<QueueStyles>({
+    default: { width: size },
+    debug: {
       backgroundColor:
         debugOptions && debugOptions.color
           ? debugOptions.color
@@ -32,15 +23,11 @@ export const Queue = (props: QueueProps): React.ReactElement => {
       borderColor:
         debugOptions && debugOptions.borderColor
           ? debugOptions.borderColor
-          : defaultBorderColor.queue
+          : defaultBorderColor.queue,
+      width: size
     }
   });
   return React.createElement(View, {
-    style: (<any>Object).assign(
-      {
-        width: size
-      },
-      isDebugMode ? debugStyle.queue : {}
-    )
+    style: isDebugMode ? styles.debug : styles.default
   });
 };

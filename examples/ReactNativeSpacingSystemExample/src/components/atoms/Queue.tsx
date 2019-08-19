@@ -1,12 +1,6 @@
-import * as React from "react";
-import { Queue as LibQueue, QueueProps } from "react-native-spacing-system";
-import { SpacingKeys, spacing } from "../../constants/spacing";
+import { queueFactory }  from 'react-native-spacing-system';
+import { spacing } from "../../constants/spacing";
 
-export type Props = Omit<QueueProps, "size"> & { size: SpacingKeys };
+const queue = queueFactory(spacing)
 
-const Stack = (props: Props): React.FunctionComponentElement<QueueProps> => {
-  const { size, ...debugProps } = props;
-  return <LibQueue size={spacing[size]} {...debugProps} />;
-};
-
-export default Stack;
+export default queue;
