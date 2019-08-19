@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { defaultDebugColor, defaultBorderColor } from "./color";
-import { DebugContext } from "./context";
+import { defaultDebugColor, defaultBorderColor } from "../color";
+import { DebugContext } from "../context";
 import { StackProps, StackStyles } from "./stackTypes";
 
 export function stackFactory<T>(
