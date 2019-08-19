@@ -37,3 +37,26 @@ All notable changes to this project will be documented in this file.
 ### Removed
 
 - Sample images for `Stack`, `Queue` and `Inset`.
+
+## [0.2.0] - 2019-08-20
+
+### Summary
+
+- Factory methods for `Stack`, `Queue` and `Inset` are not available.
+- Fixed typings for `Inset`'s padding combinations.
+- Included link to Medium article on `README.md`.
+
+### Added
+
+- `stackFactory` that creates `Stack` given a map of spacing.
+- `queueFactory` that creates `Queue` given a map of spacing.
+- `insetFactory` that creates `Inset` given a map of spacing.
+
+### Changed
+
+- A link to the blog post explaining the sentiment behind this library was added to `README.md`.
+- Examples now use factory methods to obtain `Stack`, `Queue` and `Inset`.
+
+### Removed
+
+- Examples that turned the spacing components that accepts numerical value into one that accepts keys.
