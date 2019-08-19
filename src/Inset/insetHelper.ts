@@ -1,4 +1,4 @@
-import { defaultDebugColor } from "./color";
+import { defaultDebugColor } from "../color";
 import {
   InsetDebugOptions,
   All,
