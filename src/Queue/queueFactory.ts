@@ -26,7 +26,8 @@ export function queueFactory<T>(
         borderColor:
           debugOptions && debugOptions.borderColor
             ? debugOptions.borderColor
-            : defaultBorderColor.queue
+            : defaultBorderColor.queue,
+        width: spacing[size]
       }
     });
     return React.createElement(View, {
