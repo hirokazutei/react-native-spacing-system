@@ -28,7 +28,7 @@
     </a>
 </p>
 
-Using margin and padding to control spacing between components introduces too many ways to accomploish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
+Using margin and padding to control spacing between components introduces too many ways to accomplish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
 
 ## Installation
 
