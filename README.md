@@ -28,7 +28,7 @@
     </a>
 </p>
 
-Using margin and padding to control spacing between components introduces too many ways to accomploish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
+Using margin and padding to control spacing between components introduces too many ways to accomplish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
 
 ## Installation
 
@@ -187,6 +187,31 @@ const InsetExample = () => {
     </Inset>
   );
 };
+```
+
+## Factory Methods
+
+Utilize your own space mapping with `Stack`, `Queue` and `Inset` by passing in the space mapping into the factory method provided.
+
+- `stackFactory()`
+- `queueFactory()`
+- `insetFactory()`
+
+```tsx
+import { stackFactory } from "react-native-spacing-system";
+
+type SpacingKeys = "tall" | "grande" | "venti";
+
+const spacing: { [key in SpacingKeys]: number } = {
+  tall: 8,
+  grande: 12,
+  venti: 16
+};
+
+export const Stack = stackFactory(spacing);
+
+<Stack size={16}/> // Error
+<Stack size="venti"/> // Works
 ```
 
 <h2 align="center">

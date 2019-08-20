@@ -26,7 +26,8 @@ export function stackFactory<T>(
         borderColor:
           debugOptions && debugOptions.borderColor
             ? debugOptions.borderColor
-            : defaultBorderColor.stack
+            : defaultBorderColor.stack,
+        height: spacing[size]
       }
     });
     return React.createElement(View, {
