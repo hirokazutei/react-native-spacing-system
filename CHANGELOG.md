@@ -38,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 - Sample images for `Stack`, `Queue` and `Inset`.
 
-## [0.2.0] - 2019-08-20
+## [0.2.0] - 2019-08-20 (UNSTABLE)
 
 ### Summary
 
@@ -60,3 +60,23 @@ All notable changes to this project will be documented in this file.
 ### Removed
 
 - Examples that turned the spacing components that accepts numerical value into one that accepts keys.
+
+## [0.2.1] - 2019-08-20
+
+### Summary
+
+- Factory methods' debug mode fixed.
+- Fixed breaking imports.
+- Fixed a typo on README
+
+### Added
+
+### Changed
+
+- Fixed factory methods' debug mode removing the spaces instead of highlighting them.
+- The unused library files in /lib was breaking imports.
+- Fixed a typo on README.
+
+### Removed
+
+- Unused library files.
