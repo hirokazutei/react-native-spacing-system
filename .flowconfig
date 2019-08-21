@@ -1,11 +1,12 @@
 [ignore]
 .*/node_modules/*
-.*/build/*
+.*/lib/*
 
 [include]
 .*/src/*
 
 [libs]
+./type-def-libs
 
 [lints]
 

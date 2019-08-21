@@ -9,7 +9,7 @@
     "build": "npm run build:clean && npm run build:typescript && npm run build:flow",
     "build:clean": "rimraf lib",
     "build:typescript": "tsc --skipLibCheck",
-    "build:flow": "flow-copy-source -v src/flow/ lib"
+    "build:flow": "flow-copy-source -v src lib"
   },
   "files": [
     "src",
@@ -42,8 +42,9 @@
   },
   "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme",
   "dependencies": {
-    "@types/react": "^16.9.1",
-    "@types/react-native": "^0.60.3"
+    "@types/react": "^16.8.0",
+    "@types/react-native": "^0.60.0",
+    "react-native": "^0.60.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
