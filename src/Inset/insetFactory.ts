@@ -6,11 +6,7 @@ import {
   convertInsetPaddingKeyToValue,
   obtainInsetPaddingStyle
 } from "./insetHelper";
-import {
-  InsetProps,
-  InsetDebugOptions,
-  PaddingPossibilities
-} from "./insetTypes";
+import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
 
 export function insetFactory<T>(
   spacing: { [K in keyof T]: number }
