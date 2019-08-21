@@ -14,7 +14,9 @@ declare type StackProps<T> = {|
   debugOptions?: StackDebugOptions
 |};
 
-declare function Stack(props: StackProps<number>): React.Element<StackProps<f>>;
+declare function Stack(
+  props: StackProps<number>
+): React.Element<StackProps<number>>;
 
 declare function stackFactory<T>(spacing: {
   [key: $Keys<T>]: number
