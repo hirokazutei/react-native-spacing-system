@@ -5,12 +5,10 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "flow": "flow",
-    "build": "npm run build:clean && npm run build:typescript && npm run build:lib && npm run build:flow",
+    "build": "npm run build:clean && npm run build:typescript && npm run build:flow",
     "build:clean": "rimraf lib",
-    "build:lib": "babel src/ -d lib",
     "build:typescript": "tsc --skipLibCheck",
-    "build:flow": "flow-copy-source -v src lib"
+    "build:flow": "flow-copy-source -v src/flow lib"
   },
   "files": [
     "src",

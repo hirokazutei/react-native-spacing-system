@@ -6,7 +6,6 @@
 .*/src/*
 
 [libs]
-./type-def-libs
 
 [lints]
 
