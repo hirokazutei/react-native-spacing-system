@@ -26,9 +26,13 @@
     <a href="https://www.typescriptlang.org/">
         <img src="https://img.shields.io/badge/-Typescript-black.svg?style=for-the-badge&logo=typescript&color=007ACC">
     </a>
+    <a href="https://flow.org/">
+        <img src="https://img.shields.io/badge/Supports-Flow_type-black.svg?style=for-the-badge&color=E8BD36">
+    </a>
 </p>
 
-Using margin and padding to control spacing between components introduces too many ways to accomplish the same task in a multitude of ways. For the sake of standardizing code, making spacings consistent and increasing legibility, we can instead use spacing components to act as shims.
+Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code and increase legibility though the usage of spacing components.
+Types for TypeScript and Flow are both supported!
 
 ## Installation
 
@@ -200,9 +204,7 @@ Utilize your own space mapping with `Stack`, `Queue` and `Inset` by passing in t
 ```tsx
 import { stackFactory } from "react-native-spacing-system";
 
-type SpacingKeys = "tall" | "grande" | "venti";
-
-const spacing: { [key in SpacingKeys]: number } = {
+const spacing = {
   tall: 8,
   grande: 12,
   venti: 16
