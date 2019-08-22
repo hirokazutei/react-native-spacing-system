@@ -30,7 +30,16 @@ export function insetFactory<T>(spacing: {
     const isDebugMode = debug || isContextDebugMode;
     const flexStyle = flex ? { flex } : {};
     const insetStyles = isDebugMode ? styles.debug : styles.default;
-    return <View style={{ ...flexStyle, ...insetStyles }}>{children}</View>;
+    return React.createElement(
+      View,
+      {
+        style: Object.assign(
+          { ...flexStyle },
+          isDebugMode ? { ...styles.debug } : { ...styles.default }
+        )
+      },
+      children
+    );
   };
   return Inset;
 }

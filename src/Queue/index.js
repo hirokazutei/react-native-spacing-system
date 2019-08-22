@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
@@ -29,5 +28,7 @@ export const Queue = (props: QueueProps<number>): React.Node => {
       width: size
     }
   });
-  return <View style={isDebugMode ? styles.debug : styles.default} />;
+  return React.createElement(View, {
+    style: isDebugMode ? styles.debug : styles.default
+  });
 };

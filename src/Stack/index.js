@@ -29,5 +29,7 @@ export const Stack = (props: StackProps<number>): React.Node => {
       height: size
     }
   });
-  return <View style={isDebugMode ? styles.debug : styles.default} />;
+  return React.createElement(View, {
+    style: isDebugMode ? styles.debug : styles.default
+  });
 };

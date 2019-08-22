@@ -18,5 +18,14 @@ export const Inset = (props: InsetProps<number>): React.Node => {
   const isDebugMode = debug || isContextDebugMode;
   const flexStyle = flex ? { flex } : {};
   const insetSyles = isDebugMode ? styles.debug : styles.default;
-  return <View style={{ ...flexStyle, ...insetSyles }}>{children}</View>;
+  return React.createElement(
+    View,
+    {
+      style: Object.assign(
+        { ...flexStyle },
+        isDebugMode ? { ...styles.debug } : { ...styles.default }
+      )
+    },
+    children
+  );
 };
