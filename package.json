@@ -1,6 +1,6 @@
 {
   "name": "react-native-spacing-system",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Enforcing and Standardizing how components are spaced in ReactNative.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
