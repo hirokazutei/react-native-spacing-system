@@ -216,6 +216,30 @@ export const Stack = stackFactory(spacing);
 <Stack size="venti"/> // Works
 ```
 
+#### Flow
+
+Depending on your version of **flow**, you may have to pass in the type of your space object.
+
+```javascript
+/* @flow */
+import { stackFactory } from "react-native-spacing-system";
+
+type SpacingKey = 'tall' | 'grande' | 'venti'
+
+type Spacing = {[key: SpacingKey]: number}
+
+const spacing: Spacing = {
+  tall: 8,
+  grande: 12,
+  venti: 16
+};
+
+export const Stack = stackFactory<Spacing>(spacing);
+
+<Stack size={16}/> // Error
+<Stack size="venti"/> // Works
+```
+
 <h2 align="center">
     Contacts & Social Media
 </h2>

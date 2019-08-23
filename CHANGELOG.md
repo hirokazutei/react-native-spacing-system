@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
   - `StackDebugOptions`
   - `StackProps`
 - Added a babel build script in `package.json`.
+- Added a react-native project using **flow**.
 
 ### Changed
 
