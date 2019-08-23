@@ -8,6 +8,8 @@ import { spacingKeysList } from "../../constants/spacing";
 import Button from "../atoms/Button";
 import Inset from "../atoms/Inset";
 
+const SAMPLE_IMAGE_LINK = "https://picsum.photos/400/800";
+
 const styles = StyleSheet.create({
   background: {
     backgroundColor: colors.insetTheme,
@@ -51,7 +53,7 @@ const InsetExample: React.FunctionComponent<Prop> = (
             <DebugContext.Provider value={debug}>
               <Inset all={spaceSize} flex={1}>
                 <Image
-                  source={{ uri: "https://picsum.photos/400/800" }}
+                  source={{ uri: SAMPLE_IMAGE_LINK }}
                   style={styles.image}
                 />
               </Inset>

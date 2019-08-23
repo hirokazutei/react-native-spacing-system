@@ -23,7 +23,9 @@ export const spacingKeysList: Array<SpacingKeys> = [
   "galactic"
 ];
 
-export const spacing: Readonly<{ [key in SpacingKeys]: number }> = {
+type Spacing = Readonly<{ [key in SpacingKeys]: number }>;
+
+export const spacing: Spacing = {
   atomic: 2,
   micro: 4,
   tiny: 6,
