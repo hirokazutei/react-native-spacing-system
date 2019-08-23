@@ -9,7 +9,7 @@ import {
   PaddingPossibilities,
   InsetStyles
 } from "./insetTypes";
-import { StyleSheet, ViewStyle } from "react-native";
+import { StyleSheet } from "react-native";
 
 export function convertInsetPaddingKeyToValue<T>({
   keyedPaddings,
