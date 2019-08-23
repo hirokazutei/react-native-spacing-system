@@ -11,9 +11,9 @@
     "build:flow": "flow-copy-source -v src/flow lib"
   },
   "files": [
-    "src",
     "lib",
     "LICENSE",
+    "CHANGELOG.md",
     "README.md"
   ],
   "keywords": [
