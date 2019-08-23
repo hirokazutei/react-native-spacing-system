@@ -9,6 +9,8 @@ import Inset from "../atoms/Inset";
 import Queue from "../atoms/Queue";
 import Stack from "../atoms/Stack";
 
+const SAMPLE_IMAGE_LINK = "https://picsum.photos/400/300";
+
 const styles = StyleSheet.create({
   base: {
     backgroundColor: colors.lightGray,
@@ -46,10 +48,7 @@ const MainExample: React.FunctionComponent<Prop> = (
   return (
     <DebugContext.Provider value={debug}>
       <View style={styles.base}>
-        <Image
-          source={{ uri: "https://picsum.photos/400/300" }}
-          style={styles.image}
-        />
+        <Image source={{ uri: SAMPLE_IMAGE_LINK }} style={styles.image} />
         <Inset all="large">
           <Text style={styles.subtitle}>VIDEO</Text>
           <Stack size="small" />

@@ -13,6 +13,8 @@ import {spacingKeysList} from '../../constants/spacing';
 import Button from '../atoms/Button';
 import Inset from '../atoms/Inset';
 
+const SAMPLE_IMAGE_SIZE = 'https://picsum.photos/400/800';
+
 const styles = StyleSheet.create({
   background: {
     backgroundColor: colors.insetTheme,
@@ -55,10 +57,7 @@ const InsetExample: StatelessFunctionalComponent<Prop> = (
           <View style={styles.background}>
             <DebugContext.Provider value={debug}>
               <Inset all={spaceSize} flex={1}>
-                <Image
-                  source={{uri: 'https://picsum.photos/400/800'}}
-                  style={styles.image}
-                />
+                <Image source={{uri: SAMPLE_IMAGE_SIZE}} style={styles.image} />
               </Inset>
             </DebugContext.Provider>
           </View>
