@@ -27,7 +27,7 @@
     "android"
   ],
   "author": "hirokazu.tei@gmail.com",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.0",
     "react-native": "^0.59.0"
