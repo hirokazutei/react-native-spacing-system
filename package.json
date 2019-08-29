@@ -1,6 +1,6 @@
 {
   "name": "react-native-spacing-system",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Enforcing and Standardizing how components are spaced in ReactNative.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -27,7 +27,7 @@
     "android"
   ],
   "author": "hirokazu.tei@gmail.com",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.0",
     "react-native": "^0.59.0"
@@ -37,7 +37,10 @@
     "url": "git+ssh://git@github.com/hirokazutei/react-native-spacing-system.git"
   },
   "bugs": {
-    "url": "https://github.com/hirokazutei/react-native-spacing-system/issues"
+    "url": "https://github.com/hirokazutei/react-native-spacing-system/issues/new?assignees=hirokazutei&labels=bug&template=BUG_REPORT.md&title=%5BBUG_REPORT%5D"
+  },
+  "feedback": {
+    "url": "https://github.com/hirokazutei/react-native-spacing-system/issues/new?assignees=hirokazutei&labels=note&template=FEEDBACK.md&title=%5BFEEDBACK%5D"
   },
   "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme",
   "dependencies": {
