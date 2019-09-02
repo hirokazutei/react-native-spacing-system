@@ -10,8 +10,8 @@ export function stackFactory<T>(
 ): React.FunctionComponent<StackProps<keyof T>> {
   const Stack = (props: StackProps<keyof T>): React.ReactElement => {
     const { debug, debugOptions, size } = props;
-    const isContextDebugMode = useContext(DebugContext);
-    const isDebugMode = debug || isContextDebugMode;
+    const { debug: isContextDebugMode, stack } = useContext(DebugContext);
+    const isDebugMode = debug || isContextDebugMode || (stack && stack.debug);
     const styles = StyleSheet.create<StackStyles>({
       default: { height: spacing[size] },
       debug: {

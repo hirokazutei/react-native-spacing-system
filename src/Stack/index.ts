@@ -6,9 +6,9 @@ import { DebugContext } from "../context";
 import { StackProps, StackStyles } from "./stackTypes";
 
 export const Stack = (props: StackProps<number>): React.ReactElement => {
-  const isContexDebugMode = useContext(DebugContext);
   const { debug, debugOptions, size } = props;
-  const isDebugMode = debug || isContexDebugMode;
+  const { debug: isContextDebugMode, stack } = useContext(DebugContext);
+  const isDebugMode = debug || isContextDebugMode || (stack && stack.debug);
   const styles = StyleSheet.create<StackStyles>({
     default: { height: size },
     debug: {

@@ -26,8 +26,8 @@ export function insetFactory<T>(
       debugOptions?: InsetDebugOptions;
     } & PaddingPossibilities<keyof T>
   ): React.ReactElement => {
-    const isContextDebugMode = useContext(DebugContext);
     const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
+    const { debug: isContextDebugMode, inset } = useContext(DebugContext);
     const rawPaddings = convertInsetPaddingKeyToValue({
       keyedPaddings,
       spacing
@@ -36,7 +36,7 @@ export function insetFactory<T>(
       paddings: rawPaddings,
       debugOptions
     });
-    const isDebugMode = debug || isContextDebugMode;
+    const isDebugMode = debug || isContextDebugMode || (inset && inset.debug);
     const flexStyle = flex ? { flex } : {};
     return React.createElement(
       View,

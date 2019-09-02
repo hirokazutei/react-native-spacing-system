@@ -10,8 +10,8 @@ export function queueFactory<T>(
 ): React.FunctionComponent<QueueProps<keyof T>> {
   const Queue = (props: QueueProps<keyof T>): React.ReactElement => {
     const { debug, debugOptions, size } = props;
-    const isContextDebugMode = useContext(DebugContext);
-    const isDebugMode = debug || isContextDebugMode;
+    const { debug: isContextDebugMode, queue } = useContext(DebugContext);
+    const isDebugMode = debug || isContextDebugMode || (queue && queue.debug);
     const styles = StyleSheet.create<QueueStyles>({
       default: { width: spacing[size] },
       debug: {

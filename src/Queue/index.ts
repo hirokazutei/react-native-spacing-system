@@ -7,8 +7,8 @@ import { QueueProps, QueueStyles } from "./queueTypes";
 
 export const Queue = (props: QueueProps<number>): React.ReactElement => {
   const { debug, debugOptions, size } = props;
-  const isContextDebugMode = useContext(DebugContext);
-  const isDebugMode = debug || isContextDebugMode;
+  const { debug: isContextDebugMode, queue } = useContext(DebugContext);
+  const isDebugMode = debug || isContextDebugMode || (queue && queue.debug);
   const styles = StyleSheet.create<QueueStyles>({
     default: { width: size },
     debug: {

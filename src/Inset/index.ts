@@ -6,14 +6,14 @@ import { obtainInsetPaddingStyle } from "./insetHelper";
 import { InsetProps } from "./insetTypes";
 
 export const Inset = (props: InsetProps<number>): React.ReactElement => {
-  const isContextDebugMode = useContext(DebugContext);
   const { flex, children, debug, debugOptions, ...paddings } = props;
+  const { debug: isContextDebugMode, inset } = useContext(DebugContext);
   const styles = obtainInsetPaddingStyle({
     paddings,
     debugOptions
   });
 
-  const isDebugMode = debug || isContextDebugMode;
+  const isDebugMode = debug || isContextDebugMode || (inset && inset.debug);
   const flexStyle = flex ? { flex } : {};
   return React.createElement(
     View,
