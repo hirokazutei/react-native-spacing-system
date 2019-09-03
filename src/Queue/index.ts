@@ -6,7 +6,7 @@ import {
   DEFAULT_DEFAULT_BORDER_COLORS,
   DEBUG_BORDER_THICKNESS
 } from "../constants";
-import { DebugContext } from "../context";
+import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 import { turnNegativeToZero } from "../helper";
 
@@ -26,14 +26,14 @@ const Queue = (props: QueueProps<number>): React.ReactElement => {
     DEFAULT_DEBUG_COLORS.queue;
   const debugBackgroundCoolor =
     (debugOptions && debugOptions.color) || defaultQueueDebugColor;
-  const debugBorderWidth =
-    debugOptions && (debugOptions.border || debugOptions.borderColor)
-      ? DEBUG_BORDER_THICKNESS
-      : 0;
+  const isDebugBorderMode =
+    (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
+    (contextQueueProperty && contextQueueProperty.border);
+  const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
-    debugOptions && debugOptions.borderColor
-      ? debugOptions.borderColor
-      : DEFAULT_DEFAULT_BORDER_COLORS.queue;
+    (debugOptions && debugOptions.borderColor) ||
+    (contextQueueProperty && contextQueueProperty.borderColor) ||
+    DEFAULT_DEFAULT_BORDER_COLORS.queue;
 
   // Width
   const width =

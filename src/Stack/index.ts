@@ -6,7 +6,7 @@ import {
   DEFAULT_DEFAULT_BORDER_COLORS,
   DEBUG_BORDER_THICKNESS
 } from "../constants";
-import { DebugContext } from "../context";
+import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
 import { turnNegativeToZero } from "../helper";
 
@@ -26,14 +26,14 @@ const Stack = (props: StackProps<number>): React.ReactElement => {
     DEFAULT_DEBUG_COLORS.stack;
   const debugBackgroundCoolor =
     (debugOptions && debugOptions.color) || defaultStackDebugColor;
-  const debugBorderWidth =
-    debugOptions && (debugOptions.border || debugOptions.borderColor)
-      ? DEBUG_BORDER_THICKNESS
-      : 0;
+  const isDebugBorderMode =
+    (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
+    (contextStackProperty && contextStackProperty.border);
+  const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
-    debugOptions && debugOptions.borderColor
-      ? debugOptions.borderColor
-      : DEFAULT_DEFAULT_BORDER_COLORS.stack;
+    (debugOptions && debugOptions.borderColor) ||
+    (contextStackProperty && contextStackProperty.borderColor) ||
+    DEFAULT_DEFAULT_BORDER_COLORS.queue;
 
   // Height
   const height =

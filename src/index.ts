@@ -1,5 +1,9 @@
 import { DebugContext } from "./Context";
-import { DebugContextProps, DebugItemProps } from "./Context/types";
+import {
+  DebugContextProps,
+  DebugItemProps,
+  InsetDebugItemProps
+} from "./Context/types";
 import Inset from "./Inset";
 import insetFactory from "./Inset/insetFactory";
 import {
@@ -23,6 +27,7 @@ import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
 export {
   DebugContext,
   DebugContextProps,
+  InsetDebugItemProps,
   DebugItemProps,
   Inset,
   insetFactory,

@@ -2,14 +2,21 @@
 import * as React from "react";
 
 // Context
-export type DebugItemProps = { debug: boolean, color: string };
+export type DebugItemProps = {|
+  debug?: boolean,
+  color?: string,
+  border?: boolean,
+  borderColor?: string
+|};
 
-export type DebugContextProps = {
+export type InsetDebugItemProps = $Exact<{ debug?: boolean, color?: string }>;
+
+export type DebugContextProps = {|
   debug: boolean,
-  inset?: DebugItemProps,
+  inset?: InsetDebugItemProps,
   queue?: DebugItemProps,
   stack?: DebugItemProps
-};
+|};
 
 // Stack
 export type StackDebugOptions = {|
