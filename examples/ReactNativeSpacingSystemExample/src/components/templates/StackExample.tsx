@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 const StackExample: React.FunctionComponent<Prop> = (
   prop: Prop
 ): React.FunctionComponentElement<Prop> => {
-  const { debug } = prop;
   const [size, setSize] = useState(0);
   const changeSize = () =>
     setSize(size >= spacingKeysList.length - 1 ? 0 : size + 1);
@@ -54,7 +53,7 @@ const StackExample: React.FunctionComponent<Prop> = (
         <Inset vertical="huge" flex={1}>
           <ScrollView style={styles.scrollView}>
             <Inset vertical="huge">
-              <DebugContext.Provider value={debug}>
+              <DebugContext.Provider value={prop}>
                 {[...Array(20)].map((e, i) => {
                   return (
                     <View key={i}>
