@@ -1,12 +1,11 @@
 import * as React from "react";
 import { useContext } from "react";
 import { View } from "react-native";
-import { DebugContext } from "../context";
+import { DebugContext } from "../Context";
 import { obtainInsetPaddingStyle } from "./insetHelper";
 import { InsetProps } from "./insetTypes";
 
 const Inset = (props: InsetProps<number>): React.ReactElement => {
-  // Porps
   const { flex, children, debug, debugOptions, ...paddings } = props;
 
   // Configure Debug Mode
