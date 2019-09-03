@@ -37,9 +37,9 @@ export function convertInsetPaddingKeyToValue<T>({
     const rightKey = (keyedPaddings as Vertical<keyof T>).right;
     const leftKey = (keyedPaddings as Vertical<keyof T>).left;
     return {
-      left: leftKey && spacing[leftKey],
+      vertical: spacing[(keyedPaddings as Vertical<keyof T>).vertical],
       right: rightKey && spacing[rightKey],
-      vertical: spacing[(keyedPaddings as Vertical<keyof T>).vertical]
+      left: leftKey && spacing[leftKey]
     };
 
     // Horizontal & Top & Bottom
@@ -47,9 +47,9 @@ export function convertInsetPaddingKeyToValue<T>({
     const topKey = (keyedPaddings as Horizontal<keyof T>).top;
     const bottomKey = (keyedPaddings as Horizontal<keyof T>).bottom;
     return {
+      horizontal: spacing[(keyedPaddings as Horizontal<keyof T>).horizontal],
       top: topKey && spacing[topKey],
-      bottom: bottomKey && spacing[bottomKey],
-      horizontal: spacing[(keyedPaddings as Horizontal<keyof T>).horizontal]
+      bottom: bottomKey && spacing[bottomKey]
     };
 
     // Top & Right & Bottom & Left
@@ -118,12 +118,12 @@ const mapPaddingsToStyle = (
 
     // Horizontal & Top & Bottom
   } else if ((paddings as Horizontal<number>).horizontal) {
-    const paddingHorizontal = (paddings as Horizontal<number>).vertical;
+    const paddingHorizontal = (paddings as Horizontal<number>).horizontal;
     const paddingTop = (paddings as Horizontal<number>).top;
     const paddingBottom = (paddings as Horizontal<number>).bottom;
     return {
       default: {
-        paddingHorizontal: (paddings as Horizontal<number>).vertical,
+        paddingHorizontal: (paddings as Horizontal<number>).horizontal,
         ...(paddingTop ? { paddingTop } : {}),
         ...(paddingBottom ? { paddingBottom } : {})
       },
