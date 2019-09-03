@@ -8,15 +8,12 @@ import {
 } from "../constants";
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
-import { turnNegativeToZero } from "../helper";
 
 function queueFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<QueueProps<keyof T>> {
   const Queue = (props: QueueProps<keyof T>): React.ReactElement => {
     const { debug, debugOptions, size } = props;
-
-    // Configure Debug Mode
     const {
       debug: isContextDebugMode,
       queue: contextQueueProperty
@@ -38,24 +35,15 @@ function queueFactory<T>(
       (debugOptions && debugOptions.borderColor) ||
       (contextQueueProperty && contextQueueProperty.borderColor) ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
-
-    // Width
-    const width =
-      isDebugMode && debugOptions && debugOptions.border
-        ? spacing[size]
-        : turnNegativeToZero(spacing[size] - DEBUG_BORDER_THICKNESS);
-
-    // Styles
     const styles = StyleSheet.create<QueueStyles>({
-      default: { width },
+      default: { width: spacing[size] },
       debug: {
         backgroundColor: debugBackgroundCoolor,
         borderWidth: debugBorderWidth,
         borderColor: debugBorderColor,
-        width
+        width: spacing[size]
       }
     });
-
     return React.createElement(View, {
       style: isDebugMode ? styles.debug : styles.default
     });
