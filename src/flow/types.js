@@ -1,6 +1,16 @@
 /* @flow */
 import * as React from "react";
 
+// Context
+export type DebugItemProps = { debug: boolean, color: string };
+
+export type DebugContextProps = {
+  debug: boolean,
+  inset?: DebugItemProps,
+  queue?: DebugItemProps,
+  stack?: DebugItemProps
+};
+
 // Stack
 export type StackDebugOptions = {|
   color?: string,

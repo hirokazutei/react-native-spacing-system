@@ -1,6 +1,8 @@
 /* @flow */
 import * as React from "react";
 import type {
+  DebugContextProps,
+  DebugItemProps,
   InsetDebugOptions,
   InsetProps,
   PaddingPossibilities,
@@ -11,6 +13,8 @@ import type {
 } from "./types";
 
 export type {
+  DebugContextProps,
+  DebugItemProps,
   InsetDebugOptions,
   InsetProps,
   PaddingPossibilities,
@@ -21,7 +25,7 @@ export type {
 } from "./types";
 
 // Context
-declare export var DebugContext: React.Context<boolean>;
+declare export var debugContext: React.Context<DebugContextProps>;
 
 // Stack
 declare export function stackFactory<T: Object>(spacing: {
