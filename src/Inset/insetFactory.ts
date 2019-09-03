@@ -8,7 +8,7 @@ import {
 } from "./insetHelper";
 import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
 
-export function insetFactory<T>(
+function insetFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<
   {
@@ -27,7 +27,15 @@ export function insetFactory<T>(
     } & PaddingPossibilities<keyof T>
   ): React.ReactElement => {
     const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
+
+    // Configure Debug Mode
     const { debug: isContextDebugMode, inset } = useContext(DebugContext);
+    const isDebugMode = debug || isContextDebugMode || (inset && inset.debug);
+
+    // Flex
+    const flexStyle = flex ? { flex } : {};
+
+    // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
       keyedPaddings,
       spacing
@@ -36,8 +44,7 @@ export function insetFactory<T>(
       paddings: rawPaddings,
       debugOptions
     });
-    const isDebugMode = debug || isContextDebugMode || (inset && inset.debug);
-    const flexStyle = flex ? { flex } : {};
+
     return React.createElement(
       View,
       {
@@ -51,3 +58,5 @@ export function insetFactory<T>(
   };
   return Inset;
 }
+
+export default insetFactory;
