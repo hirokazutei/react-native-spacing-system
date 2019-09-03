@@ -8,12 +8,9 @@ import {
 } from "../constants";
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
-import { turnNegativeToZero } from "../helper";
 
 const Stack = (props: StackProps<number>): React.ReactElement => {
   const { debug, debugOptions, size } = props;
-
-  // Configure Debug Mode
   const { debug: isContextDebugMode, stack: contextStackProperty } = useContext(
     DebugContext
   );
@@ -33,25 +30,16 @@ const Stack = (props: StackProps<number>): React.ReactElement => {
   const debugBorderColor =
     (debugOptions && debugOptions.borderColor) ||
     (contextStackProperty && contextStackProperty.borderColor) ||
-    DEFAULT_DEFAULT_BORDER_COLORS.queue;
-
-  // Height
-  const height =
-    isDebugMode && debugOptions && debugOptions.border
-      ? size
-      : turnNegativeToZero(size - DEBUG_BORDER_THICKNESS);
-
-  // Styles
+    DEFAULT_DEFAULT_BORDER_COLORS.stack;
   const styles = StyleSheet.create<StackStyles>({
-    default: { height },
+    default: { height: size },
     debug: {
       backgroundColor: debugBackgroundCoolor,
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
-      height
+      height: size
     }
   });
-
   return React.createElement(View, {
     style: isDebugMode ? styles.debug : styles.default
   });

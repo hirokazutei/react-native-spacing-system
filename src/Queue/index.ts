@@ -8,12 +8,9 @@ import {
 } from "../constants";
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
-import { turnNegativeToZero } from "../helper";
 
 const Queue = (props: QueueProps<number>): React.ReactElement => {
   const { debug, debugOptions, size } = props;
-
-  // Configure Debug Mode
   const { debug: isContextDebugMode, queue: contextQueueProperty } = useContext(
     DebugContext
   );
@@ -34,24 +31,15 @@ const Queue = (props: QueueProps<number>): React.ReactElement => {
     (debugOptions && debugOptions.borderColor) ||
     (contextQueueProperty && contextQueueProperty.borderColor) ||
     DEFAULT_DEFAULT_BORDER_COLORS.queue;
-
-  // Width
-  const width =
-    isDebugMode && debugOptions && debugOptions.border
-      ? size
-      : turnNegativeToZero(size - DEBUG_BORDER_THICKNESS);
-
-  // Styles
   const styles = StyleSheet.create<QueueStyles>({
-    default: { width },
+    default: { width: size },
     debug: {
       backgroundColor: debugBackgroundCoolor,
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
-      width
+      width: size
     }
   });
-
   return React.createElement(View, {
     style: isDebugMode ? styles.debug : styles.default
   });
