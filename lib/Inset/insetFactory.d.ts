@@ -1,6 +1,6 @@
 import * as React from "react";
 import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
-export declare function insetFactory<T>(spacing: {
+declare function insetFactory<T>(spacing: {
     [K in keyof T]: number;
 }): React.FunctionComponent<{
     flex?: number;
@@ -8,4 +8,5 @@ export declare function insetFactory<T>(spacing: {
     debug?: boolean;
     debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<keyof T>>;
+export default insetFactory;
 //# sourceMappingURL=insetFactory.d.ts.map
