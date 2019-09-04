@@ -25,7 +25,7 @@ export type {
 } from "./types";
 
 // Context
-declare export var debugContext: React.Context<DebugContextProps>;
+declare export var DebugContext: React.Context<DebugContextProps>;
 
 // Stack
 declare export function stackFactory<T: Object>(spacing: {
