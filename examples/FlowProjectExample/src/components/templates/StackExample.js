@@ -1,12 +1,12 @@
 /* @flow */
 import React, {
   useState,
-  type Element,
+  type Node,
   type StatelessFunctionalComponent,
 } from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import {DebugContext} from 'react-native-spacing-system';
-import {DebugProp as Props} from '../../App';
+import {type DebugProps as Props} from '../../App';
 import {spacingKeysList} from '../../constants/spacing';
 import Button from '../atoms/Button';
 import Inset from '../atoms/Inset';
@@ -44,9 +44,8 @@ const styles = StyleSheet.create({
 });
 
 const StackExample: StatelessFunctionalComponent<Props> = (
-  prop: Props,
-): Element<Props> => {
-  const {debug} = prop;
+  props: Props,
+): Node => {
   const [size, setSize] = useState(0);
   const changeSize = () =>
     setSize(size >= spacingKeysList.length - 1 ? 0 : size + 1);
@@ -59,7 +58,7 @@ const StackExample: StatelessFunctionalComponent<Props> = (
         <Inset vertical="huge" flex={1}>
           <ScrollView style={styles.scrollView}>
             <Inset vertical="huge">
-              <DebugContext.Provider value={debug}>
+              <DebugContext.Provider value={props}>
                 {[...Array(20)].map((e, i) => {
                   return (
                     <View key={i}>

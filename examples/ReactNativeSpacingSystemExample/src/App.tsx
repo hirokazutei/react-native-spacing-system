@@ -5,7 +5,6 @@ import { colors } from "./constants/colors";
 import { fontSize } from "./constants/fontSize";
 import Button from "./components/atoms/Button";
 import Inset from "./components/atoms/Inset";
-import Queue from "./components/atoms/Queue";
 import Stack from "./components/atoms/Stack";
 import MainExample from "./components/templates/MainExample";
 import InsetExample from "./components/templates/InsetExample";
