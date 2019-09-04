@@ -69,11 +69,61 @@ import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemCo
 
 const SomeComponent = () => {
   return (
-    <DebugContext.Provider value={booleanValue}>
+    <DebugContext.Provider value={{ debug: booleanValue }}>
       <ComponentWithSpacingSystemComponents />
     </DebugContext.Provider>
   );
 };
+```
+
+You can also control debug mode of each type of spacing component as well as their border highlighting.
+
+##### Expected Type (TypeScript)
+
+```tsx
+type DebugContextProps = {
+  debug: boolean;
+  inset?: {
+    debug?: boolean;
+    color?: string;
+  };
+  queue?: {
+    debug?: boolean;
+    color?: string;
+    border?: boolean;
+    borderColor?: string;
+  };
+  stack?: {
+    debug?: boolean;
+    color?: string;
+    border?: boolean;
+    borderColor?: string;
+  };
+};
+```
+
+##### Expected Type (Flow)
+
+```jsx
+type DebugContextProps = {|
+  debug: boolean,
+  inset?: {|
+    debug?: boolean,
+    color?: string
+  |},
+  queue?: {|
+    debug?: boolean,
+    color?: string,
+    border?: boolean,
+    borderColor?: string
+  |},
+  stack?: {|
+    debug?: boolean,
+    color?: string,
+    border?: boolean,
+    borderColor?: string
+  |}
+|};
 ```
 
 **Stack:**
