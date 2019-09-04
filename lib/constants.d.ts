@@ -1,10 +1,11 @@
 declare type DefaultDebugColorKeys = "stack" | "queue" | "inset";
 declare type DefaultDebugBorderKeys = "stack" | "queue";
-export declare const defaultDebugColor: {
+export declare const DEFAULT_DEBUG_COLORS: {
     [key in DefaultDebugColorKeys]: string;
 };
-export declare const defaultBorderColor: {
+export declare const DEFAULT_DEFAULT_BORDER_COLORS: {
     [key in DefaultDebugBorderKeys]: string;
 };
+export declare const DEBUG_BORDER_THICKNESS = 1;
 export {};
-//# sourceMappingURL=color.d.ts.map
+//# sourceMappingURL=constants.d.ts.map

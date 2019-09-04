@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2019-09-05
+
+### Summary
+
+- Debug context provider has more features.
+- Fixed some bugs.
+
+### Added
+
+- Debug, debug color, border and border color control for each spacing component in context.
+
+### Changed
+
+- Fixed horizontal `Inset` bug.
+- Fixed a bug for debug border.
+
+### Removed
+
+- N/A
+
 ## [0.3.1] - 2019-08-29
 
 ### Summary

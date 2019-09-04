@@ -1,32 +1,46 @@
 import * as React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { defaultDebugColor, defaultBorderColor } from "../color";
-import { DebugContext } from "../context";
+import {
+  DEFAULT_DEBUG_COLORS,
+  DEFAULT_DEFAULT_BORDER_COLORS,
+  DEBUG_BORDER_THICKNESS
+} from "../constants";
+import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
-export function queueFactory<T>(
+function queueFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<QueueProps<keyof T>> {
   const Queue = (props: QueueProps<keyof T>): React.ReactElement => {
     const { debug, debugOptions, size } = props;
-    const isContextDebugMode = useContext(DebugContext);
-    const isDebugMode = debug || isContextDebugMode;
+    const {
+      debug: isContextDebugMode,
+      queue: contextQueueProperty
+    } = useContext(DebugContext);
+    const isDebugMode =
+      debug ||
+      isContextDebugMode ||
+      (contextQueueProperty && contextQueueProperty.debug);
+    const defaultQueueDebugColor =
+      (contextQueueProperty && contextQueueProperty.color) ||
+      DEFAULT_DEBUG_COLORS.queue;
+    const debugBackgroundCoolor =
+      (debugOptions && debugOptions.color) || defaultQueueDebugColor;
+    const isDebugBorderMode =
+      (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
+      (contextQueueProperty && contextQueueProperty.border);
+    const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
+    const debugBorderColor =
+      (debugOptions && debugOptions.borderColor) ||
+      (contextQueueProperty && contextQueueProperty.borderColor) ||
+      DEFAULT_DEFAULT_BORDER_COLORS.queue;
     const styles = StyleSheet.create<QueueStyles>({
       default: { width: spacing[size] },
       debug: {
-        backgroundColor:
-          debugOptions && debugOptions.color
-            ? debugOptions.color
-            : defaultDebugColor.queue,
-        borderWidth:
-          debugOptions && (debugOptions.border || debugOptions.borderColor)
-            ? 1
-            : 0,
-        borderColor:
-          debugOptions && debugOptions.borderColor
-            ? debugOptions.borderColor
-            : defaultBorderColor.queue,
+        backgroundColor: debugBackgroundCoolor,
+        borderWidth: debugBorderWidth,
+        borderColor: debugBorderColor,
         width: spacing[size]
       }
     });
@@ -36,3 +50,5 @@ export function queueFactory<T>(
   };
   return Queue;
 }
+
+export default queueFactory;
