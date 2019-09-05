@@ -5393,10 +5393,10 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react-native-spacing-system@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-spacing-system/-/react-native-spacing-system-0.3.1.tgz#02c10061b6e14c408a389a2a8a6534bd2d02ba34"
-  integrity sha512-74lfotCWZo65yKHJO6OI4AEagnik/yiFy41Qdh1OAt8cdfow4l5c2/V+QtgbDS9PC/XD1YkAL+1JFM2Jf3TFbQ==
+react-native-spacing-system@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-spacing-system/-/react-native-spacing-system-0.4.0.tgz#7e872aabe5e535dee5c0db4200c8751b8643a17d"
+  integrity sha512-LaUnu9G4tFTekelMjLSTYbkqT+kim42Q+JYvH3fBrrUDukCjH5/WqeLnJSngL++ReWyw79L6CcFidQMROfG1OQ==
   dependencies:
     "@types/react" "^16.8.0"
     "@types/react-native" "^0.60.0"
