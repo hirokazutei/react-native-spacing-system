@@ -28,10 +28,6 @@
   ],
   "author": "hirokazu.tei@gmail.com",
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-native": "^0.59.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/hirokazutei/react-native-spacing-system.git"
@@ -65,6 +61,8 @@
     "flow-typed": "^2.6.1",
     "jest": "^25.0.0",
     "jest-cli": "^25.0.0",
+    "react": "^16.8.0",
+    "react-native": "^0.59.0",
     "rimraf": "^3.0.0"
   }
 }
