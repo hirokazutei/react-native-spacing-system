@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
 const InsetExample: React.FunctionComponent<Prop> = (
   prop: Prop
 ): React.FunctionComponentElement<Prop> => {
-  const { debug } = prop;
   const [sizeIndex, setSize] = useState(0);
   const changeSize = () =>
     setSize(sizeIndex >= spacingKeysList.length - 1 ? 0 : sizeIndex + 1);
@@ -50,7 +49,7 @@ const InsetExample: React.FunctionComponent<Prop> = (
         <Text style={styles.title}>PICTURE FRAME</Text>
         <Inset vertical="huge" flex={1}>
           <View style={styles.background}>
-            <DebugContext.Provider value={debug}>
+            <DebugContext.Provider value={prop}>
               <Inset all={spaceSize} flex={1}>
                 <Image
                   source={{ uri: SAMPLE_IMAGE_LINK }}

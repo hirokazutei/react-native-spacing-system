@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
 const QueueExample: React.FunctionComponent<Prop> = (
   prop: Prop
 ): React.FunctionComponentElement<Prop> => {
-  const { debug } = prop;
   const [sizeIndex, setSize] = useState(0);
   const changeSize = () =>
     setSize(sizeIndex >= spacingKeysList.length - 1 ? 0 : sizeIndex + 1);
@@ -63,7 +62,7 @@ const QueueExample: React.FunctionComponent<Prop> = (
         <Inset vertical="huge" flex={1}>
           <ScrollView horizontal={true} style={styles.scrollView}>
             <Inset vertical="huge" horizontal="large" flex={1}>
-              <DebugContext.Provider value={debug}>
+              <DebugContext.Provider value={prop}>
                 <View style={styles.lineForBubbletea}>
                   {[...Array(20)].map((e, i) => {
                     return (

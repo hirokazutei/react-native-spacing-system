@@ -41,12 +41,11 @@ const styles = StyleSheet.create({
 const MainExample: React.FunctionComponent<Prop> = (
   prop: Prop
 ): React.FunctionComponentElement<Prop> => {
-  const { debug } = prop;
   const dummyFunction = () => {
     /* DUMMY */
   };
   return (
-    <DebugContext.Provider value={debug}>
+    <DebugContext.Provider value={prop}>
       <View style={styles.base}>
         <Image source={{ uri: SAMPLE_IMAGE_LINK }} style={styles.image} />
         <Inset all="large">
