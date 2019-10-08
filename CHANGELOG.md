@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2019-10-09
+
+### Summary
+
+- Fixed a bug that was breaking builds.
+- Updated examples
+
+### Added
+
+- N/A
+
+### Changed
+
+- Updated examples so that it can showcase the border option for dubug mode.
+
+### Removed
+
+- Peer-dependencies.
+
 ## [0.4.0] - 2019-09-05
 
 ### Summary
