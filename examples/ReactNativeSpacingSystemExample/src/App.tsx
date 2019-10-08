@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, StatusBar, Text, View } from "react-native";
+import { DebugContextProps } from "react-native-spacing-system";
 import { colors } from "./constants/colors";
 import { fontSize } from "./constants/fontSize";
 import Button from "./components/atoms/Button";
@@ -12,7 +13,7 @@ import StackExample from "./components/templates/StackExample";
 
 type ExampleKeys = "inset" | "main" | "queue" | "stack";
 
-export type DebugProp = { debug: boolean };
+export type DebugProp = DebugContextProps;
 
 const EXAMPLES: {
   [keys in ExampleKeys]: React.FunctionComponent<DebugProp>;
@@ -31,9 +32,13 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: fontSize.large
   },
+  debugButton: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center"
+  },
   debugButtonContainer: {
-    alignItems: "center",
-    justifyContent: "flex-end"
+    flexDirection: "row"
   },
   exampleContainer: {
     alignItems: "center",
@@ -44,8 +49,19 @@ const styles = StyleSheet.create({
 
 const App = () => {
   // Toggle Debug
-  const [debugMode, setDebugMode] = useState(false);
-  const toggleDebugMode = () => setDebugMode(!debugMode);
+  const [debugProps, setDebugMode] = useState<DebugContextProps>({
+    debug: false,
+    stack: { border: false },
+    queue: { border: false }
+  });
+  const toggleDebugMode = () =>
+    setDebugMode({ ...debugProps, debug: !debugProps.debug });
+  const toggleDebugBorder = () =>
+    setDebugMode({
+      ...debugProps,
+      stack: { border: !(debugProps.stack && debugProps.stack.border) },
+      queue: { border: !(debugProps.queue && debugProps.queue.border) }
+    });
   // Toggle Example
   const [exampleKey, setExample] = useState("main");
   const ShowcasingExamples = EXAMPLES[`${exampleKey}` as ExampleKeys];
@@ -81,17 +97,28 @@ const App = () => {
             />
           </View>
           <Stack size="large" />
-          <ShowcasingExamples debug={debugMode} />
+          <ShowcasingExamples {...debugProps} />
         </Inset>
-        <View style={styles.debugButtonContainer}>
-          <Inset horizontal="macro">
-            <Button
-              onPress={toggleDebugMode}
-              buttonType="major"
-              label={`DEBUG MODE: ${debugMode ? "ON" : "OFF"}`}
-            />
-          </Inset>
-        </View>
+        <Inset horizontal="huge">
+          <View style={styles.debugButtonContainer}>
+            <View style={styles.debugButton}>
+              <Button
+                onPress={toggleDebugMode}
+                buttonType="major"
+                label={`DEBUG: ${debugProps.debug ? "ON" : "OFF"}`}
+              />
+            </View>
+            <View style={styles.debugButton}>
+              <Button
+                onPress={toggleDebugBorder}
+                buttonType="major"
+                label={`BORDER: ${
+                  debugProps.stack && debugProps.stack.border ? "ON" : "OFF"
+                }`}
+              />
+            </View>
+          </View>
+        </Inset>
       </SafeAreaView>
     </>
   );

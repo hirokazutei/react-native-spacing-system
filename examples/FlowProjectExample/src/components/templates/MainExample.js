@@ -1,12 +1,12 @@
 /* @flow */
 import React, {
   useState,
-  type Element,
+  type Node,
   type StatelessFunctionalComponent,
 } from 'react';
 import {Image, StyleSheet, View, Text} from 'react-native';
 import {DebugContext} from 'react-native-spacing-system';
-import {DebugProp as Prop} from '../../App';
+import {type DebugProps as Props} from '../../App';
 import {colors} from '../../constants/colors';
 import {fontSize} from '../../constants/fontSize';
 import Button from '../atoms/Button';
@@ -43,15 +43,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const MainExample: StatelessFunctionalComponent<Prop> = (
-  prop: Prop,
-): Element<Prop> => {
-  const {debug} = prop;
+const MainExample: StatelessFunctionalComponent<Props> = (
+  props: Props,
+): Node => {
   const dummyFunction = () => {
     /* DUMMY */
   };
   return (
-    <DebugContext.Provider value={debug}>
+    <DebugContext.Provider value={props}>
       <View style={styles.base}>
         <Image source={{uri: SAMPLE_IMAGE_SIZE}} style={styles.image} />
         <Inset all="large">
