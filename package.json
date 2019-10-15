@@ -41,7 +41,7 @@
   "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme",
   "dependencies": {
     "@types/react": "^16.8.0",
-    "@types/react-native": "^0.59.0"
+    "@types/react-native": "^0.60.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
