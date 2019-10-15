@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2019-10-16
+
+### Summary
+
+- Fixed a dependency issue.
+
+### Added
+
+- N/A
+
+### Changed
+
+- Fixed a dependency issue.
+
+### Removed
+
+- N/A
+
 ## [0.4.1] - 2019-10-09
 
 ### Summary
