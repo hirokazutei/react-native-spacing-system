@@ -130,7 +130,7 @@ const mapPaddingsToStyle = (
       debug: {
         borderRightWidth: paddingHorizontal,
         borderLeftWidth: paddingHorizontal,
-        ...(paddingTop ? { borderToptWidth: paddingTop } : {}),
+        ...(paddingTop ? { borderTopWidth: paddingTop } : {}),
         ...(paddingBottom ? { borderBottomWidth: paddingBottom } : {})
       }
     };
