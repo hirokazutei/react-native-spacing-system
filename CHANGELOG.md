@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.4.2] - 2019-10-16
+## [0.4.2] - 2019-10-23
+
+### Summary
+
+- Fixed a bug in insetFactory that was giving errors during debugging.
+
+### Added
+
+- N/A
+
+### Changed
+
+- Fixed a bug in insetFactory that was giving errors during debugging.
+
+### Removed
+
+- N/A
+
+## [0.4.2] - 2019-10-16 (UNSTABLE)
 
 ### Summary
 
@@ -20,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 - N/A
 
-## [0.4.1] - 2019-10-09
+## [0.4.1] - 2019-10-09 (UNSTABLE)
 
 ### Summary
 
@@ -39,7 +57,7 @@ All notable changes to this project will be documented in this file.
 
 - Peer-dependencies.
 
-## [0.4.0] - 2019-09-05
+## [0.4.0] - 2019-09-05 (UNSTABLE)
 
 ### Summary
 
