@@ -3,6 +3,7 @@ export declare type QueueDebugOptions = {
     color?: string;
     border?: boolean;
     borderColor?: string;
+    opacity?: number;
 };
 export declare type QueueProps<T> = {
     size: T;
