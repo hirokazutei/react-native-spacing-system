@@ -7,7 +7,7 @@ import {
   obtainInsetPaddingStyle
 } from "./insetHelper";
 import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
-import { DEFAULT_DEBUG_COLORS, DEFAULT_OAPCITY } from "../constants";
+import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 function insetFactory<T>(
   spacing: { [K in keyof T]: number }
@@ -61,11 +61,7 @@ function insetFactory<T>(
                 borderColor:
                   (debugOptions && debugOptions.color) ||
                   (contextInsetProperty && contextInsetProperty.color) ||
-                  DEFAULT_DEBUG_COLORS.inset,
-                opacity:
-                  (debugOptions && debugOptions.opacity) ||
-                  (contextInsetProperty && contextInsetProperty.opacity) ||
-                  DEFAULT_OAPCITY
+                  DEFAULT_DEBUG_COLORS.inset
               }
             : { ...styles.default }
         )

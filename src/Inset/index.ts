@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { DebugContext } from "../Context";
 import { obtainInsetPaddingStyle } from "./insetHelper";
 import { InsetProps } from "./insetTypes";
-import { DEFAULT_DEBUG_COLORS, DEFAULT_OAPCITY } from "../constants";
+import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 const Inset = (props: InsetProps<number>): React.ReactElement => {
   const { flex, children, debug, debugOptions, ...paddings } = props;
@@ -36,11 +36,7 @@ const Inset = (props: InsetProps<number>): React.ReactElement => {
               borderColor:
                 (debugOptions && debugOptions.color) ||
                 (contextInsetProperty && contextInsetProperty.color) ||
-                DEFAULT_DEBUG_COLORS.inset,
-              opacity:
-                (debugOptions && debugOptions.opacity) ||
-                (contextInsetProperty && contextInsetProperty.opacity) ||
-                DEFAULT_OAPCITY
+                DEFAULT_DEBUG_COLORS.inset
             }
           : { ...styles.default }
       )

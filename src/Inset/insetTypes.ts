@@ -2,7 +2,6 @@ import { ViewStyle } from "react-native";
 
 export type InsetDebugOptions = {
   color?: string;
-  opacity?: number;
 };
 
 export type All<T> = {

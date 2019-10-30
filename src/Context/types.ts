@@ -8,7 +8,7 @@ export type DebugItemProps = {
 
 export type InsetDebugItemProps = Omit<
   DebugItemProps,
-  "border" | "borderColor"
+  "border" | "borderColor" | "opacity"
 >;
 
 export type DebugContextProps = {
