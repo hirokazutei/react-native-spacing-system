@@ -32,10 +32,16 @@ const Stack = (props: StackProps<number>): React.ReactElement => {
     (debugOptions && debugOptions.borderColor) ||
     (contextStackProperty && contextStackProperty.borderColor) ||
     DEFAULT_DEFAULT_BORDER_COLORS.stack;
-  const debugOpacity =
-    (debugOptions && debugOptions.opacity) ||
-    (contextStackProperty && contextStackProperty.opacity) ||
-    DEFAULT_OAPCITY;
+  let debugOpacity = DEFAULT_OAPCITY;
+  debugOpacity =
+    contextStackProperty &&
+    (contextStackProperty.opacity === 0 || contextStackProperty.opacity)
+      ? contextStackProperty.opacity
+      : debugOpacity;
+  debugOpacity =
+    debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
+      ? debugOptions.opacity
+      : debugOpacity;
   const styles = StyleSheet.create<StackStyles>({
     default: { height: size },
     debug: {

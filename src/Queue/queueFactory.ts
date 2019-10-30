@@ -36,10 +36,16 @@ function queueFactory<T>(
       (debugOptions && debugOptions.borderColor) ||
       (contextQueueProperty && contextQueueProperty.borderColor) ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
-    const debugOpacity =
-      (debugOptions && debugOptions.opacity) ||
-      (contextQueueProperty && contextQueueProperty.opacity) ||
-      DEFAULT_OAPCITY;
+    let debugOpacity = DEFAULT_OAPCITY;
+    debugOpacity =
+      contextQueueProperty &&
+      (contextQueueProperty.opacity === 0 || contextQueueProperty.opacity)
+        ? contextQueueProperty.opacity
+        : debugOpacity;
+    debugOpacity =
+      debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
+        ? debugOptions.opacity
+        : debugOpacity;
     const styles = StyleSheet.create<QueueStyles>({
       default: { width: spacing[size] },
       debug: {
