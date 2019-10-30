@@ -1,6 +1,4 @@
-import { DEFAULT_DEBUG_COLORS, DEFAULT_OAPCITY } from "../constants";
 import {
-  InsetDebugOptions,
   All,
   VerHor,
   Horizontal,
@@ -159,21 +157,13 @@ const mapPaddingsToStyle = (
 };
 
 export const obtainInsetPaddingStyle = ({
-  paddings,
-  debugOptions
+  paddings
 }: {
   paddings: PaddingPossibilities<number>;
-  debugOptions?: InsetDebugOptions;
 }): InsetStyles => {
   const styles: InsetStyles = mapPaddingsToStyle(paddings);
   return StyleSheet.create<InsetStyles>({
     default: styles.default,
-    debug: {
-      borderStyle: "solid",
-      opacity: DEFAULT_OAPCITY,
-      ...styles.debug,
-      borderColor:
-        DEFAULT_DEBUG_COLORS.inset || (debugOptions && debugOptions.color)
-    }
+    debug: styles.debug
   });
 };

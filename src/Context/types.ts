@@ -3,6 +3,7 @@ export type DebugItemProps = {
   color?: string;
   border?: boolean;
   borderColor?: string;
+  opacity?: number;
 };
 
 export type InsetDebugItemProps = Omit<

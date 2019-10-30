@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native";
 import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
+  DEFAULT_OAPCITY,
   DEBUG_BORDER_THICKNESS
 } from "../constants";
 import { DebugContext } from "../Context";
@@ -35,12 +36,17 @@ function queueFactory<T>(
       (debugOptions && debugOptions.borderColor) ||
       (contextQueueProperty && contextQueueProperty.borderColor) ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
+    const debugOpacity =
+      (debugOptions && debugOptions.opacity) ||
+      (contextQueueProperty && contextQueueProperty.opacity) ||
+      DEFAULT_OAPCITY;
     const styles = StyleSheet.create<QueueStyles>({
       default: { width: spacing[size] },
       debug: {
         backgroundColor: debugBackgroundCoolor,
         borderWidth: debugBorderWidth,
         borderColor: debugBorderColor,
+        opacity: debugOpacity,
         width: spacing[size]
       }
     });

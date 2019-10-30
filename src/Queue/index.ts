@@ -32,13 +32,17 @@ const Queue = (props: QueueProps<number>): React.ReactElement => {
     (debugOptions && debugOptions.borderColor) ||
     (contextQueueProperty && contextQueueProperty.borderColor) ||
     DEFAULT_DEFAULT_BORDER_COLORS.queue;
+  const debugOpacity =
+    (debugOptions && debugOptions.opacity) ||
+    (contextQueueProperty && contextQueueProperty.opacity) ||
+    DEFAULT_OAPCITY;
   const styles = StyleSheet.create<QueueStyles>({
     default: { width: size },
     debug: {
       backgroundColor: debugBackgroundCoolor,
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
-      opacity: DEFAULT_OAPCITY,
+      opacity: debugOpacity,
       width: size
     }
   });
