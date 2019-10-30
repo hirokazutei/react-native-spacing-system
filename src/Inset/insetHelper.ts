@@ -1,4 +1,4 @@
-import { DEFAULT_DEBUG_COLORS } from "../constants";
+import { DEFAULT_DEBUG_COLORS, DEFAULT_OAPCITY } from "../constants";
 import {
   InsetDebugOptions,
   All,
@@ -170,6 +170,7 @@ export const obtainInsetPaddingStyle = ({
     default: styles.default,
     debug: {
       borderStyle: "solid",
+      opacity: DEFAULT_OAPCITY,
       ...styles.debug,
       borderColor:
         DEFAULT_DEBUG_COLORS.inset || (debugOptions && debugOptions.color)

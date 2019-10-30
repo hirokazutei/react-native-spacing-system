@@ -4,7 +4,8 @@ import { View, StyleSheet } from "react-native";
 import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
-  DEBUG_BORDER_THICKNESS
+  DEBUG_BORDER_THICKNESS,
+  DEFAULT_OAPCITY
 } from "../constants";
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
@@ -37,6 +38,7 @@ const Stack = (props: StackProps<number>): React.ReactElement => {
       backgroundColor: debugBackgroundCoolor,
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
+      opacity: DEFAULT_OAPCITY,
       height: size
     }
   });

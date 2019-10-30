@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native";
 import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
+  DEFAULT_OAPCITY,
   DEBUG_BORDER_THICKNESS
 } from "../constants";
 import { DebugContext } from "../Context";
@@ -37,6 +38,7 @@ const Queue = (props: QueueProps<number>): React.ReactElement => {
       backgroundColor: debugBackgroundCoolor,
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
+      opacity: DEFAULT_OAPCITY,
       width: size
     }
   });
