@@ -12,8 +12,7 @@ export type DebugItemProps = {|
 
 export type InsetDebugItemProps = {|
   debug?: boolean,
-  color?: string,
-  opacity?: number
+  color?: string
 |};
 
 export type DebugContextProps = {|
@@ -53,8 +52,7 @@ export type QueueProps<T> = {|
 
 // Inset
 export type InsetDebugOptions = {|
-  color?: string,
-  opacity?: number
+  color?: string
 |};
 
 export type All<T> = {|
