@@ -3,6 +3,7 @@ export declare type StackDebugOptions = {
     color?: string;
     border?: boolean;
     borderColor?: string;
+    opacity?: number;
 };
 export declare type StackProps<T> = {
     size: T;

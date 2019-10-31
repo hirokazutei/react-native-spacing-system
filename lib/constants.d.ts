@@ -1,5 +1,6 @@
 declare type DefaultDebugColorKeys = "stack" | "queue" | "inset";
 declare type DefaultDebugBorderKeys = "stack" | "queue";
+export declare const DEFAULT_OAPCITY = 0.5;
 export declare const DEFAULT_DEBUG_COLORS: {
     [key in DefaultDebugColorKeys]: string;
 };

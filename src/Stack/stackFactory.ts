@@ -4,7 +4,8 @@ import { View, StyleSheet } from "react-native";
 import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
-  DEBUG_BORDER_THICKNESS
+  DEBUG_BORDER_THICKNESS,
+  DEFAULT_OAPCITY
 } from "../constants";
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
@@ -35,12 +36,23 @@ function stackFactory<T>(
       (debugOptions && debugOptions.borderColor) ||
       (contextStackProperty && contextStackProperty.borderColor) ||
       DEFAULT_DEFAULT_BORDER_COLORS.stack;
+    let debugOpacity = DEFAULT_OAPCITY;
+    debugOpacity =
+      contextStackProperty &&
+      (contextStackProperty.opacity === 0 || contextStackProperty.opacity)
+        ? contextStackProperty.opacity
+        : debugOpacity;
+    debugOpacity =
+      debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
+        ? debugOptions.opacity
+        : debugOpacity;
     const styles = StyleSheet.create<StackStyles>({
       default: { height: spacing[size] },
       debug: {
         backgroundColor: debugBackgroundCoolor,
         borderWidth: debugBorderWidth,
         borderColor: debugBorderColor,
+        opacity: debugOpacity,
         height: spacing[size]
       }
     });
