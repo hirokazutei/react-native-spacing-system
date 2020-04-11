@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2020-04-12
+
+### Summary
+
+- The library has been used enough to be deemed as stable so v1 is being released.
+- Fixed a type error and updated packages.
+
+### Added
+
+- N/A
+
+### Changed
+
+- Fixed a type error and updated packages.
+
+### Removed
+
+- N/A
+
 ## [0.4.3] - 2019-10-23
 
 ### Summary
