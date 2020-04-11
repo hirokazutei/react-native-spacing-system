@@ -6,7 +6,7 @@ import { obtainInsetPaddingStyle } from "./insetHelper";
 import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
-const Inset = (props: InsetProps<number>): React.ReactElement => {
+const Inset = (props: InsetProps<number>) => {
   const { flex, children, debug, debugOptions, ...paddings } = props;
 
   // Configure Debug Mode

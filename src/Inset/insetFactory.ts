@@ -26,7 +26,7 @@ function insetFactory<T>(
       debug?: boolean;
       debugOptions?: InsetDebugOptions;
     } & PaddingPossibilities<keyof T>
-  ): React.ReactElement => {
+  ) => {
     const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
 
     // Configure Debug Mode

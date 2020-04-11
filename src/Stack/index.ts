@@ -10,7 +10,7 @@ import {
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
 
-const Stack = (props: StackProps<number>): React.ReactElement => {
+const Stack = (props: StackProps<number>) => {
   const { debug, debugOptions, size } = props;
   const { debug: isContextDebugMode, stack: contextStackProperty } = useContext(
     DebugContext

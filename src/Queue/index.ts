@@ -10,7 +10,7 @@ import {
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
-const Queue = (props: QueueProps<number>): React.ReactElement => {
+const Queue = (props: QueueProps<number>) => {
   const { debug, debugOptions, size } = props;
   const { debug: isContextDebugMode, queue: contextQueueProperty } = useContext(
     DebugContext
