@@ -40,8 +40,8 @@
   },
   "homepage": "https://github.com/hirokazutei/react-native-spacing-system#readme",
   "dependencies": {
-    "@types/react": "^16.8.0",
-    "@types/react-native": "^0.60.0"
+    "@types/react": "16.8.0",
+    "@types/react-native": "0.60.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -56,13 +56,14 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.0.0",
     "flow": "^0.2.3",
-    "flow-bin": "^0.98.1",
+    "flow-bin": "^0.105.2",
     "flow-copy-source": "^2.0.8",
     "flow-typed": "^2.6.1",
     "jest": "^25.0.0",
     "jest-cli": "^25.0.0",
-    "react": "^16.8.0",
-    "react-native": "^0.59.0",
-    "rimraf": "^3.0.0"
+    "react": "16.8.0",
+    "react-native": "^0.62.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.5.3"
   }
 }
