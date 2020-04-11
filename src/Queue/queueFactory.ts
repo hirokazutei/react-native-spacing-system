@@ -13,7 +13,7 @@ import { QueueProps, QueueStyles } from "./queueTypes";
 function queueFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<QueueProps<keyof T>> {
-  const Queue = (props: QueueProps<keyof T>): React.ReactElement => {
+  const Queue = (props: QueueProps<keyof T>) => {
     const { debug, debugOptions, size } = props;
     const {
       debug: isContextDebugMode,

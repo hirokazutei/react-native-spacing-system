@@ -13,7 +13,7 @@ import { StackProps, StackStyles } from "./stackTypes";
 function stackFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<StackProps<keyof T>> {
-  const Stack = (props: StackProps<keyof T>): React.ReactElement => {
+  const Stack = (props: StackProps<keyof T>) => {
     const { debug, debugOptions, size } = props;
     const {
       debug: isContextDebugMode,
