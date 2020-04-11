@@ -34,7 +34,7 @@
 Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code and increase legibility though the usage of spacing components.
 Types for TypeScript and Flow are both supported!
 
-## Installation
+# Installation
 
 ```
 npm install react-native-spacing-system
@@ -46,85 +46,9 @@ or
 yarn add react-native-spacing-system
 ```
 
-## Sentiment & Rationalization
+# Sentiment & Rationalization
 
 Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder (are they the same person?), I figured I'd do something similar for React Native with slight tweaks.
-
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
-
-For the full sentiment and rationalization, please check out my [Medium blog post: Enforcing Component Spacing in React & React Native](https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea?sk=9a3c83f74fceab3a0a402343ef987e6f).
-
-## Features
-
-### Debug
-
-Each component supports a debug mode where their spacing is highlighted.
-
-Import the `DebugContext` and use the `Provider` to toggle debug mode on and off.
-
-```jsx
-import * as React from "react";
-import { DebugContext } from "react-native-spacing-system";
-import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemComponents";
-
-const SomeComponent = () => {
-  return (
-    <DebugContext.Provider value={{ debug: booleanValue }}>
-      <ComponentWithSpacingSystemComponents />
-    </DebugContext.Provider>
-  );
-};
-```
-
-You can also control debug mode of each type of spacing component as well as their border highlighting.
-
-##### Expected Type (TypeScript)
-
-```tsx
-type DebugContextProps = {
-  debug: boolean;
-  inset?: {
-    debug?: boolean;
-    color?: string;
-  };
-  queue?: {
-    debug?: boolean;
-    color?: string;
-    border?: boolean;
-    borderColor?: string;
-  };
-  stack?: {
-    debug?: boolean;
-    color?: string;
-    border?: boolean;
-    borderColor?: string;
-  };
-};
-```
-
-##### Expected Type (Flow)
-
-```jsx
-type DebugContextProps = {|
-  debug: boolean,
-  inset?: {|
-    debug?: boolean,
-    color?: string
-  |},
-  queue?: {|
-    debug?: boolean,
-    color?: string,
-    border?: boolean,
-    borderColor?: string
-  |},
-  stack?: {|
-    debug?: boolean,
-    color?: string,
-    border?: boolean,
-    borderColor?: string
-  |}
-|};
-```
 
 **Stack:**
 ![#45e6e6](https://placehold.it/30/45e6e6/000000?text=+) &nbsp;&nbsp;
@@ -132,6 +56,12 @@ type DebugContextProps = {|
 ![#e645e6](https://placehold.it/30/e645e6/000000?text=+) &nbsp;&nbsp;
 **Inset:**
 ![#e6e645](https://placehold.it/30/e6e645/000000?text=+) &nbsp;&nbsp;
+
+<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
+
+For the full sentiment and rationalization, please check out my [Medium blog post: Enforcing Component Spacing in React & React Native](https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea?sk=9a3c83f74fceab3a0a402343ef987e6f).
+
+# Features
 
 ## Stack
 
@@ -143,7 +73,7 @@ type DebugContextProps = {|
 
 ### Usage
 
-Stack takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string}`.
+Stack takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
 
 ```jsx
 import * as React from "react";
@@ -178,7 +108,7 @@ const QueueExample = () => {
 
 ### Usage
 
-Queue takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string}`.
+Queue takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
 
 ```jsx
 import * as React from "react";
@@ -288,6 +218,80 @@ export const Stack = stackFactory<Spacing>(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
+```
+
+## Debug Mode
+
+Each component supports a debug mode where their spacing is highlighted.
+
+Import the `DebugContext` and use the `Provider` to toggle debug mode on and off.
+
+```jsx
+import * as React from "react";
+import { DebugContext } from "react-native-spacing-system";
+import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemComponents";
+
+const SomeComponent = () => {
+  return (
+    <DebugContext.Provider value={{ debug: booleanValue }}>
+      <ComponentWithSpacingSystemComponents />
+    </DebugContext.Provider>
+  );
+};
+```
+
+You can also control debug mode of each type of spacing component as well as their border highlighting.
+
+#### Expected Type (TypeScript)
+
+```tsx
+type DebugContextProps = {
+  debug: boolean;
+  inset?: {
+    debug?: boolean;
+    color?: string;
+  };
+  queue?: {
+    debug?: boolean;
+    color?: string;
+    border?: boolean;
+    borderColor?: string;
+    opacity?: number;
+  };
+  stack?: {
+    debug?: boolean;
+    color?: string;
+    border?: boolean;
+    borderColor?: string;
+    opacity?: number;
+  };
+};
+```
+
+#### Expected Type (Flow)
+
+```jsx
+type DebugContextProps = {|
+  debug: boolean,
+  inset?: {|
+    debug?: boolean,
+    color?: string
+  |},
+  queue?: {|
+    debug?: boolean,
+    color?: string,
+    border?: boolean,
+    borderColor?: string,
+    opacity?: number
+  |},
+  stack?: {|
+    debug?: boolean,
+    color?: string,
+    border?: boolean,
+    borderColor?: string,
+    opacity?: number
+  |}
+|};
 ```
 
 <h2 align="center">

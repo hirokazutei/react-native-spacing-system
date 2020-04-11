@@ -3,11 +3,12 @@ export type DebugItemProps = {
   color?: string;
   border?: boolean;
   borderColor?: string;
+  opacity?: number;
 };
 
 export type InsetDebugItemProps = Omit<
   DebugItemProps,
-  "border" | "borderColor"
+  "border" | "borderColor" | "opacity"
 >;
 
 export type DebugContextProps = {

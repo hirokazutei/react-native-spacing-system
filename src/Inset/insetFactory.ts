@@ -7,6 +7,7 @@ import {
   obtainInsetPaddingStyle
 } from "./insetHelper";
 import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
+import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 function insetFactory<T>(
   spacing: { [K in keyof T]: number }
@@ -25,12 +26,18 @@ function insetFactory<T>(
       debug?: boolean;
       debugOptions?: InsetDebugOptions;
     } & PaddingPossibilities<keyof T>
-  ): React.ReactElement => {
+  ) => {
     const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
 
     // Configure Debug Mode
-    const { debug: isContextDebugMode, inset } = useContext(DebugContext);
-    const isDebugMode = debug || isContextDebugMode || (inset && inset.debug);
+    const {
+      debug: isContextDebugMode,
+      inset: contextInsetProperty
+    } = useContext(DebugContext);
+    const isDebugMode =
+      debug ||
+      isContextDebugMode ||
+      (contextInsetProperty && contextInsetProperty.debug);
 
     // Flex
     const flexStyle = flex ? { flex } : {};
@@ -40,17 +47,23 @@ function insetFactory<T>(
       keyedPaddings,
       spacing
     });
-    const styles = obtainInsetPaddingStyle({
-      paddings: rawPaddings,
-      debugOptions
-    });
+    const styles = obtainInsetPaddingStyle({ paddings: rawPaddings });
 
     return React.createElement(
       View,
       {
         style: (<any>Object).assign(
           { ...flexStyle },
-          isDebugMode ? { ...styles.debug } : { ...styles.default }
+          isDebugMode
+            ? {
+                ...styles.debug,
+                borderStyle: "solid",
+                borderColor:
+                  (debugOptions && debugOptions.color) ||
+                  (contextInsetProperty && contextInsetProperty.color) ||
+                  DEFAULT_DEBUG_COLORS.inset
+              }
+            : { ...styles.default }
         )
       },
       children

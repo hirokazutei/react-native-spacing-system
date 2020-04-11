@@ -4,6 +4,7 @@ export type StackDebugOptions = {
   color?: string;
   border?: boolean;
   borderColor?: string;
+  opacity?: number;
 };
 
 export type StackProps<T> = {

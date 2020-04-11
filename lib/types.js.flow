@@ -6,10 +6,14 @@ export type DebugItemProps = {|
   debug?: boolean,
   color?: string,
   border?: boolean,
-  borderColor?: string
+  borderColor?: string,
+  opacity?: number
 |};
 
-export type InsetDebugItemProps = $Exact<{ debug?: boolean, color?: string }>;
+export type InsetDebugItemProps = {|
+  debug?: boolean,
+  color?: string
+|};
 
 export type DebugContextProps = {|
   debug: boolean,
@@ -22,7 +26,8 @@ export type DebugContextProps = {|
 export type StackDebugOptions = {|
   color?: string,
   border?: boolean,
-  borderColor?: string
+  borderColor?: string,
+  opacity?: number
 |};
 
 export type StackProps<T> = {|
@@ -35,7 +40,8 @@ export type StackProps<T> = {|
 export type QueueDebugOptions = {|
   color?: string,
   border?: boolean,
-  borderColor?: string
+  borderColor?: string,
+  opacity?: number
 |};
 
 export type QueueProps<T> = {|
