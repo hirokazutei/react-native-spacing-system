@@ -50,6 +50,13 @@ yarn add react-native-spacing-system
 
 Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder (are they the same person?), I figured I'd do something similar for React Native with slight tweaks.
 
+**Stack:**
+![#45e6e6](https://placehold.it/30/45e6e6/000000?text=+) &nbsp;&nbsp;
+**Queue:**
+![#e645e6](https://placehold.it/30/e645e6/000000?text=+) &nbsp;&nbsp;
+**Inset:**
+![#e6e645](https://placehold.it/30/e6e645/000000?text=+) &nbsp;&nbsp;
+
 <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
 
 For the full sentiment and rationalization, please check out my [Medium blog post: Enforcing Component Spacing in React & React Native](https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea?sk=9a3c83f74fceab3a0a402343ef987e6f).
@@ -286,13 +293,6 @@ type DebugContextProps = {|
   |}
 |};
 ```
-
-**Stack:**
-![#45e6e6](https://placehold.it/30/45e6e6/000000?text=+) &nbsp;&nbsp;
-**Queue:**
-![#e645e6](https://placehold.it/30/e645e6/000000?text=+) &nbsp;&nbsp;
-**Inset:**
-![#e6e645](https://placehold.it/30/e6e645/000000?text=+) &nbsp;&nbsp;
 
 <h2 align="center">
     Contacts & Social Media
