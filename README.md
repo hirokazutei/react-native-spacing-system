@@ -175,7 +175,7 @@ const InsetExample = () => {
 
 ## Factory Methods
 
-Utilize your own space mapping with `Stack`, `Queue` and `Inset` by passing in the space mapping into the factory method provided.
+Create your own spacing component with custom keys by passing in the space mapping object into the factory method provided.
 
 - `stackFactory()`
 - `queueFactory()`
@@ -190,13 +190,29 @@ const spacing = {
   venti: 16
 };
 
-export const Stack = stackFactory(spacing);
+const Stack = stackFactory(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
 ```
 
-#### Flow
+### `spacingFactory`
+
+If the spacing object is expected to be used in all `Stack`, `Queue`, and `Inset`, `spacingFactory` can be used to create the components in one function.
+
+```tsx
+import { spacingFactory } from "react-native-spacing-system";
+
+const spacing = {
+  tall: 8,
+  grande: 12,
+  venti: 16,
+};
+
+const { Stack, Queue, Inset } = spacingFactory(spacing);
+```
+
+### Flow
 
 Depending on your version of **flow**, you may have to pass in the type of your space object.
 
@@ -214,7 +230,7 @@ const spacing: Spacing = {
   venti: 16
 };
 
-export const Stack = stackFactory<Spacing>(spacing);
+const Stack = stackFactory<Spacing>(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
