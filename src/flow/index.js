@@ -46,4 +46,13 @@ declare export function insetFactory<T: Object>(spacing: {
   [key: $Keys<T>]: number,
 }): React.ComponentType<InsetProps<$Keys<T>>>;
 
+// Spacing
+declare export function spacingFactory<T: Object>(spacing: {
+  [key: $Keys<T>]: number,
+}): {
+  Inset: React.ComponentType<InsetProps<$Keys<T>>>,
+  Stack: React.ComponentType<StackProps<$Keys<T>>>,
+  Queue: React.ComponentType<QueueProps<$Keys<T>>>,
+};
+
 declare export var Inset: React.ComponentType<InsetProps<number>>;
