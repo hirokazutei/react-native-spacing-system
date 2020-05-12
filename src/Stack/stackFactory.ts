@@ -5,7 +5,7 @@ import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
   DEBUG_BORDER_THICKNESS,
-  DEFAULT_OAPCITY
+  DEFAULT_OAPCITY,
 } from "../constants";
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
@@ -17,7 +17,7 @@ function stackFactory<T>(
     const { debug, debugOptions, size } = props;
     const {
       debug: isContextDebugMode,
-      stack: contextStackProperty
+      stack: contextStackProperty,
     } = useContext(DebugContext);
     const isDebugMode =
       debug ||
@@ -53,11 +53,11 @@ function stackFactory<T>(
         borderWidth: debugBorderWidth,
         borderColor: debugBorderColor,
         opacity: debugOpacity,
-        height: spacing[size]
-      }
+        height: spacing[size],
+      },
     });
     return React.createElement(View, {
-      style: isDebugMode ? styles.debug : styles.default
+      style: isDebugMode ? styles.debug : styles.default,
     });
   };
   return Stack;

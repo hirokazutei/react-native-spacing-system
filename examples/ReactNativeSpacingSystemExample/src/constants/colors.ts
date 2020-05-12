@@ -16,5 +16,5 @@ export const colors: Readonly<{ [keys in ColorKeys]: string }> = {
   primary: "#4864BB",
   queueTheme: "#84A0B4",
   stackTheme: "#B48484",
-  white: "#FFFFFF"
+  white: "#FFFFFF",
 };

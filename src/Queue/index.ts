@@ -5,7 +5,7 @@ import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
   DEFAULT_OAPCITY,
-  DEBUG_BORDER_THICKNESS
+  DEBUG_BORDER_THICKNESS,
 } from "../constants";
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
@@ -49,11 +49,11 @@ const Queue = (props: QueueProps<number>) => {
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
       opacity: debugOpacity,
-      width: size
-    }
+      width: size,
+    },
   });
   return React.createElement(View, {
-    style: isDebugMode ? styles.debug : styles.default
+    style: isDebugMode ? styles.debug : styles.default,
   });
 };
 

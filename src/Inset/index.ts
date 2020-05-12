@@ -36,10 +36,10 @@ const Inset = (props: InsetProps<number>) => {
               borderColor:
                 (debugOptions && debugOptions.color) ||
                 (contextInsetProperty && contextInsetProperty.color) ||
-                DEFAULT_DEBUG_COLORS.inset
+                DEFAULT_DEBUG_COLORS.inset,
             }
           : { ...styles.default }
-      )
+      ),
     },
     children
   );

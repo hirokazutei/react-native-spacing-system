@@ -12,39 +12,39 @@ import Queue from "../atoms/Queue";
 const styles = StyleSheet.create({
   base: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   lineForBubbletea: {
     flex: 1,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   people: {
     textAlign: "center",
     color: colors.white,
     fontSize: fontSize.xlarge,
     fontWeight: "bold",
-    width: spacing.huge
+    width: spacing.huge,
   },
   person: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   queueArea: {
-    flex: 1
+    flex: 1,
   },
   queueSizeSelection: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   scrollView: {
-    backgroundColor: colors.queueTheme
+    backgroundColor: colors.queueTheme,
   },
   title: {
     textAlign: "center",
     color: colors.queueTheme,
     fontSize: fontSize.xlarge,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 const QueueExample: React.FunctionComponent<Prop> = (

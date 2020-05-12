@@ -13,26 +13,26 @@ const SAMPLE_IMAGE_LINK = "https://picsum.photos/400/800";
 const styles = StyleSheet.create({
   background: {
     backgroundColor: colors.insetTheme,
-    flex: 1
+    flex: 1,
   },
   base: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   elevator: {
-    flex: 1
+    flex: 1,
   },
   image: { flex: 1 },
   personalSpaceSizeSelection: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     textAlign: "center",
     color: colors.insetTheme,
     fontSize: fontSize.xlarge,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 const InsetExample: React.FunctionComponent<Prop> = (
