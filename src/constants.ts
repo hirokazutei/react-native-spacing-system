@@ -8,13 +8,13 @@ export const DEFAULT_DEBUG_COLORS: {
 } = {
   stack: "#45e6e6",
   queue: "#e645e6",
-  inset: "#e6e645"
+  inset: "#e6e645",
 };
 export const DEFAULT_DEFAULT_BORDER_COLORS: {
   [key in DefaultDebugBorderKeys]: string;
 } = {
   stack: "#128282",
-  queue: "#821282"
+  queue: "#821282",
 };
 
 export const DEBUG_BORDER_THICKNESS = 1;

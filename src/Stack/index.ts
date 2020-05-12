@@ -5,7 +5,7 @@ import {
   DEFAULT_DEBUG_COLORS,
   DEFAULT_DEFAULT_BORDER_COLORS,
   DEBUG_BORDER_THICKNESS,
-  DEFAULT_OAPCITY
+  DEFAULT_OAPCITY,
 } from "../constants";
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
@@ -49,11 +49,11 @@ const Stack = (props: StackProps<number>) => {
       borderWidth: debugBorderWidth,
       borderColor: debugBorderColor,
       opacity: debugOpacity,
-      height: size
-    }
+      height: size,
+    },
   });
   return React.createElement(View, {
-    style: isDebugMode ? styles.debug : styles.default
+    style: isDebugMode ? styles.debug : styles.default,
   });
 };
 

@@ -11,31 +11,31 @@ import { fontSize } from "../../constants/fontSize";
 
 const styles = StyleSheet.create({
   base: {
-    flex: 1
+    flex: 1,
   },
   buffetTable: {
-    flex: 1
+    flex: 1,
   },
   plateSelection: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   plates: {
     textAlign: "center",
     color: colors.white,
     fontSize: fontSize.xlarge,
     fontWeight: "bold",
-    letterSpacing: 4
+    letterSpacing: 4,
   },
   scrollView: {
-    backgroundColor: colors.stackTheme
+    backgroundColor: colors.stackTheme,
   },
   title: {
     textAlign: "center",
     color: colors.stackTheme,
     fontSize: fontSize.xlarge,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 const StackExample: React.FunctionComponent<Prop> = (

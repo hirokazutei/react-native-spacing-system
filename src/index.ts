@@ -2,7 +2,7 @@ import { DebugContext } from "./Context";
 import {
   DebugContextProps,
   DebugItemProps,
-  InsetDebugItemProps
+  InsetDebugItemProps,
 } from "./Context/types";
 import Inset from "./Inset";
 import insetFactory from "./Inset/insetFactory";
@@ -15,7 +15,7 @@ import {
   PaddingPossibilities,
   VerHor,
   Vertical,
-  InsetStyles
+  InsetStyles,
 } from "./Inset/insetTypes";
 import Stack from "./Stack";
 import stackFactory from "./Stack/stackFactory";
@@ -23,6 +23,8 @@ import { StackDebugOptions, StackProps, StackStyles } from "./Stack/stackTypes";
 import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
 import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
+
+// TODO Spacing Factory
 
 export {
   DebugContext,
@@ -49,5 +51,5 @@ export {
   queueFactory,
   QueueDebugOptions,
   QueueProps,
-  QueueStyles
+  QueueStyles,
 };

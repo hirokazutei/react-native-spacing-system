@@ -275,22 +275,22 @@ type DebugContextProps = {|
   debug: boolean,
   inset?: {|
     debug?: boolean,
-    color?: string
+    color?: string,
   |},
   queue?: {|
     debug?: boolean,
     color?: string,
     border?: boolean,
     borderColor?: string,
-    opacity?: number
+    opacity?: number,
   |},
   stack?: {|
     debug?: boolean,
     color?: string,
     border?: boolean,
     borderColor?: string,
-    opacity?: number
-  |}
+    opacity?: number,
+  |},
 |};
 ```
 

@@ -14,28 +14,28 @@ const SAMPLE_IMAGE_LINK = "https://picsum.photos/400/300";
 const styles = StyleSheet.create({
   base: {
     backgroundColor: colors.lightGray,
-    flexDirection: "column"
+    flexDirection: "column",
   },
   body: {
     color: colors.gray,
     fontWeight: "500",
-    fontSize: fontSize.medium
+    fontSize: fontSize.medium,
   },
   buttonRow: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   image: {
-    height: 240
+    height: 240,
   },
   subtitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: colors.gray
+    color: colors.gray,
   },
   title: {
     fontSize: fontSize.xlarge,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 const MainExample: React.FunctionComponent<Prop> = (

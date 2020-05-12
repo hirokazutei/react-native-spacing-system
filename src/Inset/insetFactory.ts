@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { DebugContext } from "../Context";
 import {
   convertInsetPaddingKeyToValue,
-  obtainInsetPaddingStyle
+  obtainInsetPaddingStyle,
 } from "./insetHelper";
 import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
@@ -32,7 +32,7 @@ function insetFactory<T>(
     // Configure Debug Mode
     const {
       debug: isContextDebugMode,
-      inset: contextInsetProperty
+      inset: contextInsetProperty,
     } = useContext(DebugContext);
     const isDebugMode =
       debug ||
@@ -45,7 +45,7 @@ function insetFactory<T>(
     // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
       keyedPaddings,
-      spacing
+      spacing,
     });
     const styles = obtainInsetPaddingStyle({ paddings: rawPaddings });
 
@@ -61,10 +61,10 @@ function insetFactory<T>(
                 borderColor:
                   (debugOptions && debugOptions.color) ||
                   (contextInsetProperty && contextInsetProperty.color) ||
-                  DEFAULT_DEBUG_COLORS.inset
+                  DEFAULT_DEBUG_COLORS.inset,
               }
             : { ...styles.default }
-        )
+        ),
       },
       children
     );
