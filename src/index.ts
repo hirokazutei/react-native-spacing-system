@@ -24,7 +24,12 @@ import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
 import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
 
-// TODO Spacing Factory
+function spacingFactory<T>(spacing: { [K in keyof T]: number }) {
+  const Inset = insetFactory<T>(spacing);
+  const Stack = stackFactory<T>(spacing);
+  const Queue = queueFactory<T>(spacing);
+  return { Inset, Stack, Queue };
+}
 
 export {
   DebugContext,
@@ -42,6 +47,7 @@ export {
   VerHor,
   Vertical,
   InsetStyles,
+  spacingFactory,
   Stack,
   stackFactory,
   StackDebugOptions,
