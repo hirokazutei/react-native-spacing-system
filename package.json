@@ -1,6 +1,6 @@
 {
   "name": "react-native-spacing-system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Enforcing and Standardizing how components are spaced in ReactNative.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -24,7 +24,8 @@
     "padding",
     "margin",
     "ios",
-    "android"
+    "android",
+    "spacing-system"
   ],
   "author": "hirokazu.tei@gmail.com",
   "license": "MIT",
