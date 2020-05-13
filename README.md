@@ -32,7 +32,10 @@
 </p>
 
 Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code and increase legibility though the usage of spacing components.
-Types for TypeScript and Flow are both supported!
+
+Factory method are provided so that you can use your own spacing key instead of raw value.
+
+TypeScript and Flow are both supported!
 
 # Installation
 
@@ -48,7 +51,7 @@ yarn add react-native-spacing-system
 
 # Sentiment & Rationalization
 
-Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder (are they the same person?), I figured I'd do something similar for React Native with slight tweaks.
+Inspired by Nathan Curtis's Medium article [Space In Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62) and this [react-spacing](https://github.com/nathanwinder/react-spacing) library by Nathan Winder, I figured I'd do something similar for React Native with slight tweaks.
 
 **Stack:**
 ![#45e6e6](https://placehold.it/30/45e6e6/000000?text=+) &nbsp;&nbsp;
@@ -175,7 +178,7 @@ const InsetExample = () => {
 
 ## Factory Methods
 
-Utilize your own space mapping with `Stack`, `Queue` and `Inset` by passing in the space mapping into the factory method provided.
+Create your own spacing component with custom keys by passing in the space mapping object into the factory method provided.
 
 - `stackFactory()`
 - `queueFactory()`
@@ -190,13 +193,29 @@ const spacing = {
   venti: 16
 };
 
-export const Stack = stackFactory(spacing);
+const Stack = stackFactory(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
 ```
 
-#### Flow
+### `spacingFactory`
+
+If the spacing object is expected to be used in all `Stack`, `Queue`, and `Inset`, `spacingFactory` can be used to create the components in one function.
+
+```tsx
+import { spacingFactory } from "react-native-spacing-system";
+
+const spacing = {
+  tall: 8,
+  grande: 12,
+  venti: 16,
+};
+
+const { Stack, Queue, Inset } = spacingFactory(spacing);
+```
+
+### Flow
 
 Depending on your version of **flow**, you may have to pass in the type of your space object.
 
@@ -214,7 +233,7 @@ const spacing: Spacing = {
   venti: 16
 };
 
-export const Stack = stackFactory<Spacing>(spacing);
+const Stack = stackFactory<Spacing>(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
