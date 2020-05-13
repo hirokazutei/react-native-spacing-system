@@ -5,13 +5,13 @@ import {
   Vertical,
   Other,
   PaddingPossibilities,
-  InsetStyles
+  InsetStyles,
 } from "./insetTypes";
 import { StyleSheet } from "react-native";
 
 export function convertInsetPaddingKeyToValue<T>({
   keyedPaddings,
-  spacing
+  spacing,
 }: {
   keyedPaddings: PaddingPossibilities<keyof T>;
   spacing: { [K in keyof T]: number };
@@ -27,7 +27,7 @@ export function convertInsetPaddingKeyToValue<T>({
   ) {
     return {
       vertical: spacing[(keyedPaddings as VerHor<keyof T>).vertical],
-      horizontal: spacing[(keyedPaddings as VerHor<keyof T>).horizontal]
+      horizontal: spacing[(keyedPaddings as VerHor<keyof T>).horizontal],
     };
 
     // Vertical & Right & Left
@@ -37,7 +37,7 @@ export function convertInsetPaddingKeyToValue<T>({
     return {
       vertical: spacing[(keyedPaddings as Vertical<keyof T>).vertical],
       right: rightKey && spacing[rightKey],
-      left: leftKey && spacing[leftKey]
+      left: leftKey && spacing[leftKey],
     };
 
     // Horizontal & Top & Bottom
@@ -47,7 +47,7 @@ export function convertInsetPaddingKeyToValue<T>({
     return {
       horizontal: spacing[(keyedPaddings as Horizontal<keyof T>).horizontal],
       top: topKey && spacing[topKey],
-      bottom: bottomKey && spacing[bottomKey]
+      bottom: bottomKey && spacing[bottomKey],
     };
 
     // Top & Right & Bottom & Left
@@ -60,7 +60,7 @@ export function convertInsetPaddingKeyToValue<T>({
       top: topKey && spacing[topKey],
       right: rightKey && spacing[rightKey],
       bottom: bottomKey && spacing[bottomKey],
-      left: leftKey && spacing[leftKey]
+      left: leftKey && spacing[leftKey],
     };
   }
 }
@@ -85,14 +85,14 @@ const mapPaddingsToStyle = (
     return {
       default: {
         paddingVertical,
-        paddingHorizontal
+        paddingHorizontal,
       },
       debug: {
         borderTopWidth: paddingVertical,
         borderRightWidth: paddingHorizontal,
         borderBottomWidth: paddingVertical,
-        borderLeftWidth: paddingHorizontal
-      }
+        borderLeftWidth: paddingHorizontal,
+      },
     };
 
     // Vertical & Right & Left
@@ -104,14 +104,14 @@ const mapPaddingsToStyle = (
       default: {
         paddingVertical,
         ...(paddingRight ? { paddingRight } : {}),
-        ...(paddingLeft ? { paddingLeft } : {})
+        ...(paddingLeft ? { paddingLeft } : {}),
       },
       debug: {
         borderTopWidth: paddingVertical,
         borderBottomWidth: paddingVertical,
         ...(paddingRight ? { borderRightWidth: paddingRight } : {}),
-        ...(paddingLeft ? { borderLeftWidth: paddingLeft } : {})
-      }
+        ...(paddingLeft ? { borderLeftWidth: paddingLeft } : {}),
+      },
     };
 
     // Horizontal & Top & Bottom
@@ -123,14 +123,14 @@ const mapPaddingsToStyle = (
       default: {
         paddingHorizontal: (paddings as Horizontal<number>).horizontal,
         ...(paddingTop ? { paddingTop } : {}),
-        ...(paddingBottom ? { paddingBottom } : {})
+        ...(paddingBottom ? { paddingBottom } : {}),
       },
       debug: {
         borderRightWidth: paddingHorizontal,
         borderLeftWidth: paddingHorizontal,
         ...(paddingTop ? { borderTopWidth: paddingTop } : {}),
-        ...(paddingBottom ? { borderBottomWidth: paddingBottom } : {})
-      }
+        ...(paddingBottom ? { borderBottomWidth: paddingBottom } : {}),
+      },
     };
 
     // Top & Right & Bottom & Left
@@ -144,26 +144,26 @@ const mapPaddingsToStyle = (
         ...(paddingTop ? { paddingTop } : {}),
         ...(paddingRight ? { paddingRight } : {}),
         ...(paddingBottom ? { paddingBottom } : {}),
-        ...(paddingLeft ? { paddingLeft } : {})
+        ...(paddingLeft ? { paddingLeft } : {}),
       },
       debug: {
         ...(paddingTop ? { borderTopWidth: paddingTop } : {}),
         ...(paddingRight ? { borderRightWidth: paddingRight } : {}),
         ...(paddingBottom ? { borderBottomWidth: paddingBottom } : {}),
-        ...(paddingLeft ? { borderLeftWidth: paddingLeft } : {})
-      }
+        ...(paddingLeft ? { borderLeftWidth: paddingLeft } : {}),
+      },
     };
   }
 };
 
 export const obtainInsetPaddingStyle = ({
-  paddings
+  paddings,
 }: {
   paddings: PaddingPossibilities<number>;
 }): InsetStyles => {
   const styles: InsetStyles = mapPaddingsToStyle(paddings);
   return StyleSheet.create<InsetStyles>({
     default: styles.default,
-    debug: styles.debug
+    debug: styles.debug,
   });
 };

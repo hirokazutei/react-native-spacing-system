@@ -20,7 +20,7 @@ export const spacingKeysList: Array<SpacingKeys> = [
   "huge",
   "massive",
   "macro",
-  "galactic"
+  "galactic",
 ];
 
 type Spacing = Readonly<{ [key in SpacingKeys]: number }>;
@@ -35,5 +35,5 @@ export const spacing: Spacing = {
   huge: 24,
   massive: 32,
   macro: 48,
-  galactic: 64
+  galactic: 64,
 };

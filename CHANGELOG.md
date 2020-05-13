@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2020-05-13
+
+### Summary
+
+- Added `spacingFactory` so that all spacing component can be created with one call.
+
+### Added
+
+- `spacingFactory` function and Flow typing support
+
+### Changed
+
+- Edited the README.md a bit.
+
+### Removed
+
+- N/A
+
 ## [1.0.0] - 2020-04-12
 
 ### Summary

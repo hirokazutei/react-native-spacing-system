@@ -7,19 +7,19 @@ export type DebugItemProps = {|
   color?: string,
   border?: boolean,
   borderColor?: string,
-  opacity?: number
+  opacity?: number,
 |};
 
 export type InsetDebugItemProps = {|
   debug?: boolean,
-  color?: string
+  color?: string,
 |};
 
 export type DebugContextProps = {|
   debug: boolean,
   inset?: InsetDebugItemProps,
   queue?: DebugItemProps,
-  stack?: DebugItemProps
+  stack?: DebugItemProps,
 |};
 
 // Stack
@@ -27,13 +27,13 @@ export type StackDebugOptions = {|
   color?: string,
   border?: boolean,
   borderColor?: string,
-  opacity?: number
+  opacity?: number,
 |};
 
 export type StackProps<T> = {|
   size: T,
   debug?: boolean,
-  debugOptions?: StackDebugOptions
+  debugOptions?: StackDebugOptions,
 |};
 
 // Queue
@@ -41,46 +41,46 @@ export type QueueDebugOptions = {|
   color?: string,
   border?: boolean,
   borderColor?: string,
-  opacity?: number
+  opacity?: number,
 |};
 
 export type QueueProps<T> = {|
   size: T,
   debug?: boolean,
-  debugOptions?: QueueDebugOptions
+  debugOptions?: QueueDebugOptions,
 |};
 
 // Inset
 export type InsetDebugOptions = {|
-  color?: string
+  color?: string,
 |};
 
 export type All<T> = {|
-  all: T
+  all: T,
 |};
 
 export type VerHor<T> = {|
   horizontal: T,
-  vertical: T
+  vertical: T,
 |};
 
 export type Horizontal<T> = {|
   horizontal: T,
   top?: T,
-  bottom?: T
+  bottom?: T,
 |};
 
 export type Vertical<T> = {|
   vertical: T,
   right?: T,
-  left?: T
+  left?: T,
 |};
 
 export type Other<T> = {|
   top?: T,
   right?: T,
   bottom?: T,
-  left?: T
+  left?: T,
 |};
 
 export type PaddingPossibilities<T> =
@@ -94,7 +94,7 @@ type InsetOtherProps = {|
   flex?: number,
   children: React.Node,
   debug?: boolean,
-  debugOptions?: InsetDebugOptions
+  debugOptions?: InsetDebugOptions,
 |};
 
 export type InsetProps<T> =

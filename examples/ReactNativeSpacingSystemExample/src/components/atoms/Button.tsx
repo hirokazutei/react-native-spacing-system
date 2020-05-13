@@ -18,29 +18,29 @@ const styles = StyleSheet.create({
   minorButton: {
     borderRadius: 4,
     backgroundColor: colors.minorButton,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   minorText: {
-    fontSize: fontSize.medium
+    fontSize: fontSize.medium,
   },
   majorButton: {
     borderRadius: 4,
     backgroundColor: colors.primary,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   majorText: {
     color: colors.white,
     fontSize: fontSize.medium,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   tabButton: {
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   tabText: {
     color: colors.primary,
     fontSize: fontSize.large,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 /**
@@ -52,14 +52,14 @@ const Button: React.FC<Props> = (props: Props): React.ReactElement => {
     buttonType !== "minor"
       ? {
           horizontal: "massive" as SpacingKeys,
-          vertical: "large" as SpacingKeys
+          vertical: "large" as SpacingKeys,
         }
       : { all: "small" as SpacingKeys };
   return (
     <TouchableOpacity
       style={[
         styles[`${buttonType}Button` as ButtonStyleKeys],
-        color ? { backgroundColor: color } : {}
+        color ? { backgroundColor: color } : {},
       ]}
       onPress={onPress}
     >

@@ -21,30 +21,30 @@ const EXAMPLES: {
   inset: InsetExample,
   main: MainExample,
   queue: QueueExample,
-  stack: StackExample
+  stack: StackExample,
 };
 
 const styles = StyleSheet.create({
   base: {
-    flex: 1
+    flex: 1,
   },
   buttonSeparator: {
     color: colors.primary,
-    fontSize: fontSize.large
+    fontSize: fontSize.large,
   },
   debugButton: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   debugButtonContainer: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   exampleContainer: {
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-evenly"
-  }
+    justifyContent: "space-evenly",
+  },
 });
 
 const App = () => {
@@ -52,7 +52,7 @@ const App = () => {
   const [debugProps, setDebugMode] = useState<DebugContextProps>({
     debug: false,
     stack: { border: false },
-    queue: { border: false }
+    queue: { border: false },
   });
   const toggleDebugMode = () =>
     setDebugMode({ ...debugProps, debug: !debugProps.debug });
@@ -60,7 +60,7 @@ const App = () => {
     setDebugMode({
       ...debugProps,
       stack: { border: !(debugProps.stack && debugProps.stack.border) },
-      queue: { border: !(debugProps.queue && debugProps.queue.border) }
+      queue: { border: !(debugProps.queue && debugProps.queue.border) },
     });
   // Toggle Example
   const [exampleKey, setExample] = useState("main");

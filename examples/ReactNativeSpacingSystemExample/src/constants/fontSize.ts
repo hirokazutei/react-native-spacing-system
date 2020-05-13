@@ -4,5 +4,5 @@ export const fontSize: Readonly<{ [key in FontSizeKeys]: number }> = {
   small: 8,
   medium: 16,
   large: 20,
-  xlarge: 24
+  xlarge: 24,
 };

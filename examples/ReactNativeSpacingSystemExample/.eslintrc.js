@@ -3,24 +3,24 @@ module.exports = {
   extends: "@react-native-community",
   env: {
     browser: true,
-    es6: true
+    es6: true,
   },
   globals: {
     Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: ["react-native"],
   rules: {
     indent: ["error", 4],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
-    semi: ["error", "always"]
-  }
+    semi: ["error", "always"],
+  },
 };
