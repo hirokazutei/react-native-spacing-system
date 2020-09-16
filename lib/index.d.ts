@@ -16,28 +16,28 @@ declare function spacingFactory<T>(spacing: {
     Inset: import("react").FunctionComponent<({
         flex?: number | undefined;
         children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
+        _debug?: boolean | undefined;
+        _debugOptions?: InsetDebugOptions | undefined;
     } & All<keyof T>) | ({
         flex?: number | undefined;
         children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
+        _debug?: boolean | undefined;
+        _debugOptions?: InsetDebugOptions | undefined;
     } & VerHor<keyof T>) | ({
         flex?: number | undefined;
         children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
+        _debug?: boolean | undefined;
+        _debugOptions?: InsetDebugOptions | undefined;
     } & Horizontal<keyof T>) | ({
         flex?: number | undefined;
         children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
+        _debug?: boolean | undefined;
+        _debugOptions?: InsetDebugOptions | undefined;
     } & Vertical<keyof T>) | ({
         flex?: number | undefined;
         children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
+        _debug?: boolean | undefined;
+        _debugOptions?: InsetDebugOptions | undefined;
     } & Other<keyof T>)>;
     Stack: import("react").FunctionComponent<StackProps<keyof T>>;
     Queue: import("react").FunctionComponent<QueueProps<keyof T>>;

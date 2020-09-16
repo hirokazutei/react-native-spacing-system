@@ -14,26 +14,26 @@ function stackFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<StackProps<keyof T>> {
   const Stack = (props: StackProps<keyof T>) => {
-    const { debug, debugOptions, size } = props;
+    const { _debug, _debugOptions, size } = props;
     const {
       debug: isContextDebugMode,
       stack: contextStackProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      debug ||
+      _debug ||
       isContextDebugMode ||
       (contextStackProperty && contextStackProperty.debug);
     const defaultStackDebugColor =
       (contextStackProperty && contextStackProperty.color) ||
       DEFAULT_DEBUG_COLORS.stack;
     const debugBackgroundCoolor =
-      (debugOptions && debugOptions.color) || defaultStackDebugColor;
+      (_debugOptions && _debugOptions.color) || defaultStackDebugColor;
     const isDebugBorderMode =
-      (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
+      (_debugOptions && (_debugOptions.border || _debugOptions.borderColor)) ||
       (contextStackProperty && contextStackProperty.border);
     const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
     const debugBorderColor =
-      (debugOptions && debugOptions.borderColor) ||
+      (_debugOptions && _debugOptions.borderColor) ||
       (contextStackProperty && contextStackProperty.borderColor) ||
       DEFAULT_DEFAULT_BORDER_COLORS.stack;
     let debugOpacity = DEFAULT_OAPCITY;
@@ -43,8 +43,8 @@ function stackFactory<T>(
         ? contextStackProperty.opacity
         : debugOpacity;
     debugOpacity =
-      debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
-        ? debugOptions.opacity
+      _debugOptions && (_debugOptions.opacity === 0 || _debugOptions.opacity)
+        ? _debugOptions.opacity
         : debugOpacity;
     const styles = StyleSheet.create<StackStyles>({
       default: { height: spacing[size] },

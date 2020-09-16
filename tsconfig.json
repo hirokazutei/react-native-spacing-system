@@ -15,7 +15,7 @@
     "outDir": "lib" /* Redirect output structure to the directory. */,
     "rootDir": "src" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
     // "composite": true,                     /* Enable project compilation */
-    // "removeComments": true,                /* Do not emit comments to output. */
+    "removeComments": true /* Do not emit comments to output. */,
     // "noEmit": true,                        /* Do not emit outputs. */
     // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
     // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
@@ -29,7 +29,7 @@
     "strictFunctionTypes": true /* Enable strict checking of function types. */,
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
     // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
-    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
+    "alwaysStrict": true /* Parse in strict mode and emit "use strict" for each source file. */,
 
     /* Additional Checks */
     "noUnusedLocals": true /* Report errors on unused locals. */,
@@ -68,7 +68,7 @@
     "ignoreCompilerErrors": true,
     "excludePrivate": true,
     "excludeNotExported": true,
-    "target": "ES5",
+    "target": "ES6",
     "moduleResolution": "node",
     "preserveConstEnums": true,
     "stripInternal": true,

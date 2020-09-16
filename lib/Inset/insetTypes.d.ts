@@ -53,8 +53,8 @@ export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T>
 export declare type InsetProps<T> = {
     layout?: LayoutStyle;
     children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
+    _debug?: boolean;
+    _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;
 export declare type InsetStyles = {
     debug: ViewStyle;

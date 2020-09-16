@@ -11,25 +11,25 @@ import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
 const Queue = (props: QueueProps<number>) => {
-  const { debug, debugOptions, size } = props;
+  const { _debug, _debugOptions, size } = props;
   const { debug: isContextDebugMode, queue: contextQueueProperty } = useContext(
     DebugContext
   );
   const isDebugMode =
-    debug ||
+    _debug ||
     isContextDebugMode ||
     (contextQueueProperty && contextQueueProperty.debug);
   const defaultQueueDebugColor =
     (contextQueueProperty && contextQueueProperty.color) ||
     DEFAULT_DEBUG_COLORS.queue;
   const debugBackgroundCoolor =
-    (debugOptions && debugOptions.color) || defaultQueueDebugColor;
+    (_debugOptions && _debugOptions.color) || defaultQueueDebugColor;
   const isDebugBorderMode =
-    (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
+    (_debugOptions && (_debugOptions.border || _debugOptions.borderColor)) ||
     (contextQueueProperty && contextQueueProperty.border);
   const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
-    (debugOptions && debugOptions.borderColor) ||
+    (_debugOptions && _debugOptions.borderColor) ||
     (contextQueueProperty && contextQueueProperty.borderColor) ||
     DEFAULT_DEFAULT_BORDER_COLORS.queue;
   let debugOpacity = DEFAULT_OAPCITY;
@@ -39,8 +39,8 @@ const Queue = (props: QueueProps<number>) => {
       ? contextQueueProperty.opacity
       : debugOpacity;
   debugOpacity =
-    debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
-      ? debugOptions.opacity
+    _debugOptions && (_debugOptions.opacity === 0 || _debugOptions.opacity)
+      ? _debugOptions.opacity
       : debugOpacity;
   const styles = StyleSheet.create<QueueStyles>({
     default: { width: size },
