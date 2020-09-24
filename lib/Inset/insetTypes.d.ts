@@ -1,8 +1,9 @@
 /// <reference types="react" />
-import { ViewStyle } from "react-native";
+import { FlexStyle, ViewStyle } from "react-native";
 export declare type InsetDebugOptions = {
     color?: string;
 };
+export declare type LayoutStyle = Omit<FlexStyle, "borderBottomWidth" | "borderEndWidth" | "borderLeftWidth" | "borderRightWidth" | "borderStartWidth" | "borderTopWidth" | "borderWidth" | "margin" | "marginBottom" | "marginEnd" | "marginHorizontal" | "marginLeft" | "marginRight" | "marginStart" | "marginTop" | "marginVertical" | "padding" | "paddingBottom" | "paddingEnd" | "paddingHorizontal" | "paddingLeft" | "paddingRight" | "paddingStart" | "paddingTop" | "paddingVertical">;
 export declare type All<T> = {
     all: T;
     horizontal?: never;
@@ -50,7 +51,7 @@ export declare type Other<T> = {
 };
 export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T> | Vertical<T> | Other<T>;
 export declare type InsetProps<T> = {
-    flex?: number;
+    layout?: LayoutStyle;
     children: React.ReactNode;
     debug?: boolean;
     debugOptions?: InsetDebugOptions;

@@ -55,6 +55,40 @@ export type InsetDebugOptions = {|
   color?: string,
 |};
 
+export type LayoutStyle = {|
+  $Diff<
+    FlexStyle,
+    // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
+    {
+      borderBottomWidth: number,
+      borderEndWidth: number | string,
+      borderLeftWidth: number,
+      borderRightWidth: number,
+      borderStartWidth: number | string,
+      borderTopWidth: number,
+      borderWidth: number,
+      margin: number | string,
+      marginBottom: number | string,
+      marginEnd: number | string,
+      marginHorizontal: number | string,
+      marginLeft: number | string,
+      marginRight: number | string,
+      marginStart: number | string,
+      marginTop: number | string,
+      marginVertical: number | string,
+      padding: number | string,
+      paddingBottom: number | string,
+      paddingEnd: number | string,
+      paddingHorizontal: number | string,
+      paddingLeft: number | string,
+      paddingRight: number | string,
+      paddingStart: number | string,
+      paddingTop: number | string,
+      paddingVertical: number | string,
+    }
+  >,
+|};
+
 export type All<T> = {|
   all: T,
 |};
@@ -91,7 +125,7 @@ export type PaddingPossibilities<T> =
   | Other<T>;
 
 type InsetOtherProps = {|
-  flex?: number,
+  layout?: number,
   children: React.Node,
   debug?: boolean,
   debugOptions?: InsetDebugOptions,
