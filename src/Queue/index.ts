@@ -16,9 +16,11 @@ const Queue = (props: QueueProps<number>) => {
     DebugContext
   );
   const isDebugMode =
-    _debug ||
-    isContextDebugMode ||
-    (contextQueueProperty && contextQueueProperty.debug);
+    __DEV__ &&
+    (_debug ||
+      isContextDebugMode ||
+      (contextQueueProperty && contextQueueProperty.debug));
+
   const defaultQueueDebugColor =
     (contextQueueProperty && contextQueueProperty.color) ||
     DEFAULT_DEBUG_COLORS.queue;

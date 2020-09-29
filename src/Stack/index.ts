@@ -16,9 +16,10 @@ const Stack = (props: StackProps<number>) => {
     DebugContext
   );
   const isDebugMode =
-    _debug ||
-    isContextDebugMode ||
-    (contextStackProperty && contextStackProperty.debug);
+    __DEV__ &&
+    (_debug ||
+      isContextDebugMode ||
+      (contextStackProperty && contextStackProperty.debug));
   const defaultStackDebugColor =
     (contextStackProperty && contextStackProperty.color) ||
     DEFAULT_DEBUG_COLORS.stack;

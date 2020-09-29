@@ -14,9 +14,10 @@ const Inset = (props: InsetProps<number>) => {
     DebugContext
   );
   const isDebugMode =
-    _debug ||
-    isContextDebugMode ||
-    (contextInsetProperty && contextInsetProperty.debug);
+    __DEV__ &&
+    (_debug ||
+      isContextDebugMode ||
+      (contextInsetProperty && contextInsetProperty.debug));
 
   // Padding Style
   const styles = obtainInsetPaddingStyle({ paddings });
