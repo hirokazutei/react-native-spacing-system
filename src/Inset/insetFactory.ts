@@ -35,9 +35,10 @@ function insetFactory<T>(
       inset: contextInsetProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      _debug ||
-      isContextDebugMode ||
-      (contextInsetProperty && contextInsetProperty.debug);
+      __DEV__ &&
+      (_debug ||
+        isContextDebugMode ||
+        (contextInsetProperty && contextInsetProperty.debug));
 
     // Flex
     const flexStyle = flex ? { flex } : {};
