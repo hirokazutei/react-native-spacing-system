@@ -5,8 +5,8 @@ declare function insetFactory<T>(spacing: {
 }): React.FunctionComponent<{
     flex?: number;
     children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
+    _debug?: boolean;
+    _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<keyof T>>;
 export default insetFactory;
 //# sourceMappingURL=insetFactory.d.ts.map

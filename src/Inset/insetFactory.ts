@@ -15,19 +15,19 @@ function insetFactory<T>(
   {
     flex?: number;
     children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
+    _debug?: boolean;
+    _debugOptions?: InsetDebugOptions;
   } & PaddingPossibilities<keyof T>
 > {
   const Inset = (
     props: {
       flex?: number;
       children: React.ReactNode;
-      debug?: boolean;
-      debugOptions?: InsetDebugOptions;
+      _debug?: boolean;
+      _debugOptions?: InsetDebugOptions;
     } & PaddingPossibilities<keyof T>
   ) => {
-    const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
+    const { flex, children, _debug, _debugOptions, ...keyedPaddings } = props;
 
     // Configure Debug Mode
     const {
@@ -35,7 +35,7 @@ function insetFactory<T>(
       inset: contextInsetProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      debug ||
+      _debug ||
       isContextDebugMode ||
       (contextInsetProperty && contextInsetProperty.debug);
 
@@ -59,7 +59,7 @@ function insetFactory<T>(
                 ...styles.debug,
                 borderStyle: "solid",
                 borderColor:
-                  (debugOptions && debugOptions.color) ||
+                  (_debugOptions && _debugOptions.color) ||
                   (contextInsetProperty && contextInsetProperty.color) ||
                   DEFAULT_DEBUG_COLORS.inset,
               }

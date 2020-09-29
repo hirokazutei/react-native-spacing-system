@@ -76,7 +76,7 @@ For the full sentiment and rationalization, please check out my [Medium blog pos
 
 ### Usage
 
-Stack takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Stack takes `size: number`, `_debug?: boolean` and `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
 
 ```jsx
 import * as React from "react";
@@ -111,7 +111,7 @@ const QueueExample = () => {
 
 ### Usage
 
-Queue takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Queue takes `size: number`, `_debug?: boolean` and `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
 
 ```jsx
 import * as React from "react";
@@ -148,7 +148,7 @@ const StackExample = () => {
 
 ### Usage
 
-Inset takes `children: ReactNode`, `debug?: boolean`, `debugOptions?: {color?: string}`, `flex?: number`, and `paddings: PaddingCombinations`.
+Inset takes `children: ReactNode`, `_debug?: boolean`, `_debugOptions?: {color?: string}`, `flex?: number`, and `PaddingCombinations`.
 
 The allowed `PaddingCombinations` are as follows:
 
@@ -252,7 +252,7 @@ import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemCo
 
 const SomeComponent = () => {
   return (
-    <DebugContext.Provider value={{ debug: booleanValue }}>
+    <DebugContext.Provider value={{ _debug: booleanValue }}>
       <ComponentWithSpacingSystemComponents />
     </DebugContext.Provider>
   );
