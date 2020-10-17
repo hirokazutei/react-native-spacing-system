@@ -1,9 +1,9 @@
 import * as React from "react";
-import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
+import { InsetDebugOptions, PaddingPossibilities, LayoutStyle } from "./insetTypes";
 declare function insetFactory<T>(spacing: {
     [K in keyof T]: number;
 }): React.FunctionComponent<{
-    flex?: number;
+    layout?: LayoutStyle;
     children: React.ReactNode;
     _debug?: boolean;
     _debugOptions?: InsetDebugOptions;
