@@ -64,9 +64,9 @@ const QueueExample: StatelessFunctionalComponent<Props> = (
       <View style={styles.queueArea}>
         <Text style={styles.title}>{`${spaceSize.toUpperCase()}`}</Text>
         <Text style={styles.title}>LINE FOR BUBBLETEA</Text>
-        <Inset vertical="huge" flex={1}>
+        <Inset vertical="huge" layout={{flex: 1}}>
           <ScrollView horizontal={true} style={styles.scrollView}>
-            <Inset vertical="huge" horizontal="large" flex={1}>
+            <Inset vertical="huge" horizontal="large" layout={{flex: 1}}>
               <DebugContext.Provider value={props}>
                 <View style={styles.lineForBubbletea}>
                   {[...Array(20)].map((e, i) => {

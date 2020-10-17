@@ -52,10 +52,10 @@ const InsetExample: StatelessFunctionalComponent<Props> = (
       <View style={styles.elevator}>
         <Text style={styles.title}>{`${spaceSize.toUpperCase()}`}</Text>
         <Text style={styles.title}>PICTURE FRAME</Text>
-        <Inset vertical="huge" flex={1}>
+        <Inset vertical="huge" layout={{flex: 1}}>
           <View style={styles.background}>
             <DebugContext.Provider value={props}>
-              <Inset all={spaceSize} flex={1}>
+              <Inset all={spaceSize} layout={{flex: 1}}>
                 <Image source={{uri: SAMPLE_IMAGE_SIZE}} style={styles.image} />
               </Inset>
             </DebugContext.Provider>
