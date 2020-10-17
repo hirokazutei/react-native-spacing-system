@@ -50,7 +50,7 @@ const StackExample: React.FunctionComponent<Prop> = (
       <View style={styles.buffetTable}>
         <Text style={styles.title}>{`${spaceSize.toUpperCase()}`}</Text>
         <Text style={styles.title}>STACK OF PLATES</Text>
-        <Inset vertical="huge" flex={1}>
+        <Inset vertical="huge" layout={{ flex: 1 }}>
           <ScrollView style={styles.scrollView}>
             <Inset vertical="huge">
               <DebugContext.Provider value={prop}>

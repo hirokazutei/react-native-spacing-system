@@ -70,7 +70,7 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.base}>
-        <Inset horizontal="macro" vertical="huge" flex={1}>
+        <Inset horizontal="macro" vertical="huge" layout={{ flex: 1 }}>
           <View style={styles.exampleContainer}>
             <Button
               onPress={setExampleMode("main")}

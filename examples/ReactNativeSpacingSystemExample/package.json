@@ -1,16 +1,17 @@
 {
-  "name": "ReactNativeSpacingSystemExample",
+  "name": "typescript-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --skipLibCheck --noEmit"
   },
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.4",
-    "react-native-spacing-system": "^1.0.0"
+    "react-native-spacing-system": "github:hirokazutei/react-native-spacing-system#develop"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

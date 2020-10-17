@@ -1,23 +1,26 @@
 {
-  "name": "FlowProjectExample",
+  "name": "flow-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "yarn flow"
   },
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "react-native-spacing-system": "^1.0.0"
+    "react-native-spacing-system": "github:hirokazutei/react-native-spacing-system#develop"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-flow": "^7.12.1",
     "@babel/runtime": "^7.5.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.2.1",
-    "flow-bin": "^0.105.2",
+    "flow-bin": "^0.98.0",
     "flow-typed": "^2.6.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
