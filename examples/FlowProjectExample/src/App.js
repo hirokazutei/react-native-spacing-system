@@ -60,8 +60,8 @@ const App = () => {
   const toggleDebugBorder = () =>
     setDebugMode({
       ...debugProps,
-      stack: {border: !(debugProps.stack && debugProps.stack.border)},
-      queue: {border: !(debugProps.queue && debugProps.queue.border)},
+      stack: {border: !debugProps.stack?.border},
+      queue: {border: !debugProps.queue?.border},
     });
   // Toggle Example
   const [exampleKey, setExample] = useState('main');
@@ -114,9 +114,7 @@ const App = () => {
                 onPress={toggleDebugBorder}
                 buttonType="major"
                 poopers="s"
-                label={`BORDER: ${
-                  debugProps.stack && debugProps.stack.border ? 'ON' : 'OFF'
-                }`}
+                label={`BORDER: ${debugProps?.stack.border ? 'ON' : 'OFF'}`}
               />
             </View>
           </View>

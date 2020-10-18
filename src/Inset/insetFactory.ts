@@ -31,10 +31,7 @@ function insetFactory<T>(
     } = useContext(DebugContext);
     const isDebugMode =
       __DEV__ &&
-      (_debug ||
-        debug ||
-        isContextDebugMode ||
-        (contextInsetProperty && contextInsetProperty.debug));
+      (_debug || debug || isContextDebugMode || contextInsetProperty?.debug);
 
     // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
@@ -58,7 +55,7 @@ function insetFactory<T>(
                 borderColor:
                   _debugOptions?.color ||
                   debugOptions?.color ||
-                  (contextInsetProperty && contextInsetProperty.color) ||
+                  contextInsetProperty?.color ||
                   DEFAULT_DEBUG_COLORS.inset,
               }
             : { ...styles.default }

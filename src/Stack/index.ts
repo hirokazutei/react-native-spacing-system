@@ -17,13 +17,9 @@ const Stack = (props: StackProps<number>) => {
   );
   const isDebugMode =
     __DEV__ &&
-    (_debug ||
-      debug ||
-      isContextDebugMode ||
-      (contextStackProperty && contextStackProperty.debug));
+    (_debug || debug || isContextDebugMode || contextStackProperty?.debug);
   const defaultStackDebugColor =
-    (contextStackProperty && contextStackProperty.color) ||
-    DEFAULT_DEBUG_COLORS.stack;
+    contextStackProperty?.color || DEFAULT_DEBUG_COLORS.stack;
   const debugBackgroundCoolor =
     _debugOptions?.color || debugOptions?.color || defaultStackDebugColor;
   const isDebugBorderMode =
@@ -31,12 +27,12 @@ const Stack = (props: StackProps<number>) => {
     _debugOptions?.borderColor ||
     debugOptions?.border ||
     debugOptions?.borderColor ||
-    (contextStackProperty && contextStackProperty.border);
+    contextStackProperty?.border;
   const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
     _debugOptions?.borderColor ||
     debugOptions?.borderColor ||
-    (contextStackProperty && contextStackProperty.borderColor) ||
+    contextStackProperty?.borderColor ||
     DEFAULT_DEFAULT_BORDER_COLORS.stack;
   const debugOpacity = (() => {
     switch (true) {
