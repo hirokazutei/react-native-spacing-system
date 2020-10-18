@@ -9,6 +9,8 @@ export type QueueDebugOptions = {
 
 export type QueueProps<T> = {
   size: T;
+  debug?: boolean;
+  debugOptions?: QueueDebugOptions;
   _debug?: boolean;
   _debugOptions?: QueueDebugOptions;
 };
