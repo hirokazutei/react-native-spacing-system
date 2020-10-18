@@ -52,6 +52,7 @@ export declare type Other<T> = {
 export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T> | Vertical<T> | Other<T>;
 export declare type InsetProps<T> = {
     layout?: LayoutStyle;
+    flex?: number;
     children: React.ReactNode;
     debug?: boolean;
     debugOptions?: InsetDebugOptions;
