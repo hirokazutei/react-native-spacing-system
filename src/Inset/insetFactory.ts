@@ -6,37 +6,16 @@ import {
   convertInsetPaddingKeyToValue,
   obtainInsetPaddingStyle,
 } from "./insetHelper";
-import {
-  InsetDebugOptions,
-  PaddingPossibilities,
-  LayoutStyle,
-} from "./insetTypes";
+import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 function insetFactory<T>(
   spacing: { [K in keyof T]: number }
-): React.FunctionComponent<
-  {
-    layout?: LayoutStyle;
-    children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
-    _debug?: boolean;
-    _debugOptions?: InsetDebugOptions;
-  } & PaddingPossibilities<keyof T>
-> {
-  const Inset = (
-    props: {
-      layout?: LayoutStyle;
-      children: React.ReactNode;
-      debug?: boolean;
-      debugOptions?: InsetDebugOptions;
-      _debug?: boolean;
-      _debugOptions?: InsetDebugOptions;
-    } & PaddingPossibilities<keyof T>
-  ) => {
+): React.FunctionComponent<InsetProps<keyof T>> {
+  const Inset = (props: InsetProps<keyof T>) => {
     const {
       layout,
+      flex,
       children,
       debug,
       debugOptions,
@@ -57,9 +36,6 @@ function insetFactory<T>(
         isContextDebugMode ||
         (contextInsetProperty && contextInsetProperty.debug));
 
-    // Layout
-    const layoutStyle = layout ? layout : {};
-
     // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
       keyedPaddings,
@@ -71,7 +47,10 @@ function insetFactory<T>(
       View,
       {
         style: (<any>Object).assign(
-          { ...layoutStyle },
+          {
+            ...(layout ? layout : {}),
+            ...(typeof flex === "number" ? { flex } : {}),
+          },
           isDebugMode
             ? {
                 ...styles.debug,

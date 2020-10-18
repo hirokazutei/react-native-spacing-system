@@ -10,6 +10,7 @@ const Inset = (props: InsetProps<number>) => {
   const {
     layout,
     children,
+    flex,
     debug,
     debugOptions,
     _debug,
@@ -35,7 +36,10 @@ const Inset = (props: InsetProps<number>) => {
     View,
     {
       style: (<any>Object).assign(
-        { ...layout },
+        {
+          ...(typeof flex === "number" ? { flex } : {}),
+          ...(layout ? layout : {}),
+        },
         isDebugMode
           ? {
               ...styles.debug,
