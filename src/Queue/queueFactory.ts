@@ -21,14 +21,10 @@ function queueFactory<T>(
     } = useContext(DebugContext);
     const isDebugMode =
       __DEV__ &&
-      (_debug ||
-        debug ||
-        isContextDebugMode ||
-        (contextQueueProperty && contextQueueProperty.debug));
+      (_debug || debug || isContextDebugMode || contextQueueProperty?.debug);
 
     const defaultQueueDebugColor =
-      (contextQueueProperty && contextQueueProperty.color) ||
-      DEFAULT_DEBUG_COLORS.queue;
+      contextQueueProperty?.color || DEFAULT_DEBUG_COLORS.queue;
     const debugBackgroundCoolor =
       _debugOptions?.color || debugOptions?.color || defaultQueueDebugColor;
     const isDebugBorderMode =
@@ -36,12 +32,12 @@ function queueFactory<T>(
       _debugOptions?.borderColor ||
       debugOptions?.border ||
       debugOptions?.borderColor ||
-      (contextQueueProperty && contextQueueProperty.border);
+      contextQueueProperty?.border;
     const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
     const debugBorderColor =
       _debugOptions?.borderColor ||
       debugOptions?.borderColor ||
-      (contextQueueProperty && contextQueueProperty.borderColor) ||
+      contextQueueProperty?.borderColor ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
     const debugOpacity = (() => {
       switch (true) {
