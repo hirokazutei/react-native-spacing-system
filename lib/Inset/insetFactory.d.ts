@@ -1,14 +1,7 @@
 import * as React from "react";
-import { InsetDebugOptions, PaddingPossibilities, LayoutStyle } from "./insetTypes";
+import { InsetProps } from "./insetTypes";
 declare function insetFactory<T>(spacing: {
     [K in keyof T]: number;
-}): React.FunctionComponent<{
-    layout?: LayoutStyle;
-    children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
-    _debug?: boolean;
-    _debugOptions?: InsetDebugOptions;
-} & PaddingPossibilities<keyof T>>;
+}): React.FunctionComponent<InsetProps<keyof T>>;
 export default insetFactory;
 //# sourceMappingURL=insetFactory.d.ts.map

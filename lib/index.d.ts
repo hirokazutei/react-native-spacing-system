@@ -13,42 +13,7 @@ import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
 declare function spacingFactory<T>(spacing: {
     [K in keyof T]: number;
 }): {
-    Inset: import("react").FunctionComponent<({
-        layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
-        children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
-        _debug?: boolean | undefined;
-        _debugOptions?: InsetDebugOptions | undefined;
-    } & All<keyof T>) | ({
-        layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
-        children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
-        _debug?: boolean | undefined;
-        _debugOptions?: InsetDebugOptions | undefined;
-    } & VerHor<keyof T>) | ({
-        layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
-        children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
-        _debug?: boolean | undefined;
-        _debugOptions?: InsetDebugOptions | undefined;
-    } & Horizontal<keyof T>) | ({
-        layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
-        children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
-        _debug?: boolean | undefined;
-        _debugOptions?: InsetDebugOptions | undefined;
-    } & Vertical<keyof T>) | ({
-        layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
-        children: import("react").ReactNode;
-        debug?: boolean | undefined;
-        debugOptions?: InsetDebugOptions | undefined;
-        _debug?: boolean | undefined;
-        _debugOptions?: InsetDebugOptions | undefined;
-    } & Other<keyof T>)>;
+    Inset: import("react").FunctionComponent<InsetProps<keyof T>>;
     Stack: import("react").FunctionComponent<StackProps<keyof T>>;
     Queue: import("react").FunctionComponent<QueueProps<keyof T>>;
 };

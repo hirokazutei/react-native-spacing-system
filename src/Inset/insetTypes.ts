@@ -93,6 +93,7 @@ export type PaddingPossibilities<T> =
 
 export type InsetProps<T> = {
   layout?: LayoutStyle;
+  flex?: number;
   children: React.ReactNode;
   debug?: boolean;
   debugOptions?: InsetDebugOptions;
