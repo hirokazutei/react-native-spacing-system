@@ -7,6 +7,8 @@ export declare type QueueDebugOptions = {
 };
 export declare type QueueProps<T> = {
     size: T;
+    debug?: boolean;
+    debugOptions?: QueueDebugOptions;
     _debug?: boolean;
     _debugOptions?: QueueDebugOptions;
 };
