@@ -5,6 +5,8 @@ declare function insetFactory<T>(spacing: {
 }): React.FunctionComponent<{
     layout?: LayoutStyle;
     children: React.ReactNode;
+    debug?: boolean;
+    debugOptions?: InsetDebugOptions;
     _debug?: boolean;
     _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<keyof T>>;

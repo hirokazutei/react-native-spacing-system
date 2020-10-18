@@ -16,26 +16,36 @@ declare function spacingFactory<T>(spacing: {
     Inset: import("react").FunctionComponent<({
         layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
         children: import("react").ReactNode;
+        debug?: boolean | undefined;
+        debugOptions?: InsetDebugOptions | undefined;
         _debug?: boolean | undefined;
         _debugOptions?: InsetDebugOptions | undefined;
     } & All<keyof T>) | ({
         layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
         children: import("react").ReactNode;
+        debug?: boolean | undefined;
+        debugOptions?: InsetDebugOptions | undefined;
         _debug?: boolean | undefined;
         _debugOptions?: InsetDebugOptions | undefined;
     } & VerHor<keyof T>) | ({
         layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
         children: import("react").ReactNode;
+        debug?: boolean | undefined;
+        debugOptions?: InsetDebugOptions | undefined;
         _debug?: boolean | undefined;
         _debugOptions?: InsetDebugOptions | undefined;
     } & Horizontal<keyof T>) | ({
         layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
         children: import("react").ReactNode;
+        debug?: boolean | undefined;
+        debugOptions?: InsetDebugOptions | undefined;
         _debug?: boolean | undefined;
         _debugOptions?: InsetDebugOptions | undefined;
     } & Vertical<keyof T>) | ({
         layout?: Pick<import("react-native").FlexStyle, "alignContent" | "alignItems" | "alignSelf" | "aspectRatio" | "bottom" | "display" | "end" | "flex" | "flexBasis" | "flexDirection" | "flexGrow" | "flexShrink" | "flexWrap" | "height" | "justifyContent" | "left" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "overflow" | "position" | "right" | "start" | "top" | "width" | "zIndex" | "direction"> | undefined;
         children: import("react").ReactNode;
+        debug?: boolean | undefined;
+        debugOptions?: InsetDebugOptions | undefined;
         _debug?: boolean | undefined;
         _debugOptions?: InsetDebugOptions | undefined;
     } & Other<keyof T>)>;

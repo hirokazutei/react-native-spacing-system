@@ -11,13 +11,14 @@ import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
 const Queue = (props: QueueProps<number>) => {
-  const { _debug, _debugOptions, size } = props;
+  const { debug, debugOptions, _debug, _debugOptions, size } = props;
   const { debug: isContextDebugMode, queue: contextQueueProperty } = useContext(
     DebugContext
   );
   const isDebugMode =
     __DEV__ &&
-    (_debug ||
+    (debug ||
+      _debug ||
       isContextDebugMode ||
       (contextQueueProperty && contextQueueProperty.debug));
 
@@ -25,25 +26,33 @@ const Queue = (props: QueueProps<number>) => {
     (contextQueueProperty && contextQueueProperty.color) ||
     DEFAULT_DEBUG_COLORS.queue;
   const debugBackgroundCoolor =
-    (_debugOptions && _debugOptions.color) || defaultQueueDebugColor;
+    _debugOptions?.color || debugOptions?.color || defaultQueueDebugColor;
   const isDebugBorderMode =
-    (_debugOptions && (_debugOptions.border || _debugOptions.borderColor)) ||
+    _debugOptions?.border ||
+    _debugOptions?.borderColor ||
+    debugOptions?.border ||
+    debugOptions?.borderColor ||
     (contextQueueProperty && contextQueueProperty.border);
   const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
-    (_debugOptions && _debugOptions.borderColor) ||
+    _debugOptions?.borderColor ||
+    debugOptions?.borderColor ||
     (contextQueueProperty && contextQueueProperty.borderColor) ||
     DEFAULT_DEFAULT_BORDER_COLORS.queue;
-  let debugOpacity = DEFAULT_OAPCITY;
-  debugOpacity =
-    contextQueueProperty &&
-    (contextQueueProperty.opacity === 0 || contextQueueProperty.opacity)
-      ? contextQueueProperty.opacity
-      : debugOpacity;
-  debugOpacity =
-    _debugOptions && (_debugOptions.opacity === 0 || _debugOptions.opacity)
-      ? _debugOptions.opacity
-      : debugOpacity;
+
+  const debugOpacity = (() => {
+    switch (true) {
+      case typeof contextQueueProperty?.opacity === "number":
+        return contextQueueProperty?.opacity;
+      case typeof _debugOptions?.opacity === "number":
+        return _debugOptions?.opacity;
+      case typeof debugOptions?.opacity === "number":
+        return debugOptions?.opacity;
+      default:
+        return DEFAULT_OAPCITY;
+    }
+  })();
+
   const styles = StyleSheet.create<QueueStyles>({
     default: { width: size },
     debug: {
