@@ -76,7 +76,13 @@ For the full sentiment and rationalization, please check out my [Medium blog pos
 
 ### Usage
 
-Stack takes `size: number`, `_debug?: boolean` and `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Stack Props:
+
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
+- `size: number`
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
 
 ```jsx
 import * as React from "react";
@@ -111,7 +117,13 @@ const QueueExample = () => {
 
 ### Usage
 
-Queue takes `size: number`, `_debug?: boolean` and `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Queue Props:
+
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
+- `size: number`
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
 
 ```jsx
 import * as React from "react";
@@ -148,7 +160,16 @@ const StackExample = () => {
 
 ### Usage
 
-Inset takes `children: ReactNode`, `_debug?: boolean`, `_debugOptions?: {color?: string}`, `flex?: number`, and `PaddingCombinations`.
+Inset Props:
+
+- `children: ReactNode`
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string}` (will be depreciated in v2.0.0)
+- `flex?: number` (will be depreciated in v2.0.0)
+- `layout?: LayoutStyle`
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string}`
+- `PaddingCombinations`
 
 The allowed `PaddingCombinations` are as follows:
 
@@ -157,6 +178,8 @@ The allowed `PaddingCombinations` are as follows:
 - `{horizontal: number, bottom?: number, top?: number}`
 - `{vertical: number, left?: number, right?: number}`
 - `{left?: number, top?: number, right?:number, bottom: number}`
+
+The allowed `LayoutStyle` can be found [HERE](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/layoutStyle.md)
 
 ```jsx
 import * as React from "react";
@@ -252,7 +275,7 @@ import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemCo
 
 const SomeComponent = () => {
   return (
-    <DebugContext.Provider value={{ _debug: booleanValue }}>
+    <DebugContext.Provider value={{ debug: booleanValue }}>
       <ComponentWithSpacingSystemComponents />
     </DebugContext.Provider>
   );
@@ -328,8 +351,5 @@ type DebugContextProps = {|
     </a>
     <a href="https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea">
         <img src="https://img.shields.io/badge/-Medium-black.svg?style=for-the-badge&logo=Medium&logoColor=white&color=12100E">
-    </a>
-    <a href="https://hirokazutei.me">
-        <img src="https://img.shields.io/badge/-Blog-black.svg?style=for-the-badge&logo=about.me&logoColor=white&color=gray">
     </a>
 </p>
