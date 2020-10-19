@@ -78,17 +78,11 @@ const MainExample: React.FunctionComponent<Prop> = (
             </View>
             <Queue size="small" />
           </View>
-          <View style={styles.buttonRow}>
-            <View>
-              <Button
-                label="Speed of Light"
-                onPress={dummyFunction}
-                buttonType="minor"
-              />
-              <Stack size="small" />
-            </View>
-            <Queue size="small" />
-          </View>
+          <Button
+            label="Speed of Light"
+            onPress={dummyFunction}
+            buttonType="minor"
+          />
           <Stack size="large" />
           <Button buttonType="major" label="View" onPress={dummyFunction} />
         </Inset>
