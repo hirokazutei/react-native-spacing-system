@@ -1,9 +1,5 @@
 /* @flow */
-import React, {
-  useState,
-  type Node,
-  type StatelessFunctionalComponent,
-} from 'react';
+import React, {type Node, type StatelessFunctionalComponent} from 'react';
 import {Image, StyleSheet, View, Text} from 'react-native';
 import {DebugContext} from 'react-native-spacing-system';
 import {type DebugProps as Props} from '../../App';
@@ -83,17 +79,11 @@ const MainExample: StatelessFunctionalComponent<Props> = (
             </View>
             <Queue size="small" />
           </View>
-          <View style={styles.buttonRow}>
-            <View>
-              <Button
-                label="Speed of Light"
-                onPress={dummyFunction}
-                buttonType="minor"
-              />
-              <Stack size="small" />
-            </View>
-            <Queue size="small" />
-          </View>
+          <Button
+            label="Speed of Light"
+            onPress={dummyFunction}
+            buttonType="minor"
+          />
           <Stack size="large" />
           <Button buttonType="major" label="View" onPress={dummyFunction} />
         </Inset>

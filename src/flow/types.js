@@ -67,7 +67,7 @@ export type InsetDebugOptions = {|
   color?: string,
 |};
 
-export type LayoutStyle = {
+export type LayoutStyle = {|
   // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
   alignContent?:
     | "flex-start"
@@ -113,7 +113,7 @@ export type LayoutStyle = {
    * @platform ios
    */
   direction?: "inherit" | "ltr" | "rtl",
-};
+|};
 
 export type All<T> = {|
   all: T,
