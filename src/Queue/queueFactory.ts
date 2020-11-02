@@ -14,38 +14,43 @@ function queueFactory<T>(
   spacing: { [K in keyof T]: number }
 ): React.FunctionComponent<QueueProps<keyof T>> {
   const Queue = (props: QueueProps<keyof T>) => {
-    const { debug, debugOptions, size } = props;
+    const { debug, debugOptions, _debug, _debugOptions, size } = props;
     const {
       debug: isContextDebugMode,
       queue: contextQueueProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      debug ||
-      isContextDebugMode ||
-      (contextQueueProperty && contextQueueProperty.debug);
+      __DEV__ &&
+      (_debug || debug || isContextDebugMode || contextQueueProperty?.debug);
+
     const defaultQueueDebugColor =
-      (contextQueueProperty && contextQueueProperty.color) ||
-      DEFAULT_DEBUG_COLORS.queue;
+      contextQueueProperty?.color || DEFAULT_DEBUG_COLORS.queue;
     const debugBackgroundCoolor =
-      (debugOptions && debugOptions.color) || defaultQueueDebugColor;
+      _debugOptions?.color || debugOptions?.color || defaultQueueDebugColor;
     const isDebugBorderMode =
-      (debugOptions && (debugOptions.border || debugOptions.borderColor)) ||
-      (contextQueueProperty && contextQueueProperty.border);
+      _debugOptions?.border ||
+      _debugOptions?.borderColor ||
+      debugOptions?.border ||
+      debugOptions?.borderColor ||
+      contextQueueProperty?.border;
     const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
     const debugBorderColor =
-      (debugOptions && debugOptions.borderColor) ||
-      (contextQueueProperty && contextQueueProperty.borderColor) ||
+      _debugOptions?.borderColor ||
+      debugOptions?.borderColor ||
+      contextQueueProperty?.borderColor ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
-    let debugOpacity = DEFAULT_OAPCITY;
-    debugOpacity =
-      contextQueueProperty &&
-      (contextQueueProperty.opacity === 0 || contextQueueProperty.opacity)
-        ? contextQueueProperty.opacity
-        : debugOpacity;
-    debugOpacity =
-      debugOptions && (debugOptions.opacity === 0 || debugOptions.opacity)
-        ? debugOptions.opacity
-        : debugOpacity;
+    const debugOpacity = (() => {
+      switch (true) {
+        case typeof contextQueueProperty?.opacity === "number":
+          return contextQueueProperty?.opacity;
+        case typeof _debugOptions?.opacity === "number":
+          return _debugOptions?.opacity;
+        case typeof debugOptions?.opacity === "number":
+          return debugOptions?.opacity;
+        default:
+          return DEFAULT_OAPCITY;
+      }
+    })();
     const styles = StyleSheet.create<QueueStyles>({
       default: { width: spacing[size] },
       debug: {

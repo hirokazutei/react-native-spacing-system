@@ -1,8 +1,38 @@
-import { ViewStyle } from "react-native";
+import { FlexStyle, ViewStyle } from "react-native";
 
 export type InsetDebugOptions = {
   color?: string;
 };
+
+export type LayoutStyle = Omit<
+  FlexStyle,
+  // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
+  | "borderBottomWidth"
+  | "borderEndWidth"
+  | "borderLeftWidth"
+  | "borderRightWidth"
+  | "borderStartWidth"
+  | "borderTopWidth"
+  | "borderWidth"
+  | "margin"
+  | "marginBottom"
+  | "marginEnd"
+  | "marginHorizontal"
+  | "marginLeft"
+  | "marginRight"
+  | "marginStart"
+  | "marginTop"
+  | "marginVertical"
+  | "padding"
+  | "paddingBottom"
+  | "paddingEnd"
+  | "paddingHorizontal"
+  | "paddingLeft"
+  | "paddingRight"
+  | "paddingStart"
+  | "paddingTop"
+  | "paddingVertical"
+>;
 
 export type All<T> = {
   all: T;
@@ -62,10 +92,13 @@ export type PaddingPossibilities<T> =
   | Other<T>;
 
 export type InsetProps<T> = {
+  layout?: LayoutStyle;
   flex?: number;
   children: React.ReactNode;
   debug?: boolean;
   debugOptions?: InsetDebugOptions;
+  _debug?: boolean;
+  _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;
 
 export type InsetStyles = {

@@ -50,20 +50,21 @@ const StackExample: React.FunctionComponent<Prop> = (
       <View style={styles.buffetTable}>
         <Text style={styles.title}>{`${spaceSize.toUpperCase()}`}</Text>
         <Text style={styles.title}>STACK OF PLATES</Text>
-        <Inset vertical="huge" flex={1}>
+        <Inset
+          vertical="huge"
+          layout={{ flex: 1, height: 400, overflow: "hidden" }}
+        >
           <ScrollView style={styles.scrollView}>
-            <Inset vertical="huge">
-              <DebugContext.Provider value={prop}>
-                {[...Array(20)].map((e, i) => {
-                  return (
-                    <View key={i}>
-                      <Text style={styles.plates}>BUFFET PLATE</Text>
-                      <Stack size={spaceSize} />
-                    </View>
-                  );
-                })}
-              </DebugContext.Provider>
-            </Inset>
+            <DebugContext.Provider value={prop}>
+              {[...Array(15)].map((_, i) => {
+                return (
+                  <View key={i}>
+                    <Text style={styles.plates}>BUFFET PLATE</Text>
+                    <Stack size={spaceSize} />
+                  </View>
+                );
+              })}
+            </DebugContext.Provider>
           </ScrollView>
         </Inset>
       </View>

@@ -6,28 +6,23 @@ import {
   convertInsetPaddingKeyToValue,
   obtainInsetPaddingStyle,
 } from "./insetHelper";
-import { InsetDebugOptions, PaddingPossibilities } from "./insetTypes";
+import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 function insetFactory<T>(
   spacing: { [K in keyof T]: number }
-): React.FunctionComponent<
-  {
-    flex?: number;
-    children: React.ReactNode;
-    debug?: boolean;
-    debugOptions?: InsetDebugOptions;
-  } & PaddingPossibilities<keyof T>
-> {
-  const Inset = (
-    props: {
-      flex?: number;
-      children: React.ReactNode;
-      debug?: boolean;
-      debugOptions?: InsetDebugOptions;
-    } & PaddingPossibilities<keyof T>
-  ) => {
-    const { flex, children, debug, debugOptions, ...keyedPaddings } = props;
+): React.FunctionComponent<InsetProps<keyof T>> {
+  const Inset = (props: InsetProps<keyof T>) => {
+    const {
+      layout,
+      flex,
+      children,
+      debug,
+      debugOptions,
+      _debug,
+      _debugOptions,
+      ...keyedPaddings
+    } = props;
 
     // Configure Debug Mode
     const {
@@ -35,12 +30,8 @@ function insetFactory<T>(
       inset: contextInsetProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      debug ||
-      isContextDebugMode ||
-      (contextInsetProperty && contextInsetProperty.debug);
-
-    // Flex
-    const flexStyle = flex ? { flex } : {};
+      __DEV__ &&
+      (_debug || debug || isContextDebugMode || contextInsetProperty?.debug);
 
     // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
@@ -53,14 +44,18 @@ function insetFactory<T>(
       View,
       {
         style: (<any>Object).assign(
-          { ...flexStyle },
+          {
+            ...(layout ? layout : {}),
+            ...(typeof flex === "number" ? { flex } : {}),
+          },
           isDebugMode
             ? {
                 ...styles.debug,
                 borderStyle: "solid",
                 borderColor:
-                  (debugOptions && debugOptions.color) ||
-                  (contextInsetProperty && contextInsetProperty.color) ||
+                  _debugOptions?.color ||
+                  debugOptions?.color ||
+                  contextInsetProperty?.color ||
                   DEFAULT_DEBUG_COLORS.inset,
               }
             : { ...styles.default }

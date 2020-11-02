@@ -9,6 +9,8 @@ export declare type StackProps<T> = {
     size: T;
     debug?: boolean;
     debugOptions?: StackDebugOptions;
+    _debug?: boolean;
+    _debugOptions?: StackDebugOptions;
 };
 export declare type StackStyles = {
     debug: ViewStyle;

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, StatusBar, Text, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
+  Text,
+  View,
+  ScrollView,
+} from "react-native";
 import { DebugContextProps } from "react-native-spacing-system";
 import { colors } from "./constants/colors";
 import { fontSize } from "./constants/fontSize";
@@ -70,55 +77,55 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.base}>
-        <Inset horizontal="macro" vertical="huge" flex={1}>
-          <View style={styles.exampleContainer}>
-            <Button
-              onPress={setExampleMode("main")}
-              buttonType="tab"
-              label="MAIN"
-            />
-            <Text style={styles.buttonSeparator}>|</Text>
-            <Button
-              onPress={setExampleMode("stack")}
-              buttonType="tab"
-              label="STACK"
-            />
-            <Text style={styles.buttonSeparator}>|</Text>
-            <Button
-              onPress={setExampleMode("queue")}
-              buttonType="tab"
-              label="QUEUE"
-            />
-            <Text style={styles.buttonSeparator}>|</Text>
-            <Button
-              onPress={setExampleMode("inset")}
-              buttonType="tab"
-              label="INSET"
-            />
-          </View>
-          <Stack size="large" />
-          <ShowcasingExamples {...debugProps} />
-        </Inset>
-        <Inset horizontal="huge">
-          <View style={styles.debugButtonContainer}>
-            <View style={styles.debugButton}>
+        <ScrollView style={styles.base}>
+          <Inset horizontal="small" vertical="small" layout={{ flex: 1 }}>
+            <View style={styles.exampleContainer}>
               <Button
-                onPress={toggleDebugMode}
-                buttonType="major"
-                label={`DEBUG: ${debugProps.debug ? "ON" : "OFF"}`}
+                onPress={setExampleMode("main")}
+                buttonType="tab"
+                label="MAIN"
+              />
+              <Text style={styles.buttonSeparator}>|</Text>
+              <Button
+                onPress={setExampleMode("stack")}
+                buttonType="tab"
+                label="STACK"
+              />
+              <Text style={styles.buttonSeparator}>|</Text>
+              <Button
+                onPress={setExampleMode("queue")}
+                buttonType="tab"
+                label="QUEUE"
+              />
+              <Text style={styles.buttonSeparator}>|</Text>
+              <Button
+                onPress={setExampleMode("inset")}
+                buttonType="tab"
+                label="INSET"
               />
             </View>
-            <View style={styles.debugButton}>
-              <Button
-                onPress={toggleDebugBorder}
-                buttonType="major"
-                label={`BORDER: ${
-                  debugProps.stack && debugProps.stack.border ? "ON" : "OFF"
-                }`}
-              />
+            <Stack size="large" />
+            <ShowcasingExamples {...debugProps} />
+          </Inset>
+          <Inset horizontal="small">
+            <View style={styles.debugButtonContainer}>
+              <View style={styles.debugButton}>
+                <Button
+                  onPress={toggleDebugMode}
+                  buttonType="major"
+                  label={`DEBUG: ${debugProps?.debug ? "ON" : "OFF"}`}
+                />
+              </View>
+                  <View style={styles.debugButton}>
+               <Button
+                  onPress={toggleDebugBorder}
+                  buttonType="major"
+                  label={`BORDER: ${debugProps?.stack?.border ? 'ON' : 'OFF'}`}
+                />
+              </View>
             </View>
-          </View>
-        </Inset>
+          </Inset>
+        </ScrollView>
       </SafeAreaView>
     </>
   );

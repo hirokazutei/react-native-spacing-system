@@ -18,7 +18,7 @@
 
 <p align="center">
     <a href="https://facebook.github.io/react-native/">
-        <img src="https://img.shields.io/badge/-ReactNative-black.svg?style=for-the-badge&logo=react&logoColor=white&color=61DAFB">
+        <img src="https://img.shields.io/badge/-ReactNative-black.svg?style=for-the-badge&logo=react&logoColor=white&color=40AAFF">
     </a>
     <a href="https://www.npmjs.com/package/react-native-spacing-system">
         <img src="https://img.shields.io/badge/-NPM-black.svg?style=for-the-badge&logo=NPM&color=CB3837">
@@ -33,7 +33,7 @@
 
 Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code and increase legibility though the usage of spacing components.
 
-Factory method are provided so that you can use your own spacing key instead of raw value.
+Factory method are provided so that you can use your own spacing key and values instead of raw values.
 
 TypeScript and Flow are both supported!
 
@@ -76,7 +76,13 @@ For the full sentiment and rationalization, please check out my [Medium blog pos
 
 ### Usage
 
-Stack takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Stack Props:
+
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
+- `size: number`
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
 import * as React from "react";
@@ -111,7 +117,13 @@ const QueueExample = () => {
 
 ### Usage
 
-Queue takes `size: number`, `debug?: boolean` and `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`.
+Queue Props:
+
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
+- `size: number`
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
 import * as React from "react";
@@ -148,7 +160,16 @@ const StackExample = () => {
 
 ### Usage
 
-Inset takes `children: ReactNode`, `debug?: boolean`, `debugOptions?: {color?: string}`, `flex?: number`, and `paddings: PaddingCombinations`.
+Inset Props:
+
+- `children: ReactNode`
+- `debug?: boolean` (will be depreciated in v2.0.0)
+- `debugOptions?: {color?: string}` (will be depreciated in v2.0.0)
+- `flex?: number` (will be depreciated in v2.0.0)
+- `layout?: LayoutStyle` (available from v1.2.0)
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string}` (available from v1.2.0)
+- `PaddingCombinations`
 
 The allowed `PaddingCombinations` are as follows:
 
@@ -157,6 +178,8 @@ The allowed `PaddingCombinations` are as follows:
 - `{horizontal: number, bottom?: number, top?: number}`
 - `{vertical: number, left?: number, right?: number}`
 - `{left?: number, top?: number, right?:number, bottom: number}`
+
+The allowed `LayoutStyle` can be found [HERE](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/layoutStyle.md)
 
 ```jsx
 import * as React from "react";
@@ -328,8 +351,5 @@ type DebugContextProps = {|
     </a>
     <a href="https://medium.com/@hirokazutei/enforcing-component-spacing-in-react-react-native-556b8ef90dea">
         <img src="https://img.shields.io/badge/-Medium-black.svg?style=for-the-badge&logo=Medium&logoColor=white&color=12100E">
-    </a>
-    <a href="https://hirokazutei.me">
-        <img src="https://img.shields.io/badge/-Blog-black.svg?style=for-the-badge&logo=about.me&logoColor=white&color=gray">
     </a>
 </p>
