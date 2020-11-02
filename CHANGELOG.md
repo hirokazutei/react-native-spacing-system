@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2020-10-02
+
+### Summary
+
+- Added `spacingFactory` so that all spacing component can be created with one call.
+
+### Added
+
+- Added `layout` prop for `Inset` that allows the control of the component's `LayoutStyles`.
+- Added `_debug` and `_debugOptions` which functions the sane way as `debug` and `debugOptions`
+
+### Changed
+
+- Changed `react-native` and `react` to be a peer dependency.
+- Changed typing packages for `react-native` and `react` to be a dev dependency.
+- Readying the depreciation of `debug`, `debugOptions`, and `flex` props in v2.0.0.
+- Debug-mode will only be enabled in `__DEV__` environment.
+- Updated the TS and Flow examples to use the new API.
+- Updated docs.
+
+### Removed
+
+- N/A
+
 ## [1.1.0] - 2020-05-13
 
 ### Summary
