@@ -18,7 +18,7 @@
 
 <p align="center">
     <a href="https://facebook.github.io/react-native/">
-        <img src="https://img.shields.io/badge/-ReactNative-black.svg?style=for-the-badge&logo=react&logoColor=white&color=61DAFB">
+        <img src="https://img.shields.io/badge/-ReactNative-black.svg?style=for-the-badge&logo=react&logoColor=white&color=40AAFF">
     </a>
     <a href="https://www.npmjs.com/package/react-native-spacing-system">
         <img src="https://img.shields.io/badge/-NPM-black.svg?style=for-the-badge&logo=NPM&color=CB3837">
@@ -33,7 +33,7 @@
 
 Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code and increase legibility though the usage of spacing components.
 
-Factory method are provided so that you can use your own spacing key instead of raw value.
+Factory method are provided so that you can use your own spacing key and values instead of raw values.
 
 TypeScript and Flow are both supported!
 
@@ -81,8 +81,8 @@ Stack Props:
 - `debug?: boolean` (will be depreciated in v2.0.0)
 - `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
 - `size: number`
-- `_debug?: boolean`
-- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
 import * as React from "react";
@@ -122,8 +122,8 @@ Queue Props:
 - `debug?: boolean` (will be depreciated in v2.0.0)
 - `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
 - `size: number`
-- `_debug?: boolean`
-- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
 import * as React from "react";
@@ -166,9 +166,9 @@ Inset Props:
 - `debug?: boolean` (will be depreciated in v2.0.0)
 - `debugOptions?: {color?: string}` (will be depreciated in v2.0.0)
 - `flex?: number` (will be depreciated in v2.0.0)
-- `layout?: LayoutStyle`
-- `_debug?: boolean`
-- `_debugOptions?: {color?: string}`
+- `layout?: LayoutStyle` (available from v1.2.0)
+- `_debug?: boolean` (available from v1.2.0)
+- `_debugOptions?: {color?: string}` (available from v1.2.0)
 - `PaddingCombinations`
 
 The allowed `PaddingCombinations` are as follows:
