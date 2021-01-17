@@ -78,11 +78,9 @@ For the full sentiment and rationalization, please check out my [Medium blog pos
 
 Stack Props:
 
-- `debug?: boolean` (will be depreciated in v2.0.0)
-- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
 - `size: number`
-- `_debug?: boolean` (available from v1.2.0)
-- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
 
 ```jsx
 import * as React from "react";
@@ -119,11 +117,9 @@ const QueueExample = () => {
 
 Queue Props:
 
-- `debug?: boolean` (will be depreciated in v2.0.0)
-- `debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (will be depreciated in v2.0.0)
 - `size: number`
-- `_debug?: boolean` (available from v1.2.0)
-- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}`
 
 ```jsx
 import * as React from "react";
@@ -163,12 +159,9 @@ const StackExample = () => {
 Inset Props:
 
 - `children: ReactNode`
-- `debug?: boolean` (will be depreciated in v2.0.0)
-- `debugOptions?: {color?: string}` (will be depreciated in v2.0.0)
-- `flex?: number` (will be depreciated in v2.0.0)
-- `layout?: LayoutStyle` (available from v1.2.0)
-- `_debug?: boolean` (available from v1.2.0)
-- `_debugOptions?: {color?: string}` (available from v1.2.0)
+- `layout?: LayoutStyle`
+- `_debug?: boolean`
+- `_debugOptions?: {color?: string}`
 - `PaddingCombinations`
 
 The allowed `PaddingCombinations` are as follows:
@@ -177,7 +170,10 @@ The allowed `PaddingCombinations` are as follows:
 - `{horizontal: number, vertical: number}`
 - `{horizontal: number, bottom?: number, top?: number}`
 - `{vertical: number, left?: number, right?: number}`
-- `{left?: number, top?: number, right?:number, bottom: number}`
+- `{left: number, top?: number, right?: number, bottom?: number}`
+- `{left?: number, top: number, right?: number, bottom?: number}`
+- `{left?: number, top?: number, right: number, bottom?: number}`
+- `{left?: number, top?: number, right? :number, bottom: number}`
 
 The allowed `LayoutStyle` can be found [HERE](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/layoutStyle.md)
 
@@ -240,8 +236,6 @@ const { Stack, Queue, Inset } = spacingFactory(spacing);
 
 ### Flow
 
-Depending on your version of **flow**, you may have to pass in the type of your space object.
-
 ```javascript
 /* @flow */
 import { stackFactory } from "react-native-spacing-system";
@@ -260,6 +254,58 @@ const Stack = stackFactory<Spacing>(spacing);
 
 <Stack size={16}/> // Error
 <Stack size="venti"/> // Works
+```
+
+### DisallowLayout
+
+For `insetFactory` and `spacingFactory`, you can declare if you would like to allow the `layout` prop to be able to be passed into `Inset`.
+
+**TypeScript**
+
+```tsx
+/* @flow */
+import { insetFactory } from "react-native-spacing-system";
+
+const spacing = {
+  tall: 8,
+  grande: 12,
+  venti: 16
+};
+
+const disallowLayout = true;
+
+const NoLayoutInset = insetFactory(spacing, disallowLayout);
+
+<NoLayoutInset all='tall' layout={{flex: 1}}/> // Error
+<NoLayoutInset all='tall'/> // Works
+```
+
+**Flow**
+
+For `flow`, you must specify the type arguments.
+
+```jsx
+/* @flow */
+import { insetFactory } from "react-native-spacing-system";
+
+type SpacingKey = 'tall' | 'grande' | 'venti'
+
+type Spacing = {[key: SpacingKey]: number}
+
+const spacing: Spacing = {
+  tall: 8,
+  grande: 12,
+  venti: 16
+};}
+
+type DisallowLayout = true;
+
+const disallowLayout = true;
+
+const NoLayoutInset = insetFactory<Spacing, DisallowLayout>(spacing, disallowLayout);
+
+<NoLayoutInset all='tall' layout={{flex: 1}}/> // Error
+<NoLayoutInset all='tall'/> // Works
 ```
 
 ## Debug Mode
