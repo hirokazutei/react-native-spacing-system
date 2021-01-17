@@ -36,48 +36,48 @@ export type LayoutStyle = Omit<
 
 export type All<T> = {
   all: T;
-  horizontal?: never;
-  vertical?: never;
-  top?: never;
-  right?: never;
-  bottom?: never;
-  left?: never;
+  horizontal?: void;
+  vertical?: void;
+  top?: void;
+  right?: void;
+  bottom?: void;
+  left?: void;
 };
 
 export type VerHor<T> = {
-  all?: never;
+  all?: void;
   horizontal: T;
   vertical: T;
-  top?: never;
-  right?: never;
-  bottom?: never;
-  left?: never;
+  top?: void;
+  right?: void;
+  bottom?: void;
+  left?: void;
 };
 
 export type Horizontal<T> = {
-  all?: never;
+  all?: void;
   horizontal: T;
-  vertical?: never;
+  vertical?: void;
   top?: T;
-  right?: never;
+  right?: void;
   bottom?: T;
-  left?: never;
+  left?: void;
 };
 
 export type Vertical<T> = {
-  all?: never;
-  horizontal?: never;
+  all?: void;
+  horizontal?: void;
   vertical: T;
-  top?: never;
+  top?: void;
   right?: T;
-  bottom?: never;
+  bottom?: void;
   left?: T;
 };
 
 export type Other<T> = {
-  all?: never;
-  horizontal?: never;
-  vertical?: never;
+  all?: void;
+  horizontal?: void;
+  vertical?: void;
   top?: T;
   right?: T;
   bottom?: T;

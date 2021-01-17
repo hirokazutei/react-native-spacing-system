@@ -6,44 +6,44 @@ export declare type InsetDebugOptions = {
 export declare type LayoutStyle = Omit<FlexStyle, "borderBottomWidth" | "borderEndWidth" | "borderLeftWidth" | "borderRightWidth" | "borderStartWidth" | "borderTopWidth" | "borderWidth" | "margin" | "marginBottom" | "marginEnd" | "marginHorizontal" | "marginLeft" | "marginRight" | "marginStart" | "marginTop" | "marginVertical" | "padding" | "paddingBottom" | "paddingEnd" | "paddingHorizontal" | "paddingLeft" | "paddingRight" | "paddingStart" | "paddingTop" | "paddingVertical">;
 export declare type All<T> = {
     all: T;
-    horizontal?: never;
-    vertical?: never;
-    top?: never;
-    right?: never;
-    bottom?: never;
-    left?: never;
+    horizontal?: void;
+    vertical?: void;
+    top?: void;
+    right?: void;
+    bottom?: void;
+    left?: void;
 };
 export declare type VerHor<T> = {
-    all?: never;
+    all?: void;
     horizontal: T;
     vertical: T;
-    top?: never;
-    right?: never;
-    bottom?: never;
-    left?: never;
+    top?: void;
+    right?: void;
+    bottom?: void;
+    left?: void;
 };
 export declare type Horizontal<T> = {
-    all?: never;
+    all?: void;
     horizontal: T;
-    vertical?: never;
+    vertical?: void;
     top?: T;
-    right?: never;
+    right?: void;
     bottom?: T;
-    left?: never;
+    left?: void;
 };
 export declare type Vertical<T> = {
-    all?: never;
-    horizontal?: never;
+    all?: void;
+    horizontal?: void;
     vertical: T;
-    top?: never;
+    top?: void;
     right?: T;
-    bottom?: never;
+    bottom?: void;
     left?: T;
 };
 export declare type Other<T> = {
-    all?: never;
-    horizontal?: never;
-    vertical?: never;
+    all?: void;
+    horizontal?: void;
+    vertical?: void;
     top?: T;
     right?: T;
     bottom?: T;
