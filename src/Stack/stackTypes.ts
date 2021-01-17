@@ -9,8 +9,6 @@ export type StackDebugOptions = {
 
 export type StackProps<T> = {
   size: T;
-  debug?: boolean;
-  debugOptions?: StackDebugOptions;
   _debug?: boolean;
   _debugOptions?: StackDebugOptions;
 };

@@ -11,27 +11,22 @@ import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
 
 const Stack = (props: StackProps<number>) => {
-  const { debug, debugOptions, _debug, _debugOptions, size } = props;
+  const { _debug, _debugOptions, size } = props;
   const { debug: isContextDebugMode, stack: contextStackProperty } = useContext(
     DebugContext
   );
   const isDebugMode =
-    __DEV__ &&
-    (_debug || debug || isContextDebugMode || contextStackProperty?.debug);
+    __DEV__ && (_debug || isContextDebugMode || contextStackProperty?.debug);
   const defaultStackDebugColor =
     contextStackProperty?.color || DEFAULT_DEBUG_COLORS.stack;
-  const debugBackgroundCoolor =
-    _debugOptions?.color || debugOptions?.color || defaultStackDebugColor;
+  const debugBackgroundCoolor = _debugOptions?.color || defaultStackDebugColor;
   const isDebugBorderMode =
     _debugOptions?.border ||
     _debugOptions?.borderColor ||
-    debugOptions?.border ||
-    debugOptions?.borderColor ||
     contextStackProperty?.border;
   const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
   const debugBorderColor =
     _debugOptions?.borderColor ||
-    debugOptions?.borderColor ||
     contextStackProperty?.borderColor ||
     DEFAULT_DEFAULT_BORDER_COLORS.stack;
   const debugOpacity = (() => {
@@ -40,8 +35,6 @@ const Stack = (props: StackProps<number>) => {
         return contextStackProperty?.opacity;
       case typeof _debugOptions?.opacity === "number":
         return _debugOptions?.opacity;
-      case typeof debugOptions?.opacity === "number":
-        return debugOptions?.opacity;
       default:
         return DEFAULT_OAPCITY;
     }

@@ -7,24 +7,14 @@ import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
 const Inset = (props: InsetProps<number>) => {
-  const {
-    layout,
-    flex,
-    children,
-    debug,
-    debugOptions,
-    _debug,
-    _debugOptions,
-    ...paddings
-  } = props;
+  const { layout, children, _debug, _debugOptions, ...paddings } = props;
 
   // Configure Debug Mode
   const { debug: isContextDebugMode, inset: contextInsetProperty } = useContext(
     DebugContext
   );
   const isDebugMode =
-    __DEV__ &&
-    (_debug || debug || isContextDebugMode || contextInsetProperty?.debug);
+    __DEV__ && (_debug || isContextDebugMode || contextInsetProperty?.debug);
 
   // Padding Style
   const styles = obtainInsetPaddingStyle({ paddings });
@@ -34,7 +24,6 @@ const Inset = (props: InsetProps<number>) => {
     {
       style: (<any>Object).assign(
         {
-          ...(typeof flex === "number" ? { flex } : {}),
           ...(layout ? layout : {}),
         },
         isDebugMode
@@ -43,7 +32,6 @@ const Inset = (props: InsetProps<number>) => {
               borderStyle: "solid",
               borderColor:
                 _debugOptions?.color ||
-                debugOptions?.color ||
                 contextInsetProperty?.color ||
                 DEFAULT_DEBUG_COLORS.inset,
             }

@@ -7,8 +7,6 @@ export declare type StackDebugOptions = {
 };
 export declare type StackProps<T> = {
     size: T;
-    debug?: boolean;
-    debugOptions?: StackDebugOptions;
     _debug?: boolean;
     _debugOptions?: StackDebugOptions;
 };
