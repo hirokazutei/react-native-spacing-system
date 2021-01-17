@@ -1,4 +1,4 @@
-import { insetFactory } from "../../../../src/index";
+import { insetFactory } from "../../../../src";
 import { spacing } from "../../constants/spacing";
 
 const inset = insetFactory(spacing);

@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.4",
-    "react-native-spacing-system": "github:hirokazutei/react-native-spacing-system#develop"
+    "react-native": "0.60.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

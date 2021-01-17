@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View, Text } from "react-native";
-import { DebugContext } from "../../../../src/index";
+import { DebugContext } from "../../../../src";
 import { DebugProp as Prop } from "../../App";
 import { colors } from "../../constants/colors";
 import { fontSize } from "../../constants/fontSize";
@@ -38,9 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const MainExample: React.FunctionComponent<Prop> = (
-  prop: Prop
-): React.FunctionComponentElement<Prop> => {
+const MainExample = (prop: Prop) => {
   const dummyFunction = () => {
     /* DUMMY */
   };
