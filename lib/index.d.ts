@@ -10,10 +10,10 @@ import { StackDebugOptions, StackProps, StackStyles } from "./Stack/stackTypes";
 import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
 import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
-declare function spacingFactory<T>(spacing: {
+declare function spacingFactory<T, AllowLayout extends boolean>(spacing: {
     [K in keyof T]: number;
 }): {
-    Inset: import("react").FunctionComponent<InsetProps<keyof T>>;
+    Inset: import("react").FunctionComponent<InsetProps<keyof T, AllowLayout>>;
     Stack: import("react").FunctionComponent<StackProps<keyof T>>;
     Queue: import("react").FunctionComponent<QueueProps<keyof T>>;
 };
