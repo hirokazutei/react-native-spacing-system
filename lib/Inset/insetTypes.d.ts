@@ -40,15 +40,43 @@ export declare type Vertical<T> = {
     bottom?: void;
     left?: T;
 };
-export declare type Other<T> = {
+declare type OtherT<T> = {
+    all?: void;
+    horizontal?: void;
+    vertical?: void;
+    top: T;
+    right?: T;
+    bottom?: T;
+    left?: T;
+};
+declare type OtherB<T> = {
+    all?: void;
+    horizontal?: void;
+    vertical?: void;
+    top?: T;
+    right?: T;
+    bottom: T;
+    left?: T;
+};
+declare type OtherR<T> = {
+    all?: void;
+    horizontal?: void;
+    vertical?: void;
+    top?: T;
+    right: T;
+    bottom?: T;
+    left?: T;
+};
+declare type OtherL<T> = {
     all?: void;
     horizontal?: void;
     vertical?: void;
     top?: T;
     right?: T;
     bottom?: T;
-    left?: T;
+    left: T;
 };
+export declare type Other<T> = OtherT<T> | OtherB<T> | OtherR<T> | OtherL<T>;
 export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T> | Vertical<T> | Other<T>;
 export declare type InsetProps<T, DisallowLayout extends boolean | undefined = false> = {
     layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
@@ -60,4 +88,5 @@ export declare type InsetStyles = {
     debug: ViewStyle;
     default: ViewStyle;
 };
+export {};
 //# sourceMappingURL=insetTypes.d.ts.map

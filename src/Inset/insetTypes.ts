@@ -74,7 +74,7 @@ export type Vertical<T> = {
   left?: T;
 };
 
-type OtherT<T> = {
+export type OtherT<T> = {
   all?: void;
   horizontal?: void;
   vertical?: void;
@@ -84,7 +84,7 @@ type OtherT<T> = {
   left?: T;
 };
 
-type OtherB<T> = {
+export type OtherB<T> = {
   all?: void;
   horizontal?: void;
   vertical?: void;
@@ -94,7 +94,7 @@ type OtherB<T> = {
   left?: T;
 };
 
-type OtherR<T> = {
+export type OtherR<T> = {
   all?: void;
   horizontal?: void;
   vertical?: void;
@@ -104,7 +104,7 @@ type OtherR<T> = {
   left?: T;
 };
 
-type OtherL<T> = {
+export type OtherL<T> = {
   all?: void;
   horizontal?: void;
   vertical?: void;
