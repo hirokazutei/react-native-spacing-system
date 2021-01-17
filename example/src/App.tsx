@@ -7,7 +7,7 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import { DebugContextProps } from "react-native-spacing-system";
+import { DebugContextProps } from "../../src";
 import { colors } from "./constants/colors";
 import { fontSize } from "./constants/fontSize";
 import Button from "./components/atoms/Button";
@@ -73,6 +73,8 @@ const App = () => {
   const [exampleKey, setExample] = useState("main");
   const ShowcasingExamples = EXAMPLES[`${exampleKey}` as ExampleKeys];
   const setExampleMode = (key: ExampleKeys) => () => setExample(key);
+  const debugModeLabel = `DEBUG: ${debugProps.debug ? "ON" : "OFF"}`;
+  const debugBorderLabel = `BORDER: ${debugProps.stack.border ? "ON" : "OFF"}`;
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -113,14 +115,14 @@ const App = () => {
                 <Button
                   onPress={toggleDebugMode}
                   buttonType="major"
-                  label={`DEBUG: ${debugProps?.debug ? "ON" : "OFF"}`}
+                  label={debugModeLabel}
                 />
               </View>
-                  <View style={styles.debugButton}>
-               <Button
+              <View style={styles.debugButton}>
+                <Button
                   onPress={toggleDebugBorder}
                   buttonType="major"
-                  label={`BORDER: ${debugProps?.stack?.border ? 'ON' : 'OFF'}`}
+                  label={debugBorderLabel}
                 />
               </View>
             </View>

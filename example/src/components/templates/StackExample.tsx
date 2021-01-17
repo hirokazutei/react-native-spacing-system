@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import { DebugContext } from "../../../../src/index";
+import { DebugContext } from "../../../../src";
 import { DebugProp as Prop } from "../../App";
 import { spacingKeysList } from "../../constants/spacing";
 import Button from "../atoms/Button";
@@ -38,9 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const StackExample: React.FunctionComponent<Prop> = (
-  prop: Prop
-): React.FunctionComponentElement<Prop> => {
+const StackExample = (prop: Prop) => {
   const [size, setSize] = useState(0);
   const changeSize = () =>
     setSize(size >= spacingKeysList.length - 1 ? 0 : size + 1);
