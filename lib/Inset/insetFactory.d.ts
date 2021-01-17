@@ -1,7 +1,7 @@
 import * as React from "react";
 import { InsetProps } from "./insetTypes";
-declare function insetFactory<T, AllowLayout extends boolean = true>(spacing: {
-    [K in keyof T]: number;
-}): React.FunctionComponent<InsetProps<keyof T, AllowLayout>>;
+declare function insetFactory<SpacingKeys, DisallowLayout extends boolean | undefined = undefined>(spacing: {
+    [K in keyof SpacingKeys]: number;
+}, disallowLayout?: DisallowLayout): React.FunctionComponent<InsetProps<keyof SpacingKeys, DisallowLayout>>;
 export default insetFactory;
 //# sourceMappingURL=insetFactory.d.ts.map

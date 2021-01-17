@@ -50,8 +50,8 @@ export declare type Other<T> = {
     left?: T;
 };
 export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T> | Vertical<T> | Other<T>;
-export declare type InsetProps<T, AllowLayout extends boolean = true> = {
-    layout?: AllowLayout extends true ? LayoutStyle : never;
+export declare type InsetProps<T, DisallowLayout extends boolean | undefined = false> = {
+    layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
     flex?: number;
     children: React.ReactNode;
     debug?: boolean;
