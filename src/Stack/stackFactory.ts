@@ -10,10 +10,10 @@ import {
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
 
-function stackFactory<T>(
-  spacing: { [K in keyof T]: number }
-): React.FunctionComponent<StackProps<keyof T>> {
-  const Stack = (props: StackProps<keyof T>) => {
+function stackFactory<SpacingKeys>(
+  spacing: { [K in keyof SpacingKeys]: number }
+): React.FunctionComponent<StackProps<keyof SpacingKeys>> {
+  const Stack = (props: StackProps<keyof SpacingKeys>) => {
     const { debug, debugOptions, _debug, _debugOptions, size } = props;
     const {
       debug: isContextDebugMode,
