@@ -96,10 +96,7 @@ export type InsetProps<
   DisallowLayout extends boolean | undefined = false
 > = {
   layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
-  flex?: number;
   children: React.ReactNode;
-  debug?: boolean;
-  debugOptions?: InsetDebugOptions;
   _debug?: boolean;
   _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;

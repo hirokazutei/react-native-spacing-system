@@ -48,8 +48,6 @@ export type StackDebugOptions = {|
 
 export type StackProps<T> = {|
   size: T,
-  debug?: boolean,
-  debugOptions?: StackDebugOptions,
   _debug?: boolean,
   _debugOptions?: StackDebugOptions,
 |};
@@ -64,8 +62,6 @@ export type QueueDebugOptions = {|
 
 export type QueueProps<T> = {|
   size: T,
-  debug?: boolean,
-  debugOptions?: QueueDebugOptions,
   _debug?: boolean,
   _debugOptions?: QueueDebugOptions,
 |};
@@ -160,19 +156,13 @@ export type PaddingPossibilities<T> =
 
 type InsetOtherProps = {|
   layout?: LayoutStyle,
-  flex?: number,
   children: React.Node,
-  debug?: boolean,
-  debugOptions?: InsetDebugOptions,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
 
 type InsetLayoutlessOtherProps = {|
-  flex?: number,
   children: React.Node,
-  debug?: boolean,
-  debugOptions?: InsetDebugOptions,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
