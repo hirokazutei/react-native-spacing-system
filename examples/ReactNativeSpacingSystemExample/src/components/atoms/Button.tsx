@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 /**
  * Button just for demonstration purposes.
  */
-const Button: React.FC<Props> = (props: Props): React.ReactElement => {
+const Button: React.FC<Props> = (props: Props) => {
   const { color, label, onPress, buttonType } = props;
   const insetProps =
     buttonType !== "minor"

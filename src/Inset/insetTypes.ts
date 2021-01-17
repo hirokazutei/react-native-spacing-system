@@ -91,7 +91,7 @@ export type PaddingPossibilities<T> =
   | Vertical<T>
   | Other<T>;
 
-export type InsetProps<T, AllowLayout extends boolean = true> = {
+export type InsetProps<T, AllowLayout extends boolean | undefined = true> = {
   layout?: AllowLayout extends true ? LayoutStyle : never;
   flex?: number;
   children: React.ReactNode;
