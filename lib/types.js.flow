@@ -179,9 +179,9 @@ type InsetLayoutlessOtherProps = {|
 |};
 
 export type InsetProps<T, AllowLayout = true> =
-  | {| ...All<T>, ...InsetOtherProps |}
-  | {| ...VerHor<T>, ...InsetOtherProps |}
-  | {| ...Horizontal<T>, ...InsetOtherProps |}
-  | {| ...Vertical<T>, ...InsetOtherProps |}
+  | {| ...All<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
+  | {| ...VerHor<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
+  | {| ...Horizontal<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
+  | {| ...Vertical<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
   | {| ...Other<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps> |};
 
