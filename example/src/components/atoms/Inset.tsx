@@ -1,4 +1,4 @@
-import { insetFactory } from "react-native-spacing-system";
+import { insetFactory } from "../../../../src/index";
 import { spacing } from "../../constants/spacing";
 
 const inset = insetFactory(spacing);

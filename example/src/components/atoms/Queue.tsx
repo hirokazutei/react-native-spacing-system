@@ -1,4 +1,4 @@
-import { queueFactory } from "react-native-spacing-system";
+import { queueFactory } from "../../../../src/index";
 import { spacing } from "../../constants/spacing";
 
 const queue = queueFactory(spacing);

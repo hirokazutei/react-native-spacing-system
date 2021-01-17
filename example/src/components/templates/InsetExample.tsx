@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { DebugContext } from "react-native-spacing-system";
+import { DebugContext } from "../../../../src/index";
 import { DebugProp as Prop } from "../../App";
 import { colors } from "../../constants/colors";
 import { fontSize } from "../../constants/fontSize";

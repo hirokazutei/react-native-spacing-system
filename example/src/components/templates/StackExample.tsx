@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import { DebugContext } from "react-native-spacing-system";
+import { DebugContext } from "../../../../src/index";
 import { DebugProp as Prop } from "../../App";
 import { spacingKeysList } from "../../constants/spacing";
 import Button from "../atoms/Button";
