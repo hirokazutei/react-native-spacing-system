@@ -10,10 +10,10 @@ import {
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
-function queueFactory<T>(
-  spacing: { [K in keyof T]: number }
-): React.FunctionComponent<QueueProps<keyof T>> {
-  const Queue = (props: QueueProps<keyof T>) => {
+function queueFactory<SpacingKeys>(
+  spacing: { [K in keyof SpacingKeys]: number }
+): React.FunctionComponent<QueueProps<keyof SpacingKeys>> {
+  const Queue = (props: QueueProps<keyof SpacingKeys>) => {
     const { debug, debugOptions, _debug, _debugOptions, size } = props;
     const {
       debug: isContextDebugMode,

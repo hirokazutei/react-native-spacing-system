@@ -9,10 +9,14 @@ import {
 import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
-function insetFactory<T>(
-  spacing: { [K in keyof T]: number }
-): React.FunctionComponent<InsetProps<keyof T>> {
-  const Inset = (props: InsetProps<keyof T>) => {
+function insetFactory<
+  SpacingKeys,
+  DisallowLayout extends boolean | undefined = undefined
+>(
+  spacing: { [K in keyof SpacingKeys]: number },
+  disallowLayout?: DisallowLayout
+): React.FunctionComponent<InsetProps<keyof SpacingKeys, DisallowLayout>> {
+  const Inset = (props: InsetProps<keyof SpacingKeys, DisallowLayout>) => {
     const {
       layout,
       flex,
@@ -45,7 +49,7 @@ function insetFactory<T>(
       {
         style: (<any>Object).assign(
           {
-            ...(layout ? layout : {}),
+            ...(layout && !disallowLayout ? layout : {}),
             ...(typeof flex === "number" ? { flex } : {}),
           },
           isDebugMode

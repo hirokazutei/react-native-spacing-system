@@ -25,10 +25,19 @@ import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
 import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
 
-function spacingFactory<T>(spacing: { [K in keyof T]: number }) {
-  const Inset = insetFactory<T>(spacing);
-  const Stack = stackFactory<T>(spacing);
-  const Queue = queueFactory<T>(spacing);
+function spacingFactory<
+  SpacingKeys,
+  DisallowLayout extends boolean | undefined = undefined
+>(
+  spacing: { [K in keyof SpacingKeys]: number },
+  disallowLayout?: DisallowLayout
+) {
+  const Inset = insetFactory<SpacingKeys, DisallowLayout>(
+    spacing,
+    disallowLayout
+  );
+  const Stack = stackFactory<SpacingKeys>(spacing);
+  const Queue = queueFactory<SpacingKeys>(spacing);
   return { Inset, Stack, Queue };
 }
 

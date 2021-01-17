@@ -9,8 +9,8 @@ import { DEFAULT_DEBUG_COLORS } from "../constants";
 const Inset = (props: InsetProps<number>) => {
   const {
     layout,
-    children,
     flex,
+    children,
     debug,
     debugOptions,
     _debug,
