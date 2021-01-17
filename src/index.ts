@@ -25,8 +25,10 @@ import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
 import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
 
-function spacingFactory<T>(spacing: { [K in keyof T]: number }) {
-  const Inset = insetFactory<T>(spacing);
+function spacingFactory<T, AllowLayout extends boolean>(
+  spacing: { [K in keyof T]: number }
+) {
+  const Inset = insetFactory<T, AllowLayout>(spacing);
   const Stack = stackFactory<T>(spacing);
   const Queue = queueFactory<T>(spacing);
   return { Inset, Stack, Queue };

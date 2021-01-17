@@ -4,9 +4,9 @@ export type InsetDebugOptions = {
   color?: string;
 };
 
+// Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
 export type LayoutStyle = Omit<
   FlexStyle,
-  // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
   | "borderBottomWidth"
   | "borderEndWidth"
   | "borderLeftWidth"
@@ -91,8 +91,8 @@ export type PaddingPossibilities<T> =
   | Vertical<T>
   | Other<T>;
 
-export type InsetProps<T> = {
-  layout?: LayoutStyle;
+export type InsetProps<T, AllowLayout extends boolean = true> = {
+  layout?: AllowLayout extends true ? LayoutStyle : never;
   flex?: number;
   children: React.ReactNode;
   debug?: boolean;

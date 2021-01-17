@@ -1,6 +1,15 @@
 /* @flow */
 import * as React from "react";
 
+// Conditional Type
+type $If<X: boolean, Then, Else = empty> = $Call<
+    & ((true, Then, Else) => Then)
+    & ((false, Then, Else) => Else),
+    X,
+    Then,
+    Else,
+>;
+
 // Misc
 type FlexAlignType =
   | "flex-start"
@@ -67,8 +76,8 @@ export type InsetDebugOptions = {|
   color?: string,
 |};
 
+// Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
 export type LayoutStyle = {|
-  // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
   alignContent?:
     | "flex-start"
     | "flex-end"
@@ -160,9 +169,19 @@ type InsetOtherProps = {|
   _debugOptions?: InsetDebugOptions,
 |};
 
-export type InsetProps<T> =
+type InsetLayoutlessOtherProps = {|
+  flex?: number,
+  children: React.Node,
+  debug?: boolean,
+  debugOptions?: InsetDebugOptions,
+  _debug?: boolean,
+  _debugOptions?: InsetDebugOptions,
+|};
+
+export type InsetProps<T, AllowLayout = true> =
   | {| ...All<T>, ...InsetOtherProps |}
   | {| ...VerHor<T>, ...InsetOtherProps |}
   | {| ...Horizontal<T>, ...InsetOtherProps |}
   | {| ...Vertical<T>, ...InsetOtherProps |}
-  | {| ...Other<T>, ...InsetOtherProps |};
+  | {| ...Other<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps> |};
+
