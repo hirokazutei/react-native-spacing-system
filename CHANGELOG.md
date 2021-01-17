@@ -232,6 +232,7 @@ All notable changes to this project will be documented in this file.
 
 - A link to the blog post explaining the sentiment behind this library was added to `README.md`.
 - Examples now use factory methods to obtain `Stack`, `Queue` and `Inset`.
+- Moved the flow example project to another repository. [HERE](https://github.com/hirokazutei/react-native-spacing-system-flow-example)
 
 ### Removed
 
