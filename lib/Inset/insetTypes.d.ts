@@ -40,7 +40,7 @@ export declare type Vertical<T> = {
     bottom?: void;
     left?: T;
 };
-declare type OtherT<T> = {
+export declare type OtherT<T> = {
     all?: void;
     horizontal?: void;
     vertical?: void;
@@ -49,7 +49,7 @@ declare type OtherT<T> = {
     bottom?: T;
     left?: T;
 };
-declare type OtherB<T> = {
+export declare type OtherB<T> = {
     all?: void;
     horizontal?: void;
     vertical?: void;
@@ -58,7 +58,7 @@ declare type OtherB<T> = {
     bottom: T;
     left?: T;
 };
-declare type OtherR<T> = {
+export declare type OtherR<T> = {
     all?: void;
     horizontal?: void;
     vertical?: void;
@@ -67,7 +67,7 @@ declare type OtherR<T> = {
     bottom?: T;
     left?: T;
 };
-declare type OtherL<T> = {
+export declare type OtherL<T> = {
     all?: void;
     horizontal?: void;
     vertical?: void;
@@ -88,5 +88,4 @@ export declare type InsetStyles = {
     debug: ViewStyle;
     default: ViewStyle;
 };
-export {};
 //# sourceMappingURL=insetTypes.d.ts.map
