@@ -44,17 +44,18 @@ declare export function queueFactory<T: Object>(spacing: {
 declare export var Queue: React.ComponentType<QueueProps<number>>;
 
 // Inset
-declare export function insetFactory<T: Object>(spacing: {
-  [key: $Keys<T>]: number,
-}): React.ComponentType<InsetProps<$Keys<T>>>;
+declare export function insetFactory<T: Object, AllowLayout: boolean>(spacing: {
+  [key: $Keys<T>]: number
+}): React.ComponentType<InsetProps<$Keys<T>, AllowLayout>>;
+
+declare export var Inset: React.ComponentType<InsetProps<number>>;
 
 // Spacing
-declare export function spacingFactory<T: Object>(spacing: {
-  [key: $Keys<T>]: number,
+declare export function spacingFactory<T: Object, AllowLayout: boolean>(spacing: {
+  [key: $Keys<T>]: number
 }): {
-  Inset: React.ComponentType<InsetProps<$Keys<T>>>,
+  Inset: React.ComponentType<InsetProps<$Keys<T>, AllowLayout>>,
   Stack: React.ComponentType<StackProps<$Keys<T>>>,
   Queue: React.ComponentType<QueueProps<$Keys<T>>>,
 };
 
-declare export var Inset: React.ComponentType<InsetProps<number>>;
