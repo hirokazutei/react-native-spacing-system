@@ -3,11 +3,10 @@ import * as React from "react";
 
 // Conditional Type
 type $If<X: boolean, Then, Else = empty> = $Call<
-    & ((true, Then, Else) => Then)
-    & ((false, Then, Else) => Else),
-    X,
-    Then,
-    Else,
+  ((true, Then, Else) => Then) & ((false, Then, Else) => Else),
+  X,
+  Then,
+  Else
 >;
 
 // Misc
@@ -178,10 +177,24 @@ type InsetLayoutlessOtherProps = {|
   _debugOptions?: InsetDebugOptions,
 |};
 
-export type InsetProps<T, AllowLayout = true> =
-  | {| ...All<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
-  | {| ...VerHor<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
-  | {| ...Horizontal<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
-  | {| ...Vertical<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps>  |}
-  | {| ...Other<T>, ...$If<AllowLayout, InsetOtherProps, InsetLayoutlessOtherProps> |};
-
+export type InsetProps<T, DisallowLayout = true> =
+  | {|
+      ...All<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...VerHor<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Horizontal<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Vertical<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Other<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |};
