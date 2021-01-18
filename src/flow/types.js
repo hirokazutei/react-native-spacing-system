@@ -10,12 +10,7 @@ type $If<X: boolean, Then, Else = empty> = $Call<
 >;
 
 // Misc
-type FlexAlignType =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "stretch"
-  | "baseline";
+type CommonFlexType = "flex-start" | "flex-end" | "center";
 
 // Context
 export type DebugItemProps = {|
@@ -73,17 +68,12 @@ export type InsetDebugOptions = {|
 
 // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
 export type LayoutStyle = {|
-  alignContent?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "stretch"
-    | "space-between"
-    | "space-around",
-  alignItems?: FlexAlignType,
-  alignSelf?: "auto" | FlexAlignType,
+  alignContent?: CommonFlexType | "stretch" | "space-between" | "space-around",
+  alignItems?: CommonFlexType | "baseline" | "stretch",
+  alignSelf?: CommonFlexType | "auto" | "baseline" | "stretch",
   aspectRatio?: number,
   bottom?: number | string,
+  direction?: "inherit" | "ltr" | "rtl", // iOS Only
   display?: "none" | "flex",
   end?: number | string,
   flex?: number,
@@ -94,9 +84,7 @@ export type LayoutStyle = {|
   flexWrap?: "wrap" | "nowrap" | "wrap-reverse",
   height?: number | string,
   justifyContent?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
+    | CommonFlexType
     | "space-between"
     | "space-around"
     | "space-evenly",
