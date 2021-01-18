@@ -140,28 +140,28 @@ export type Vertical<T> = {|
   left?: T,
 |};
 
-type OtherT<T> = {|
+export type OtherT<T> = {|
   top: T,
   right?: T,
   bottom?: T,
   left?: T,
 |};
 
-type OtherB<T> = {|
+export type OtherB<T> = {|
   top?: T,
   right?: T,
   bottom: T,
   left?: T,
 |};
 
-type OtherR<T> = {|
+export type OtherR<T> = {|
   top?: T,
   right: T,
   bottom?: T,
   left?: T,
 |};
 
-type OtherL<T> = {|
+export type OtherL<T> = {|
   top?: T,
   right?: T,
   bottom?: T,
@@ -177,14 +177,14 @@ export type PaddingPossibilities<T> =
   | Vertical<T>
   | Other<T>;
 
-type InsetOtherProps = {|
+export type InsetOtherProps = {|
   layout?: LayoutStyle,
   children: React.Node,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
 
-type InsetLayoutlessOtherProps = {|
+export type InsetLayoutlessOtherProps = {|
   children: React.Node,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
