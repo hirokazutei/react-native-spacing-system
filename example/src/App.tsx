@@ -20,10 +20,8 @@ import StackExample from "./components/templates/StackExample";
 
 type ExampleKeys = "inset" | "main" | "queue" | "stack";
 
-export type DebugProp = DebugContextProps;
-
 const EXAMPLES: {
-  [keys in ExampleKeys]: React.FunctionComponent<DebugProp>;
+  [keys in ExampleKeys]: React.FunctionComponent<DebugContextProps>;
 } = {
   inset: InsetExample,
   main: MainExample,
@@ -74,7 +72,10 @@ const App = () => {
   const ShowcasingExamples = EXAMPLES[`${exampleKey}` as ExampleKeys];
   const setExampleMode = (key: ExampleKeys) => () => setExample(key);
   const debugModeLabel = `DEBUG: ${debugProps.debug ? "ON" : "OFF"}`;
-  const debugBorderLabel = `BORDER: ${debugProps.stack.border ? "ON" : "OFF"}`;
+  // Optional Chaining breaks linter
+  const debugBorderLabel = `BORDER: ${
+    debugProps && debugProps.stack && debugProps.stack.border ? "ON" : "OFF"
+  }`;
   return (
     <>
       <StatusBar barStyle="dark-content" />
