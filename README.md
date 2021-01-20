@@ -32,7 +32,7 @@
   </a>
 </p>
 
-> Warning, you are currently looking at the v2 documentation. For v1 documentation please go over [here](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/v1.2.0.md).
+> Warning, you are currently looking at the v2 documentation. For v1 documentation please go over [here](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/v1Doc.md).
 
 # What Is It?
 
