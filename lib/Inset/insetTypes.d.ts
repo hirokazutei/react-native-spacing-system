@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { FlexStyle, ViewStyle } from "react-native";
+import { FlexStyle, LayoutChangeEvent, ViewStyle } from "react-native";
 export declare type InsetDebugOptions = {
     color?: string;
 };
@@ -79,8 +79,9 @@ export declare type OtherL<T> = {
 export declare type Other<T> = OtherT<T> | OtherB<T> | OtherR<T> | OtherL<T>;
 export declare type PaddingPossibilities<T> = All<T> | VerHor<T> | Horizontal<T> | Vertical<T> | Other<T>;
 export declare type InsetProps<T, DisallowLayout extends boolean | undefined = false> = {
-    layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
     children: React.ReactNode;
+    layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
+    onLayout?: (event: LayoutChangeEvent) => void;
     _debug?: boolean;
     _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;

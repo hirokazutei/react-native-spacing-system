@@ -16,9 +16,14 @@ function insetFactory<
   spacing: { [K in keyof SpacingKeys]: number },
   disallowLayout?: DisallowLayout
 ): React.FunctionComponent<InsetProps<keyof SpacingKeys, DisallowLayout>> {
-  const Inset = (props: InsetProps<keyof SpacingKeys, DisallowLayout>) => {
-    const { layout, children, _debug, _debugOptions, ...keyedPaddings } = props;
-
+  const Inset = ({
+    layout,
+    children,
+    onLayout,
+    _debug,
+    _debugOptions,
+    ...keyedPaddings
+  }: InsetProps<keyof SpacingKeys, DisallowLayout>) => {
     // Configure Debug Mode
     const {
       debug: isContextDebugMode,
@@ -37,11 +42,11 @@ function insetFactory<
     return React.createElement(
       View,
       {
-        style: (<any>Object).assign(
-          {
-            ...(layout && !disallowLayout ? layout : {}),
-          },
-          isDebugMode
+        ...(onLayout ? { onLayout } : {}),
+        style: {
+          ...(layout && !disallowLayout ? layout : {}),
+
+          ...(isDebugMode
             ? {
                 ...styles.debug,
                 borderStyle: "solid",
@@ -50,8 +55,8 @@ function insetFactory<
                   contextInsetProperty?.color ||
                   DEFAULT_DEBUG_COLORS.inset,
               }
-            : { ...styles.default }
-        ),
+            : { ...styles.default }),
+        },
       },
       children
     );
