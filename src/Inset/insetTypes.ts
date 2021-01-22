@@ -1,4 +1,4 @@
-import { FlexStyle, ViewStyle } from "react-native";
+import { FlexStyle, LayoutChangeEvent, ViewStyle } from "react-native";
 
 export type InsetDebugOptions = {
   color?: string;
@@ -127,8 +127,9 @@ export type InsetProps<
   T,
   DisallowLayout extends boolean | undefined = false
 > = {
-  layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
   children: React.ReactNode;
+  layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
+  onLayout?: (event: LayoutChangeEvent) => void;
   _debug?: boolean;
   _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;

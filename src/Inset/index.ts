@@ -6,9 +6,14 @@ import { obtainInsetPaddingStyle } from "./insetHelper";
 import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
-const Inset = (props: InsetProps<number>) => {
-  const { layout, children, _debug, _debugOptions, ...paddings } = props;
-
+const Inset = ({
+  layout,
+  children,
+  onLayout,
+  _debug,
+  _debugOptions,
+  ...paddings
+}: InsetProps<number>) => {
   // Configure Debug Mode
   const { debug: isContextDebugMode, inset: contextInsetProperty } = useContext(
     DebugContext
@@ -22,11 +27,10 @@ const Inset = (props: InsetProps<number>) => {
   return React.createElement(
     View,
     {
-      style: (<any>Object).assign(
-        {
-          ...(layout ? layout : {}),
-        },
-        isDebugMode
+      onLayout,
+      style: {
+        ...(onLayout ? { onLayout } : {}),
+        ...(isDebugMode
           ? {
               ...styles.debug,
               borderStyle: "solid",
@@ -35,8 +39,8 @@ const Inset = (props: InsetProps<number>) => {
                 contextInsetProperty?.color ||
                 DEFAULT_DEBUG_COLORS.inset,
             }
-          : { ...styles.default }
-      ),
+          : { ...styles.default }),
+      },
     },
     children
   );

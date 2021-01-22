@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from "react";
+import type { LayoutEvent } from "react-native/Libraries/Types/CoreEventTypes";
 
 // Conditional Type
 type $If<X: boolean, Then, Else = empty> = $Call<
@@ -166,8 +167,9 @@ export type PaddingPossibilities<T> =
   | Other<T>;
 
 export type InsetOtherProps = {|
-  layout?: LayoutStyle,
   children: React.Node,
+  layout?: LayoutStyle,
+  onLayout?: (event: LayoutEvent) => void,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
