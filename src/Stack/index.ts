@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import {
@@ -10,8 +10,7 @@ import {
 import { DebugContext } from "../Context";
 import { StackProps, StackStyles } from "./stackTypes";
 
-const Stack = (props: StackProps<number>) => {
-  const { _debug, _debugOptions, size } = props;
+const Stack = ({ _debug, _debugOptions, size }: StackProps<number>) => {
   const { debug: isContextDebugMode, stack: contextStackProperty } = useContext(
     DebugContext
   );
@@ -30,10 +29,10 @@ const Stack = (props: StackProps<number>) => {
     contextStackProperty?.borderColor ||
     DEFAULT_DEFAULT_BORDER_COLORS.stack;
   const debugOpacity = (() => {
-    switch (true) {
-      case typeof contextStackProperty?.opacity === "number":
+    switch ("number") {
+      case typeof contextStackProperty?.opacity:
         return contextStackProperty?.opacity;
-      case typeof _debugOptions?.opacity === "number":
+      case typeof _debugOptions?.opacity:
         return _debugOptions?.opacity;
       default:
         return DEFAULT_OAPCITY;

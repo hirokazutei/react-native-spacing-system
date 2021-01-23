@@ -1,5 +1,5 @@
 /* @flow */
-import * as React from "react";
+import React from "react";
 import type { LayoutEvent } from "react-native/Libraries/Types/CoreEventTypes";
 
 // Conditional Type
