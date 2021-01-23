@@ -1,6 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { View } from "react-native";
 import { QueueProps } from "./queueTypes";
-declare const Queue: (props: QueueProps<number>) => React.CElement<import("react-native").ViewProps, View>;
+declare const Queue: ({ _debug, _debugOptions, size }: QueueProps<number>) => React.CElement<import("react-native").ViewProps, View>;
 export default Queue;
 //# sourceMappingURL=index.d.ts.map

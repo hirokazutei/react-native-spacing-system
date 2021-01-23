@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { QueueProps } from "./queueTypes";
 declare function queueFactory<SpacingKeys>(spacing: {
     [K in keyof SpacingKeys]: number;

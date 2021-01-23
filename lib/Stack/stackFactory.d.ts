@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { StackProps } from "./stackTypes";
 declare function stackFactory<SpacingKeys>(spacing: {
     [K in keyof SpacingKeys]: number;
