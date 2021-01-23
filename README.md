@@ -159,6 +159,7 @@ Inset Props:
 
 - `children: ReactNode`
 - `layout?: LayoutStyle`
+- `onLayout?: (event: LayoutChangeEvent) => void`
 - `_debug?: boolean`
 - `_debugOptions?: {color?: string}`
 - `PaddingCombinations`
