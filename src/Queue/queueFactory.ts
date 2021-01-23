@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import {
@@ -13,8 +13,11 @@ import { QueueProps, QueueStyles } from "./queueTypes";
 function queueFactory<SpacingKeys>(
   spacing: { [K in keyof SpacingKeys]: number }
 ): React.FunctionComponent<QueueProps<keyof SpacingKeys>> {
-  const Queue = (props: QueueProps<keyof SpacingKeys>) => {
-    const { _debug, _debugOptions, size } = props;
+  const Queue = ({
+    _debug,
+    _debugOptions,
+    size,
+  }: QueueProps<keyof SpacingKeys>) => {
     const {
       debug: isContextDebugMode,
       queue: contextQueueProperty,
@@ -36,10 +39,10 @@ function queueFactory<SpacingKeys>(
       contextQueueProperty?.borderColor ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
     const debugOpacity = (() => {
-      switch (true) {
-        case typeof contextQueueProperty?.opacity === "number":
+      switch ("number") {
+        case typeof contextQueueProperty?.opacity:
           return contextQueueProperty?.opacity;
-        case typeof _debugOptions?.opacity === "number":
+        case typeof _debugOptions?.opacity:
           return _debugOptions?.opacity;
         default:
           return DEFAULT_OAPCITY;

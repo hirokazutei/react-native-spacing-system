@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import {
@@ -10,8 +10,7 @@ import {
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
-const Queue = (props: QueueProps<number>) => {
-  const { _debug, _debugOptions, size } = props;
+const Queue = ({ _debug, _debugOptions, size }: QueueProps<number>) => {
   const { debug: isContextDebugMode, queue: contextQueueProperty } = useContext(
     DebugContext
   );
@@ -31,10 +30,10 @@ const Queue = (props: QueueProps<number>) => {
     contextQueueProperty?.borderColor ||
     DEFAULT_DEFAULT_BORDER_COLORS.queue;
   const debugOpacity = (() => {
-    switch (true) {
-      case typeof contextQueueProperty?.opacity === "number":
+    switch ("number") {
+      case typeof contextQueueProperty?.opacity:
         return contextQueueProperty?.opacity;
-      case typeof _debugOptions?.opacity === "number":
+      case typeof _debugOptions?.opacity:
         return _debugOptions?.opacity;
       default:
         return DEFAULT_OAPCITY;

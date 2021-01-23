@@ -87,7 +87,7 @@ Stack Props:
 - `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
-import * as React from "react";
+import React from "react";
 import { View } from 'react-native';
 import { Stack } from "react-native-spacing-system";
 import { BuffetPlates } from "./BuffetPlates";
@@ -128,7 +128,7 @@ Queue Props:
 - `_debugOptions?: {color?: string, border?: boolean, borderColor?: string, opacity?: number}` (available from v1.2.0)
 
 ```jsx
-import * as React from "react";
+import React from "react";
 import { View } from "react-native";
 import { Queue } from "react-native-spacing-system";
 import { BubbleTeaJoint } from "./BubbleTeaJoint";
@@ -184,7 +184,7 @@ The allowed `PaddingCombinations` are as follows:
 The allowed `LayoutStyle` can be found [HERE](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/layoutStyle.md)
 
 ```jsx
-import * as React from "react";
+import React from "react";
 import { Inset } from "react-native-spacing-system";
 import { PictureNeedingAFrame } from "./PictureNeedingAFrame";
 
@@ -271,7 +271,7 @@ Each component supports a debug mode where their spacing is highlighted.
 Import the `DebugContext` and use the `Provider` to toggle debug mode on and off.
 
 ```jsx
-import * as React from "react";
+import React from "react";
 import { DebugContext } from "react-native-spacing-system";
 import ComponentWithSpacingSystemComponents from "./ComponentWithSpacingSystemComponents";
 
