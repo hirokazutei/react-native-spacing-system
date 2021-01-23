@@ -92,6 +92,7 @@
 
 - children: `React.Node` the content passed into the `Inset`
 - [Optional] `layout`: `LayoutStyle` more on [LayoutStyle](https://github.com/hirokazutei/react-native-spacing-system/blob/develop/docs/layoutStyle.md)
+- [Optional] `onLayout`: `(event: LayoutChangeEvent) => void` Callback for when the component mounts or changes layout.
 - [Optional] `_debug`: `boolean` if debug mode is on for the component or not
 - [Optional] `_debugOptions`: `InsetDebugOptions` controls the debugging options for the component
 
