@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2021-01-23
+
+### Summary
+
+- Added the option to disallow `layout` prop.
+- Added and improved documentation.
+- Fixed some type issues.
+- Removed depreciated APIs
+
+### Added
+
+- Added a way to disallow `layout` prop for `Inset`, `insetFactory` and `spacingFactory`.
+- Added documentation on `layoutStyle`, `typeExport` and release instructions.
+- Package now exports more detailed types that composes spacing components.
+- Added `onLayout` prop for `Inset`.
+
+### Changed
+
+- Fixed some type issues with `Flow` and `TS`.
+- Fixed conditional spread issue for `TS`.
+- Disallow scenarios where no padding is provided to `Inset`.
+- Changed the main documentation.
+
+### Removed
+
+- Removed `debug`, `debugOptions` and `flex` props.
+- Removed `CHANGELOG.md` from library package.
+
 ## [1.2.0] - 2020-10-02
 
 ### Summary
