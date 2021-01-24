@@ -167,7 +167,7 @@ export type PaddingPossibilities<T> =
   | Other<T>;
 
 export type InsetOtherProps = {|
-  children: React.Node,
+  children: React$Node,
   layout?: LayoutStyle,
   onLayout?: (event: LayoutEvent) => void,
   _debug?: boolean,
@@ -175,12 +175,12 @@ export type InsetOtherProps = {|
 |};
 
 export type InsetLayoutlessOtherProps = {|
-  children: React.Node,
+  children: React$Node,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
 
-export type InsetProps<T, DisallowLayout = true> =
+export type InsetProps<T, DisallowLayout = false> =
   | {|
       ...All<T>,
       ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,

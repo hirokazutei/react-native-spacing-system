@@ -1,28 +1,28 @@
 /* @flow */
 import React from "react";
 import type {
-  All as InsetPaddingAllType,
+  All,
   DebugContextProps,
   DebugItemProps,
-  Horizontal as InsetPaddingHorizontalType,
+  Horizontal,
   InsetDebugItemProps,
   InsetDebugOptions,
   InsetLayoutlessOtherProps,
   InsetOtherProps,
   InsetProps,
-  LayoutStyleType,
-  Other as InsetPaddingOtherType,
-  OtherT as InsetPaddingOtherTopType,
-  OtherR as InsetPaddingOtherRightType,
-  OtherB as InsetPaddingOtherBottomType,
-  OtherL as InsetPaddingOtherLeftType,
-  PaddingPossibilities as InsetPaddingType,
+  LayoutStyle,
+  Other,
+  OtherT,
+  OtherR,
+  OtherB,
+  OtherL,
+  PaddingPossibilities,
   QueueDebugOptions,
   QueueProps,
   StackDebugOptions,
   StackProps,
-  VerHor as InsetPaddingVerHorType,
-  Vertical as InsetPaddingVerticalType,
+  VerHor,
+  Vertical,
 } from "./types";
 
 export type {
@@ -32,16 +32,16 @@ export type {
   InsetDebugOptions,
   InsetLayoutlessOtherProps,
   InsetOtherProps,
-  InsetPaddingAllType,
-  InsetPaddingHorizontalType,
-  InsetPaddingOtherType,
-  InsetPaddingOtherTopType,
-  InsetPaddingOtherRightType,
-  InsetPaddingOtherBottomType,
-  InsetPaddingOtherLeftType,
-  InsetPaddingType,
-  InsetPaddingVerHorType,
-  InsetPaddingVerticalType,
+  All as InsetPaddingAllType,
+  Horizontal as InsetPaddingHorizontalType,
+  Other as InsetPaddingOtherType,
+  OtherT as InsetPaddingOtherTopType,
+  OtherR as InsetPaddingOtherRightType,
+  OtherB as asInsetPaddingOtherBottomType,
+  OtherL as InsetPaddingOtherLeftType,
+  PaddingPossibilities as InsetPaddingType,
+  VerHor as InsetPaddingVerHorType,
+  Vertical as InsetPaddingVerticalType,
   InsetProps,
   LayoutStyle,
   PaddingPossibilities,
@@ -52,21 +52,21 @@ export type {
 } from "./types";
 
 // Context
-declare export var DebugContext: React.Context<DebugContextProps>;
+declare export var DebugContext: React$Context<DebugContextProps>;
 
 // Stack
 declare export function stackFactory<T: Object>(spacing: {
   [key: $Keys<T>]: number,
-}): React.ComponentType<StackProps<$Keys<T>>>;
+}): React$ComponentType<StackProps<$Keys<T>>>;
 
-declare export var Stack: React.ComponentType<StackProps<number>>;
+declare export var Stack: React$ComponentType<StackProps<number>>;
 
 // Queue
 declare export function queueFactory<T: Object>(spacing: {
   [key: $Keys<T>]: number,
-}): React.ComponentType<QueueProps<$Keys<T>>>;
+}): React$ComponentType<QueueProps<$Keys<T>>>;
 
-declare export var Queue: React.ComponentType<QueueProps<number>>;
+declare export var Queue: React$ComponentType<QueueProps<number>>;
 
 // Inset
 declare export function insetFactory<T: Object, DisallowLayout: boolean>(
@@ -74,9 +74,9 @@ declare export function insetFactory<T: Object, DisallowLayout: boolean>(
     [key: $Keys<T>]: number,
   },
   disallowLayout?: DisallowLayout
-): React.ComponentType<InsetProps<$Keys<T>, DisallowLayout>>;
+): React$ComponentType<InsetProps<$Keys<T>, DisallowLayout>>;
 
-declare export var Inset: React.ComponentType<InsetProps<number>>;
+declare export var Inset: React$ComponentType<InsetProps<number>>;
 
 // Spacing
 declare export function spacingFactory<T: Object, DisallowLayout: boolean>(
@@ -85,7 +85,7 @@ declare export function spacingFactory<T: Object, DisallowLayout: boolean>(
   },
   disallowLayout?: DisallowLayout
 ): {
-  Inset: React.ComponentType<InsetProps<$Keys<T>, DisallowLayout>>,
-  Stack: React.ComponentType<StackProps<$Keys<T>>>,
-  Queue: React.ComponentType<QueueProps<$Keys<T>>>,
+  Inset: React$ComponentType<InsetProps<$Keys<T>, DisallowLayout>>,
+  Stack: React$ComponentType<StackProps<$Keys<T>>>,
+  Queue: React$ComponentType<QueueProps<$Keys<T>>>,
 };
