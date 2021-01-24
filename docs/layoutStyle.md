@@ -3,16 +3,12 @@
 ## Type
 
 ```jsx
-type FlexAlignType =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "stretch"
-  | "baseline";
+type CommonFlexType = "flex-start" | "flex-end" | "center";
 
 type LayoutStyle = {
-  alignItems?: FlexAlignType,
-  alignSelf?: "auto" | FlexAlignType,
+  alignContent?: CommonFlexType | "stretch" | "space-between" | "space-around",
+  alignItems?: CommonFlexType | "baseline" | "stretch",
+  alignSelf?: CommonFlexType | "auto" | "baseline" | "stretch",
   aspectRatio?: number,
   bottom?: number | string,
   direction?: "inherit" | "ltr" | "rtl", // iOS Only
@@ -26,9 +22,7 @@ type LayoutStyle = {
   flexWrap?: "wrap" | "nowrap" | "wrap-reverse",
   height?: number | string,
   justifyContent?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
+    | CommonFlexType
     | "space-between"
     | "space-around"
     | "space-evenly",

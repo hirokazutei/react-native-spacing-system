@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import { DebugContext } from "../../../../src/index";
+import { DebugContext } from "../../../../src";
 import { DebugProp as Prop } from "../../App";
 import { colors } from "../../constants/colors";
 import { fontSize } from "../../constants/fontSize";
@@ -47,9 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const QueueExample: React.FunctionComponent<Prop> = (
-  prop: Prop
-): React.FunctionComponentElement<Prop> => {
+const QueueExample = (prop: Prop) => {
   const [sizeIndex, setSize] = useState(0);
   const changeSize = () =>
     setSize(sizeIndex >= spacingKeysList.length - 1 ? 0 : sizeIndex + 1);

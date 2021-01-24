@@ -1,12 +1,12 @@
-import { FlexStyle, ViewStyle } from "react-native";
+import { FlexStyle, LayoutChangeEvent, ViewStyle } from "react-native";
 
 export type InsetDebugOptions = {
   color?: string;
 };
 
+// Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
 export type LayoutStyle = Omit<
   FlexStyle,
-  // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
   | "borderBottomWidth"
   | "borderEndWidth"
   | "borderLeftWidth"
@@ -36,53 +36,85 @@ export type LayoutStyle = Omit<
 
 export type All<T> = {
   all: T;
-  horizontal?: never;
-  vertical?: never;
-  top?: never;
-  right?: never;
-  bottom?: never;
-  left?: never;
+  horizontal?: void;
+  vertical?: void;
+  top?: void;
+  right?: void;
+  bottom?: void;
+  left?: void;
 };
 
 export type VerHor<T> = {
-  all?: never;
+  all?: void;
   horizontal: T;
   vertical: T;
-  top?: never;
-  right?: never;
-  bottom?: never;
-  left?: never;
+  top?: void;
+  right?: void;
+  bottom?: void;
+  left?: void;
 };
 
 export type Horizontal<T> = {
-  all?: never;
+  all?: void;
   horizontal: T;
-  vertical?: never;
+  vertical?: void;
   top?: T;
-  right?: never;
+  right?: void;
   bottom?: T;
-  left?: never;
+  left?: void;
 };
 
 export type Vertical<T> = {
-  all?: never;
-  horizontal?: never;
+  all?: void;
+  horizontal?: void;
   vertical: T;
-  top?: never;
+  top?: void;
   right?: T;
-  bottom?: never;
+  bottom?: void;
   left?: T;
 };
 
-export type Other<T> = {
-  all?: never;
-  horizontal?: never;
-  vertical?: never;
-  top?: T;
+export type OtherT<T> = {
+  all?: void;
+  horizontal?: void;
+  vertical?: void;
+  top: T;
   right?: T;
   bottom?: T;
   left?: T;
 };
+
+export type OtherB<T> = {
+  all?: void;
+  horizontal?: void;
+  vertical?: void;
+  top?: T;
+  right?: T;
+  bottom: T;
+  left?: T;
+};
+
+export type OtherR<T> = {
+  all?: void;
+  horizontal?: void;
+  vertical?: void;
+  top?: T;
+  right: T;
+  bottom?: T;
+  left?: T;
+};
+
+export type OtherL<T> = {
+  all?: void;
+  horizontal?: void;
+  vertical?: void;
+  top?: T;
+  right?: T;
+  bottom?: T;
+  left: T;
+};
+
+export type Other<T> = OtherT<T> | OtherB<T> | OtherR<T> | OtherL<T>;
 
 export type PaddingPossibilities<T> =
   | All<T>
@@ -91,12 +123,13 @@ export type PaddingPossibilities<T> =
   | Vertical<T>
   | Other<T>;
 
-export type InsetProps<T> = {
-  layout?: LayoutStyle;
-  flex?: number;
+export type InsetProps<
+  T,
+  DisallowLayout extends boolean | undefined = false
+> = {
   children: React.ReactNode;
-  debug?: boolean;
-  debugOptions?: InsetDebugOptions;
+  layout?: DisallowLayout extends false | undefined ? LayoutStyle : never;
+  onLayout?: (event: LayoutChangeEvent) => void;
   _debug?: boolean;
   _debugOptions?: InsetDebugOptions;
 } & PaddingPossibilities<T>;

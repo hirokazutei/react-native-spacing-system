@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useContext } from "react";
 import { View } from "react-native";
 import { DebugContext } from "../Context";
@@ -9,29 +9,28 @@ import {
 import { InsetProps } from "./insetTypes";
 import { DEFAULT_DEBUG_COLORS } from "../constants";
 
-function insetFactory<T>(
-  spacing: { [K in keyof T]: number }
-): React.FunctionComponent<InsetProps<keyof T>> {
-  const Inset = (props: InsetProps<keyof T>) => {
-    const {
-      layout,
-      flex,
-      children,
-      debug,
-      debugOptions,
-      _debug,
-      _debugOptions,
-      ...keyedPaddings
-    } = props;
-
+function insetFactory<
+  SpacingKeys,
+  DisallowLayout extends boolean | undefined = undefined
+>(
+  spacing: { [K in keyof SpacingKeys]: number },
+  disallowLayout?: DisallowLayout
+): React.FunctionComponent<InsetProps<keyof SpacingKeys, DisallowLayout>> {
+  const Inset = ({
+    layout,
+    children,
+    onLayout,
+    _debug,
+    _debugOptions,
+    ...keyedPaddings
+  }: InsetProps<keyof SpacingKeys, DisallowLayout>) => {
     // Configure Debug Mode
     const {
       debug: isContextDebugMode,
       inset: contextInsetProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      __DEV__ &&
-      (_debug || debug || isContextDebugMode || contextInsetProperty?.debug);
+      __DEV__ && (_debug || isContextDebugMode || contextInsetProperty?.debug);
 
     // Get Padding Style
     const rawPaddings = convertInsetPaddingKeyToValue({
@@ -43,23 +42,21 @@ function insetFactory<T>(
     return React.createElement(
       View,
       {
-        style: (<any>Object).assign(
-          {
-            ...(layout ? layout : {}),
-            ...(typeof flex === "number" ? { flex } : {}),
-          },
-          isDebugMode
+        ...(onLayout ? { onLayout } : {}),
+        style: {
+          ...(layout && !disallowLayout ? layout : {}),
+
+          ...(isDebugMode
             ? {
                 ...styles.debug,
                 borderStyle: "solid",
                 borderColor:
                   _debugOptions?.color ||
-                  debugOptions?.color ||
                   contextInsetProperty?.color ||
                   DEFAULT_DEBUG_COLORS.inset,
               }
-            : { ...styles.default }
-        ),
+            : { ...styles.default }),
+        },
       },
       children
     );

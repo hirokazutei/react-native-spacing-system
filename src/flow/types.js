@@ -1,13 +1,17 @@
 /* @flow */
-import * as React from "react";
+import React from "react";
+import type { LayoutEvent } from "react-native/Libraries/Types/CoreEventTypes";
+
+// Conditional Type
+type $If<X: boolean, Then, Else = empty> = $Call<
+  ((true, Then, Else) => Then) & ((false, Then, Else) => Else),
+  X,
+  Then,
+  Else
+>;
 
 // Misc
-type FlexAlignType =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "stretch"
-  | "baseline";
+type CommonFlexType = "flex-start" | "flex-end" | "center";
 
 // Context
 export type DebugItemProps = {|
@@ -40,8 +44,6 @@ export type StackDebugOptions = {|
 
 export type StackProps<T> = {|
   size: T,
-  debug?: boolean,
-  debugOptions?: StackDebugOptions,
   _debug?: boolean,
   _debugOptions?: StackDebugOptions,
 |};
@@ -56,8 +58,6 @@ export type QueueDebugOptions = {|
 
 export type QueueProps<T> = {|
   size: T,
-  debug?: boolean,
-  debugOptions?: QueueDebugOptions,
   _debug?: boolean,
   _debugOptions?: QueueDebugOptions,
 |};
@@ -67,19 +67,14 @@ export type InsetDebugOptions = {|
   color?: string,
 |};
 
+// Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
 export type LayoutStyle = {|
-  // Border widths are omitted as well due to the fact that without border color, they are not useful as layouts and border colors are not layout props
-  alignContent?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "stretch"
-    | "space-between"
-    | "space-around",
-  alignItems?: FlexAlignType,
-  alignSelf?: "auto" | FlexAlignType,
+  alignContent?: CommonFlexType | "stretch" | "space-between" | "space-around",
+  alignItems?: CommonFlexType | "baseline" | "stretch",
+  alignSelf?: CommonFlexType | "auto" | "baseline" | "stretch",
   aspectRatio?: number,
   bottom?: number | string,
+  direction?: "inherit" | "ltr" | "rtl", // iOS Only
   display?: "none" | "flex",
   end?: number | string,
   flex?: number,
@@ -90,9 +85,7 @@ export type LayoutStyle = {|
   flexWrap?: "wrap" | "nowrap" | "wrap-reverse",
   height?: number | string,
   justifyContent?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
+    | CommonFlexType
     | "space-between"
     | "space-around"
     | "space-evenly",
@@ -136,12 +129,35 @@ export type Vertical<T> = {|
   left?: T,
 |};
 
-export type Other<T> = {|
-  top?: T,
+export type OtherT<T> = {|
+  top: T,
   right?: T,
   bottom?: T,
   left?: T,
 |};
+
+export type OtherB<T> = {|
+  top?: T,
+  right?: T,
+  bottom: T,
+  left?: T,
+|};
+
+export type OtherR<T> = {|
+  top?: T,
+  right: T,
+  bottom?: T,
+  left?: T,
+|};
+
+export type OtherL<T> = {|
+  top?: T,
+  right?: T,
+  bottom?: T,
+  left: T,
+|};
+
+export type Other<T> = OtherT<T> | OtherB<T> | OtherR<T> | OtherL<T>;
 
 export type PaddingPossibilities<T> =
   | All<T>
@@ -150,19 +166,38 @@ export type PaddingPossibilities<T> =
   | Vertical<T>
   | Other<T>;
 
-type InsetOtherProps = {|
+export type InsetOtherProps = {|
+  children: React$Node,
   layout?: LayoutStyle,
-  flex?: number,
-  children: React.Node,
-  debug?: boolean,
-  debugOptions?: InsetDebugOptions,
+  onLayout?: (event: LayoutEvent) => void,
   _debug?: boolean,
   _debugOptions?: InsetDebugOptions,
 |};
 
-export type InsetProps<T> =
-  | {| ...All<T>, ...InsetOtherProps |}
-  | {| ...VerHor<T>, ...InsetOtherProps |}
-  | {| ...Horizontal<T>, ...InsetOtherProps |}
-  | {| ...Vertical<T>, ...InsetOtherProps |}
-  | {| ...Other<T>, ...InsetOtherProps |};
+export type InsetLayoutlessOtherProps = {|
+  children: React$Node,
+  _debug?: boolean,
+  _debugOptions?: InsetDebugOptions,
+|};
+
+export type InsetProps<T, DisallowLayout = false> =
+  | {|
+      ...All<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...VerHor<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Horizontal<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Vertical<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |}
+  | {|
+      ...Other<T>,
+      ...$If<DisallowLayout, InsetLayoutlessOtherProps, InsetOtherProps>,
+    |};

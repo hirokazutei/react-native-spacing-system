@@ -7,28 +7,41 @@ import {
 import Inset from "./Inset";
 import insetFactory from "./Inset/insetFactory";
 import {
-  All,
+  All as InsetPaddingAllType,
   InsetDebugOptions,
-  Horizontal,
+  Horizontal as InsetPaddingHorizontalType,
   InsetProps,
   LayoutStyle,
-  Other,
-  PaddingPossibilities,
-  VerHor,
-  Vertical,
-  InsetStyles,
+  Other as InsetPaddingOtherType,
+  OtherT as InsetPaddingOtherTopType,
+  OtherR as InsetPaddingOtherRightType,
+  OtherB as InsetPaddingOtherBottomType,
+  OtherL as InsetPaddingOtherLeftType,
+  PaddingPossibilities as InsetPaddingType,
+  VerHor as InsetPaddingVerHorType,
+  Vertical as InsetPaddingVerticalType,
 } from "./Inset/insetTypes";
+
 import Stack from "./Stack";
 import stackFactory from "./Stack/stackFactory";
-import { StackDebugOptions, StackProps, StackStyles } from "./Stack/stackTypes";
+import { StackDebugOptions, StackProps } from "./Stack/stackTypes";
 import Queue from "./Queue";
 import queueFactory from "./Queue/queueFactory";
-import { QueueDebugOptions, QueueProps, QueueStyles } from "./Queue/queueTypes";
+import { QueueDebugOptions, QueueProps } from "./Queue/queueTypes";
 
-function spacingFactory<T>(spacing: { [K in keyof T]: number }) {
-  const Inset = insetFactory<T>(spacing);
-  const Stack = stackFactory<T>(spacing);
-  const Queue = queueFactory<T>(spacing);
+function spacingFactory<
+  SpacingKeys,
+  DisallowLayout extends boolean | undefined = undefined
+>(
+  spacing: { [K in keyof SpacingKeys]: number },
+  disallowLayout?: DisallowLayout
+) {
+  const Inset = insetFactory<SpacingKeys, DisallowLayout>(
+    spacing,
+    disallowLayout
+  );
+  const Stack = stackFactory<SpacingKeys>(spacing);
+  const Queue = queueFactory<SpacingKeys>(spacing);
   return { Inset, Stack, Queue };
 }
 
@@ -39,25 +52,26 @@ export {
   DebugItemProps,
   Inset,
   insetFactory,
-  All,
   InsetDebugOptions,
-  Horizontal,
+  InsetPaddingAllType,
+  InsetPaddingHorizontalType,
+  InsetPaddingOtherType,
+  InsetPaddingOtherTopType,
+  InsetPaddingOtherRightType,
+  InsetPaddingOtherBottomType,
+  InsetPaddingOtherLeftType,
+  InsetPaddingType,
+  InsetPaddingVerHorType,
+  InsetPaddingVerticalType,
   InsetProps,
   LayoutStyle,
-  Other,
-  PaddingPossibilities,
-  VerHor,
-  Vertical,
-  InsetStyles,
   spacingFactory,
   Stack,
   stackFactory,
   StackDebugOptions,
   StackProps,
-  StackStyles,
   Queue,
   queueFactory,
   QueueDebugOptions,
   QueueProps,
-  QueueStyles,
 };

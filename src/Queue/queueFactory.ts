@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import {
@@ -10,43 +10,40 @@ import {
 import { DebugContext } from "../Context";
 import { QueueProps, QueueStyles } from "./queueTypes";
 
-function queueFactory<T>(
-  spacing: { [K in keyof T]: number }
-): React.FunctionComponent<QueueProps<keyof T>> {
-  const Queue = (props: QueueProps<keyof T>) => {
-    const { debug, debugOptions, _debug, _debugOptions, size } = props;
+function queueFactory<SpacingKeys>(
+  spacing: { [K in keyof SpacingKeys]: number }
+): React.FunctionComponent<QueueProps<keyof SpacingKeys>> {
+  const Queue = ({
+    _debug,
+    _debugOptions,
+    size,
+  }: QueueProps<keyof SpacingKeys>) => {
     const {
       debug: isContextDebugMode,
       queue: contextQueueProperty,
     } = useContext(DebugContext);
     const isDebugMode =
-      __DEV__ &&
-      (_debug || debug || isContextDebugMode || contextQueueProperty?.debug);
+      __DEV__ && (_debug || isContextDebugMode || contextQueueProperty?.debug);
 
     const defaultQueueDebugColor =
       contextQueueProperty?.color || DEFAULT_DEBUG_COLORS.queue;
     const debugBackgroundCoolor =
-      _debugOptions?.color || debugOptions?.color || defaultQueueDebugColor;
+      _debugOptions?.color || defaultQueueDebugColor;
     const isDebugBorderMode =
       _debugOptions?.border ||
       _debugOptions?.borderColor ||
-      debugOptions?.border ||
-      debugOptions?.borderColor ||
       contextQueueProperty?.border;
     const debugBorderWidth = isDebugBorderMode ? DEBUG_BORDER_THICKNESS : 0;
     const debugBorderColor =
       _debugOptions?.borderColor ||
-      debugOptions?.borderColor ||
       contextQueueProperty?.borderColor ||
       DEFAULT_DEFAULT_BORDER_COLORS.queue;
     const debugOpacity = (() => {
-      switch (true) {
-        case typeof contextQueueProperty?.opacity === "number":
+      switch ("number") {
+        case typeof contextQueueProperty?.opacity:
           return contextQueueProperty?.opacity;
-        case typeof _debugOptions?.opacity === "number":
+        case typeof _debugOptions?.opacity:
           return _debugOptions?.opacity;
-        case typeof debugOptions?.opacity === "number":
-          return debugOptions?.opacity;
         default:
           return DEFAULT_OAPCITY;
       }
