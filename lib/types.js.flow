@@ -129,35 +129,12 @@ export type Vertical<T> = {|
   left?: T,
 |};
 
-export type OtherT<T> = {|
-  top: T,
+export type Other<T> = {|
+  top?: T,
   right?: T,
   bottom?: T,
   left?: T,
 |};
-
-export type OtherB<T> = {|
-  top?: T,
-  right?: T,
-  bottom: T,
-  left?: T,
-|};
-
-export type OtherR<T> = {|
-  top?: T,
-  right: T,
-  bottom?: T,
-  left?: T,
-|};
-
-export type OtherL<T> = {|
-  top?: T,
-  right?: T,
-  bottom?: T,
-  left: T,
-|};
-
-export type Other<T> = OtherT<T> | OtherB<T> | OtherR<T> | OtherL<T>;
 
 export type PaddingPossibilities<T> =
   | All<T>
