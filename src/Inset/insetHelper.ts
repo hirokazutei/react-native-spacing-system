@@ -3,10 +3,7 @@ import {
   VerHor,
   Horizontal,
   Vertical,
-  OtherT,
-  OtherB,
-  OtherR,
-  OtherL,
+  Other,
   PaddingPossibilities,
   InsetStyles,
 } from "./insetTypes";
@@ -55,10 +52,10 @@ export function convertInsetPaddingKeyToValue<T>({
 
     // Top & Right & Bottom & Left
   } else {
-    const topKey = (keyedPaddings as OtherT<keyof T>).top;
-    const rightKey = (keyedPaddings as OtherR<keyof T>).right;
-    const bottomKey = (keyedPaddings as OtherB<keyof T>).bottom;
-    const leftKey = (keyedPaddings as OtherL<keyof T>).left;
+    const topKey = (keyedPaddings as Other<keyof T>).top;
+    const rightKey = (keyedPaddings as Other<keyof T>).right;
+    const bottomKey = (keyedPaddings as Other<keyof T>).bottom;
+    const leftKey = (keyedPaddings as Other<keyof T>).left;
     return {
       top: topKey && spacing[topKey],
       right: rightKey && spacing[rightKey],
@@ -138,10 +135,10 @@ const mapPaddingsToStyle = (
 
     // Top & Right & Bottom & Left
   } else {
-    const paddingTop = (paddings as OtherT<number>).top;
-    const paddingRight = (paddings as OtherR<number>).right;
-    const paddingBottom = (paddings as OtherB<number>).bottom;
-    const paddingLeft = (paddings as OtherL<number>).left;
+    const paddingTop = (paddings as Other<number>).top;
+    const paddingRight = (paddings as Other<number>).right;
+    const paddingBottom = (paddings as Other<number>).bottom;
+    const paddingLeft = (paddings as Other<number>).left;
     return {
       default: {
         ...(paddingTop ? { paddingTop } : {}),
