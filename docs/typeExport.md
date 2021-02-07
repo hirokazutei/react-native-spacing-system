@@ -141,27 +141,4 @@
 
 #### InsetPaddingOtherType
 
-> The padding type where `all`, `vertical` and `horizontal` or not used, and one of the `top`, `right`, `bottom`, or `left` is being used.
-
-- This type is a union of:
-  - `InsetPaddingOtherTopType`
-  - `InsetPaddingOtherRightType`
-  - `InsetPaddingOtherBottomType`
-  - `InsetPaddingOtherLeftType`
-- The issue it attempts to solve is never for `Inset` to have no padding, therefore making one of the padding options always necessary.
-
-##### InsetPaddingOtherTopType
-
-> The padding type where `top` is required.
-
-##### InsetPaddingOtherRightType
-
-> The padding type where `right` is required.
-
-##### InsetPaddingOtherBottomType
-
-> The padding type where `bottom` is required.
-
-##### InsetPaddingOtherLeftType
-
-> The padding type where `left` is required.
+> The padding type where `all`, `vertical` and `horizontal` or not used, and one or none of the `top`, `right`, `bottom`, or `left` is being used.

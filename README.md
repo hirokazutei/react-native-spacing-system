@@ -38,12 +38,11 @@
 
 Using margin and padding to control spacing between components introduces too many ways to accomplish the same goal. React Native Spacing System seeks to standardize your React Native code, increase legibility, and separate the concern of layouting though the usage of spacing components.
 
-&emsp;&emsp;
 **Stack:** ![#45e6e6](https://placehold.it/30/45e6e6/000000?text=+) &emsp;
 **Queue:** ![#e645e6](https://placehold.it/30/e645e6/000000?text=+) &emsp;
 **Inset:** ![#e6e645](https://placehold.it/30/e6e645/000000?text=+) &emsp;
 
-<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="400"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="400"/>
+<img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example.png" width="380"/> <img src="https://raw.githubusercontent.com/hirokazutei/react-native-spacing-system/master/.github/main-example-debug.png" width="380"/>
 
 Factory method are provided so that you can use your own spacing key and values instead of raw values.
 
